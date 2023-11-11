@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="relative ">
@@ -9,11 +9,12 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </div>
           <div>
-            <Link to="/projects">Projects</Link>
-          </div>
-          <div>
             <Link to="/about">About</Link>
           </div>
+          <div>
+            <Link to="/projects">Projects</Link>
+          </div>
+
           <div>
             <Link to="/contact">Contact</Link>
           </div>
@@ -21,6 +22,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
