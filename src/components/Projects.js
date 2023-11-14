@@ -5,6 +5,25 @@ const Projects = () => {
     <div>
       <div className=" ml-96 pl-22 mt-36 text-[50px]">Projects</div>
       <div className="flex flex-col">
+        <div className="flex flex-row justify-center mt-12 mr-[160px]">
+          <div className="mr-4 hover:cursor-pointer hover:scale-125 duration-100 ">
+            <a href="https://react-wind.netlify.app/" target="_blank">
+              <img
+                className="w-[350px] h-[230px] rounded-lg"
+                src="attirenova.png"
+              />
+            </a>
+          </div>
+          <div className="rotate-90 w-1 mb-64 ml-10  font-bold blur-[1px] ">
+            ______________________________________
+          </div>
+          <div className="ml-10 w-[220px] text-xl text-gray-200">
+            Discover a curated collection of the latest fashion trends, blending
+            comfort and elegance seamlessly. From casual chic to glamorous
+            evening wear, our diverse range caters to every
+            individual.
+          </div>
+        </div>
         <div className="flex flex-row justify-center mt-12 ml-28">
           <div className="w-[220px] text-xl text-gray-200 ">
             A anime website that uses MAL api to display data in more user
