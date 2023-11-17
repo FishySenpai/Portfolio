@@ -7,7 +7,7 @@ const Projects = () => {
       <div className="flex flex-col">
         <div className="flex flex-row justify-center mt-12 mr-[160px]">
           <div className="mr-4 hover:cursor-pointer hover:scale-125 duration-100 ">
-            <a href="https://react-wind.netlify.app/" target="_blank">
+            <a href="https://attirenova.netlify.app/" target="_blank">
               <img
                 className="w-[350px] h-[230px] rounded-lg"
                 src="attirenova.png"
@@ -53,7 +53,7 @@ const Projects = () => {
         </div>
         <div className="flex flex-row justify-center mt-12 mr-[160px]">
           <div className="mr-4 hover:cursor-pointer hover:scale-125 duration-100 ">
-            <a href="https://react-wind.netlify.app/" target="_blank">
+            <a href="https://voice-ai-clone.netlify.app/" target="_blank">
               <img
                 className="w-[350px] h-[230px] rounded-lg"
                 src="voice-ai.png"
@@ -79,7 +79,7 @@ const Projects = () => {
             ______________________________________
           </div>
           <div className="ml-10 hover:cursor-pointer hover:scale-125 duration-100 ">
-            <a href="https://react-wind.netlify.app/" target="_blank">
+            <a href="https://doggo-game.netlify.app/" target="_blank">
               <img className="w-[350px] h-[230px] rounded-lg" src="doggo.png" />
             </a>
           </div>
