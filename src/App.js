@@ -11,9 +11,9 @@ function App() {
           element={
             <>
               <Home />
-              <About/>
+              {/* <About/>
               <Projects/>
-              <Contact/>  
+              <Contact/>   */}
             </>
           }
         />
