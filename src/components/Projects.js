@@ -17,17 +17,30 @@ const Projects = () => {
           <div className="rotate-90 w-1 mb-64 ml-10  font-bold blur-[1px] ">
             ______________________________________
           </div>
-          <div className="ml-10 w-[220px] text-xl text-gray-200">
-            Discover a curated collection of the latest fashion trends, blending
-            comfort and elegance seamlessly. From casual chic to glamorous
-            evening wear, our diverse range caters to every individual.
+          <div className="flex flex-col">
+            <div className="ml-10 w-[220px] text-xl text-gray-200">
+              Discover a curated collection of the latest fashion trends,
+              blending comfort and elegance seamlessly. From casual chic to
+              glamorous evening wear, our diverse range caters to every
+              individual.
+            </div>
+            <div className="flex flex-row text-purple-200 pt-2">
+              <div className="ml-10 pl-2 underline">Live</div>
+              <div className="pl-10 underline ">Github</div>
+            </div>
           </div>
         </div>
         <div className="flex flex-row justify-center mt-12 ml-28">
-          <div className="w-[220px] text-xl text-gray-200 ">
-            A anime website that uses MAL api to display data in more user
-            friendly way, lets users create account or sign in using google and
-            store their favourite anime via firebase database.
+          <div className="flex flex-col">
+            <div className="w-[220px] text-xl text-gray-200 ">
+              A anime website that uses MAL api to display data in more user
+              friendly way, lets users create account or sign in using google
+              and store their favourite anime via firebase database.
+            </div>
+            <div className="flex flex-row text-purple-200 pt-2">
+              <div className=" pl-2 underline">Live</div>
+              <div className="pl-10 underline ">Github</div>
+            </div>
           </div>
           <div className="rotate-90 w-1 mb-64 ml-10  font-bold blur-[1px]">
             ______________________________________
@@ -63,17 +76,30 @@ const Projects = () => {
           <div className="rotate-90 w-1 mb-64 ml-10  font-bold blur-[1px] ">
             ______________________________________
           </div>
-          <div className="ml-10 w-[220px] text-xl text-gray-200">
-            Discover a curated collection of the latest fashion trends, blending
-            comfort and elegance seamlessly. From casual chic to glamorous
-            evening wear, our diverse range caters to every individual.
+          <div className="flex flex-col">
+            <div className="ml-10 w-[220px] text-xl text-gray-200">
+              Discover a curated collection of the latest fashion trends,
+              blending comfort and elegance seamlessly. From casual chic to
+              glamorous evening wear, our diverse range caters to every
+              individual.
+            </div>
+            <div className="flex flex-row text-purple-200 pt-2">
+              <div className="ml-10 pl-2 underline">Live</div>
+              <div className="pl-10 underline ">Github</div>
+            </div>
           </div>
         </div>
         <div className="flex flex-row justify-center mt-12 ml-28">
-          <div className="w-[220px] text-xl text-gray-200 ">
-            A anime website that uses MAL api to display data in more user
-            friendly way, lets users create account or sign in using google and
-            store their favourite anime via firebase database.
+          <div className="flex flex-col">
+            <div className="w-[220px] text-xl text-gray-200 ">
+              A anime website that uses MAL api to display data in more user
+              friendly way, lets users create account or sign in using google
+              and store their favourite anime via firebase database.
+            </div>
+            <div className="flex flex-row text-purple-200 pt-2">
+              <div className="pl-2 underline">Live</div>
+              <div className="pl-10 underline ">Github</div>
+            </div>
           </div>
           <div className="rotate-90 w-1 mb-64 ml-10  font-bold blur-[1px]">
             ______________________________________
