@@ -2,14 +2,47 @@ import React, { useRef, useState } from "react";
 import useOutsideClick from "./useOutsideClick";
 import arrowLeft from "./Assets/arrowLeft.png"
 import arrowRight from "./Assets/arrowRight.png"
+import attirenova_2 from "./Assets/attirenova/attirenova_2.png";
+import attirenova_3 from "./Assets/attirenova/attirenova_3.png";
+import attirenova_4 from "./Assets/attirenova/attirenova_4.png";
+import attirenova_5 from "./Assets/attirenova/attirenova_5.png";
 const Projects = () => {
   const [isHovered, setHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+    const [index, setIndex] = useState(0);
   const projectModalRef = useRef(null);
-  useOutsideClick(projectModalRef, ()=>{
-    console.log(showModal)
+  const projectImages = {
+    images: [attirenova_2, attirenova_3, attirenova_4, attirenova_5],
+  };
+  const [thumbnail, setThumbnail] = useState(projectImages?.images[0]);
+  const handleImageBack = () => {
+
+      if (index > 0) {
+        setIndex((prevIndex) => prevIndex - 1);
+        setThumbnail(projectImages.images[index - 1]);
+        console.log(index);
+      } else {
+        setIndex(3);
+        setThumbnail(projectImages?.images[3]);
+      }
+    }
+  const handleImageForward = () => {
+
+      if (index < 3) {
+        setIndex((prevIndex) => prevIndex + 1);
+        setThumbnail(projectImages?.images[index + 1]);
+        console.log(index);
+      } else {
+        setIndex(0);
+        setThumbnail(projectImages.images[0]);
+      }
+    
+  };
+  useOutsideClick(projectModalRef, () => {
+    console.log(showModal);
     setShowModal(false);
-  })
+  });
   return (
     <div>
       <div className=" ml-96 pl-22 mt-36 pb-10 text-[50px]">Projects</div>
@@ -25,7 +58,7 @@ const Projects = () => {
                 <a href="https://attirenova.netlify.app/" target="_blank">
                   <img
                     className="w-full h-full rounded-lg"
-                    src={isHovered ? "doggo.png" : "attirenova.png"}
+                    src={isHovered ? attirenova_2 : "attirenova.png"}
                     alt="Image description"
                   />
                 </a>
@@ -72,18 +105,19 @@ const Projects = () => {
                   class="bg-color  md:mx-auto w-full sm:w-[700px]  shadow-xl rounded"
                 >
                   <div className="relative ">
-                    <button>
+                    <button onClick={handleImageBack}>
                       <img
                         src={arrowLeft}
                         className="absolute top-[170px] -left-8 w-[90px] h-[90px]"
                       />
                     </button>
+
                     <img
                       className="w-[700px] h-[350px]"
-                      src="attirenova.png"
+                      src={thumbnail}
                       alt="image"
                     />
-                    <button>
+                    <button onClick={handleImageForward}>
                       <img
                         src={arrowRight}
                         className="absolute top-[170px] -right-8  sm:right-[110px] md:right-[110px]  lg:-right-8 w-[90px] h-[90px]"
