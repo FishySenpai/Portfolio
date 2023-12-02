@@ -38,7 +38,7 @@ code {
   }
 }
 
-.more-animation {
+.details-animation {
   animation: moreAppearAndWiggle 0.5s ease-out forwards;
   animation-delay: 0.85s;
   opacity: 0;
@@ -76,5 +76,21 @@ code {
 
 .tag-list li:nth-child(4) {
   animation-delay: 0.5s;
+}
+@keyframes ImgDropIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10%, 0);
+  }
+  50% {
+    transform: translate3d(0, -5%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.fade-in {
+  animation: ImgDropIn 0.2s ease-in;
 }
 

@@ -79,14 +79,18 @@ const Projects = () => {
             <div>
               <div className="relative group mb-10">
                 <div
-                  className="group w-[450px] h-[330px] rounded-lg"
+                  className="group w-[450px] h-[330px] rounded-lg overflow-hidden"
                   onMouseOver={() => handleMouseOver(index)}
                   onMouseOut={() => handleMouseOut(index)}
                   onClick={() => handleProjectClick(project)}
                 >
                   <a href="https://attirenova.netlify.app/" target="_blank">
                     <img
-                      className="w-full h-full rounded-lg"
+                      className={`image ${
+                        hoveredStates[index]
+                          ? "fade-in w-full h-full rounded-lg "
+                          : "w-full h-full rounded-lg "
+                      }`}
                       src={
                         hoveredStates[index]
                           ? project?.images[0]
@@ -110,12 +114,8 @@ const Projects = () => {
                           </li>
                         ))}
                       </ul>
-                      <ProjectModal
-                        project={selectedProject}
-                        showModal={showModal}
-                        setShowModal={setShowModal}
-                      />
-                      <div className="more-animation font-bold text-[13px] text-slate-200 ">
+
+                      <div className="details-animation font-bold text-[13px] text-slate-200 ">
                         <div className="px-3 py-2 bg-slate-800 rounded shadow-md shadow-slate-950 w-fit">
                           details..
                         </div>
@@ -126,6 +126,11 @@ const Projects = () => {
               </div>
             </div>
           ))}
+          <ProjectModal
+            project={selectedProject}
+            showModal={showModal}
+            setShowModal={setShowModal}
+          />
         </div>
       </div>
     </div>
