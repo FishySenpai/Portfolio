@@ -8,8 +8,6 @@ import attirenova_5 from "./Assets/attirenova/attirenova_5.png";
 import Slider from "./Slider";
 const ProjectModal = ({ project, showModal, setShowModal }) => {
   const projectModalRef = useRef(null);
-
-
   useOutsideClick(projectModalRef, () => {
     console.log(showModal);
     setShowModal(false);
@@ -25,26 +23,14 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
           >
             <div>
               <Slider>
-                <img
-                  src={attirenova_2}
-                  alt="nature-1"
-                  style={{ width: "100%", height: "100%" }}
-                />
-                <img
-                  src={attirenova_3}
-                  alt="nature-2"
-                  style={{ width: "100%", height: "100%" }}
-                />
-                <img
-                  src={attirenova_4}
-                  alt="nature-3"
-                  style={{ width: "100%", height: "100%" }}
-                />
-                <img
-                  src={attirenova_5}
-                  alt="nature-3"
-                  style={{ width: "100%", height: "100%" }}
-                />
+                {project?.images.map((imgSrc, index) => (
+                  <img
+                    key={index}
+                    src={imgSrc}
+                    alt={`Image ${index + 1}`}
+                    style={{ width: "100%", height: "100%" }}
+                  />
+                ))}
               </Slider>
             </div>
             <div class="px-4">
@@ -61,11 +47,11 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                   <li className="">{tech}</li>
                 ))}
               </ul>
-              <div class="pt-4 pb-4 text-[14px] space-x-4 flex flex-row">
+              <div class="pt-4 pb-4 text-[14px] space-x-4 flex flex-row ">
                 <a
                   href="https://attirenova.netlify.app/"
                   target="_blank"
-                  class="p-2 flex flex-row bg-gray-800 hover:bg-gray-950 shadow-md shadow-gray-950 text-white font-semibold rounded-sm"
+                  class="p-2 px-5 flex flex-row bg-gray-800 hover:bg-gray-700 border-b-2 border-gray-900 shadow-md shadow-gray-950 text-white font-semibold rounded-sm hover-effect"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +69,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                 <a
                   href="https://github.com/FishySenpai/Ecommerce"
                   target="_blank"
-                  class="p-2 bg-gray-800 hover:bg-gray-950 shadow-md shadow-gray-950  text-white font-semibold rounded-sm"
+                  class="p-2 px-5 bg-gray-800 hover:bg-gray-700 border-b-2 border-gray-900 shadow-md shadow-gray-950  text-white font-semibold rounded-sm hover-effect"
                 >
                   GITHUB
                 </a>

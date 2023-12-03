@@ -94,17 +94,13 @@ code {
   animation: ImgDropIn 0.2s ease-in;
 }
 
-@keyframes slide {
-  to {
-    transform: translateX(-100%);
+ .hover-effect {
+    transition: transform 0.3s;
   }
-}
-@keyframes slideOut {
-  to {
-    transform: translateX(-100%);
+
+  .hover-effect:hover {
+    transform: scale(1.05);
+    transform-origin: 100% 50%; /* Adjust the origin based on your preference */
   }
-}
-.opposite-transition {
-  transition: transform 0.5s ease; /* Adjust the properties accordingly */
-  transform: translateX(100%); /* Apply the opposite transition */
-}
+
+
