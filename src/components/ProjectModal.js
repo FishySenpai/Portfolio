@@ -1,38 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import useOutsideClick from "./useOutsideClick";
-import arrowLeft from "./Assets/arrowLeft.png";
-import arrowRight from "./Assets/arrowRight.png";
+
+import attirenova_2 from "./Assets/attirenova/attirenova_2.png";
+import attirenova_3 from "./Assets/attirenova/attirenova_3.png";
+import attirenova_4 from "./Assets/attirenova/attirenova_4.png";
+import attirenova_5 from "./Assets/attirenova/attirenova_5.png";
+import Slider from "./Slider";
 const ProjectModal = ({ project, showModal, setShowModal }) => {
   const projectModalRef = useRef(null);
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const sliderRef = useRef(null);
 
-
-
-  const handlePrevClick = () => {
-    const sliderWidth = sliderRef.current.offsetWidth;
-    const totalSlides = project.images.length;
-    const nextIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
-
-    setCurrentSlideIndex(nextIndex);
-    sliderRef.current.scrollTo({
-      left: nextIndex * sliderWidth,
-      behavior: "smooth",
-    });
-  };
-
-  const handleNextClick = () => {
-    const sliderWidth = sliderRef.current.offsetWidth;
-    const totalSlides = project.images.length;
-    const nextIndex = (currentSlideIndex + 1) % totalSlides;
-
-    setCurrentSlideIndex(nextIndex);
-    sliderRef.current.scrollTo({
-      left: nextIndex * sliderWidth,
-      behavior: "smooth",
-    });
-  };
-  
 
   useOutsideClick(projectModalRef, () => {
     console.log(showModal);
@@ -47,41 +23,29 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
             ref={projectModalRef}
             class="bg-color relative  md:mx-auto w-full sm:w-[700px]  shadow-xl rounded"
           >
-            <div className="w-full">
-              {/* Slider */}
-              <button
-                onClick={handlePrevClick}
-              >
+            <div>
+              <Slider>
                 <img
-                  src={arrowLeft}
-                  className="absolute top-[170px] -left-8 w-[90px] h-[90px] z-50"
+                  src={attirenova_2}
+                  alt="nature-1"
+                  style={{ width: "100%", height: "100%" }}
                 />
-              </button>
-              <div
-                ref={sliderRef}
-                className="w-full flex flex-row snap-x snap-mandatory"
-                style={{
-                  overflowX: "hidden", // Hide the scrollbar
-                  paddingBottom: "15px",
-                  clipPath: "inset(0 0 15px 0)",
-                  position: "relative",
-                }}
-              >
-                {project.images.map((url, index) => (
-                  <div key={url} className="w-full flex-shrink-0 snap-start">
-                    <img src={url} alt={`Slide ${index}`} />
-                  </div>
-                ))}
-              </div>
-              <button
-                onClick={handleNextClick}
-              >
                 <img
-                  src={arrowRight}
-                  className="absolute top-[170px] -right-8  sm:right-[110px] md:right-[110px]  lg:-right-8 w-[90px] h-[90px]"
+                  src={attirenova_3}
+                  alt="nature-2"
+                  style={{ width: "100%", height: "100%" }}
                 />
-              </button>
-              
+                <img
+                  src={attirenova_4}
+                  alt="nature-3"
+                  style={{ width: "100%", height: "100%" }}
+                />
+                <img
+                  src={attirenova_5}
+                  alt="nature-3"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </Slider>
             </div>
             <div class="px-4">
               <h3 class="md:text-2xl text-base text-gray-200 font-bold text-left">

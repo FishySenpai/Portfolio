@@ -94,3 +94,17 @@ code {
   animation: ImgDropIn 0.2s ease-in;
 }
 
+@keyframes slide {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slideOut {
+  to {
+    transform: translateX(-100%);
+  }
+}
+.opposite-transition {
+  transition: transform 0.5s ease; /* Adjust the properties accordingly */
+  transform: translateX(100%); /* Apply the opposite transition */
+}
