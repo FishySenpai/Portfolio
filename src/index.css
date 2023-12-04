@@ -103,4 +103,7 @@ code {
     transform-origin: 100% 50%; /* Adjust the origin based on your preference */
   }
 
-
+.description{
+  font-family: Lato,Helvetica,Arial,sans-serif;
+  font-size: 18px;
+}

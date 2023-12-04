@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import useOutsideClick from "./useOutsideClick";
-
-import attirenova_2 from "./Assets/attirenova/attirenova_2.png";
-import attirenova_3 from "./Assets/attirenova/attirenova_3.png";
-import attirenova_4 from "./Assets/attirenova/attirenova_4.png";
-import attirenova_5 from "./Assets/attirenova/attirenova_5.png";
 import Slider from "./Slider";
 const ProjectModal = ({ project, showModal, setShowModal }) => {
   const projectModalRef = useRef(null);
@@ -16,7 +11,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
   if (project) {
     return (
       <div className={!showModal ? "hidden" : "flex"}>
-        <div class="fixed inset-0 pt-[450px] sm:pt-[156px]  h-full  bg-gray-900/50  z-50">
+        <div class="fixed inset-0 pt-[450px] sm:pt-[56px]  h-full  bg-gray-900/50  z-50">
           <div
             ref={projectModalRef}
             class="bg-color relative  md:mx-auto w-full sm:w-[700px]  shadow-xl rounded"
@@ -37,21 +32,24 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
               <h3 class="md:text-2xl text-base text-gray-200 font-bold text-left">
                 {project.projectName}
               </h3>
-              <p class="text-gray-300 my-2">{project.projectDescription}</p>
+              <p class="text-gray-300 my-2 description">{project.projectDescription}</p>
               <h3 class="md:text-2xl text-base text-gray-200 font-bold text-left">
                 Technologies
               </h3>
 
-              <ul className="text-gray-300 ">
+              <ul className="text-gray-300 description">
+                <div className="text-[16px]">
+                  Cool Technologies i used to create this project.
+                </div>
                 {project.technologies.map((tech, index) => (
-                  <li className="">{tech}</li>
+                  <li className="flex flex-row"><svg xmlns="http://www.w3.org/2000/svg" height="6" width="6" viewBox="0 0 512 512" className="mt-[10px] mr-2 "><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" fill="white"/></svg>{tech}</li>
                 ))}
               </ul>
               <div class="pt-4 pb-4 text-[14px] space-x-4 flex flex-row ">
                 <a
                   href="https://attirenova.netlify.app/"
                   target="_blank"
-                  class="p-2 px-5 flex flex-row bg-gray-800 hover:bg-gray-700 border-b-2 border-gray-900 shadow-md shadow-gray-950 text-white font-semibold rounded-sm hover-effect"
+                  class="p-2 px-5 flex flex-row bg-gray-800 hover:bg-gray-700 border-b-[3px] border-gray-900 shadow-md shadow-gray-950 text-white font-semibold rounded-sm hover-effect"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +67,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                 <a
                   href="https://github.com/FishySenpai/Ecommerce"
                   target="_blank"
-                  class="p-2 px-5 bg-gray-800 hover:bg-gray-700 border-b-2 border-gray-900 shadow-md shadow-gray-950  text-white font-semibold rounded-sm hover-effect"
+                  class="p-2 px-5 bg-gray-800 hover:bg-gray-700 border-b-[3px] border-gray-900 shadow-md shadow-gray-950  text-white font-semibold rounded-sm hover-effect"
                 >
                   GITHUB
                 </a>

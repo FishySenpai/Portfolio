@@ -18,7 +18,7 @@ const Slider = ({ children }) => {
 
   const actionHandler = useCallback(
     (mode) => {
-      containerRef.current.style.transitionDuration = "400ms";
+      containerRef.current.style.transitionDuration = "700ms";
       if (mode === "prev") {
         if (current <= 1) {
           setTranslateX(0);
@@ -70,7 +70,7 @@ const Slider = ({ children }) => {
     }
     intervalRef.current = setInterval(() => {
       actionHandler("next");
-    }, 3000);
+    }, 5000);
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
