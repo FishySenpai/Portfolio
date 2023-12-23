@@ -17,9 +17,9 @@ const scrollToSection = (sectionId) => {
 };
 
   return (
-    <div className="relative ">
-      <div className=" bg-gradient-to-r from-slate-600 from-10% via-slate-700 via-30% to-slate-900 to-90% text-white p-3 font-semibold text-md ">
-        <div className="flex flex-row space-x-12 justify-center ">
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <div className="bg-gradient-to-r from-slate-600 from-10% via-slate-700 via-30% to-slate-900 to-90% text-white p-3 font-semibold text-md">
+        <div className="flex flex-row space-x-12 justify-center">
           <Link to="/" onClick={() => scrollToSection("home")}>
             Home
           </Link>

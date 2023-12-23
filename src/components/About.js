@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div id="about" className=" text-white">
-      <div className="text-[50px] ml-96 pl-96 mt-96">ABOUT ME</div>
+      <div className="pt-16 text-[50px] ml-96 pl-96 mt-96">ABOUT ME</div>
 
       <div className="flex flex-row mt-10">
         <div className="text-xl text-gray-300 w-[600px] ml-96">
