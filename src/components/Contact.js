@@ -33,7 +33,10 @@ const Contact = () => {
 
 
   return (
-    <div className="relative flex flex-col justify-center min-h-screen ">
+    <div
+      id="contact"
+      className="relative flex flex-col justify-center min-h-screen "
+    >
       <div className="w-full p-6 m-auto mt-36 bg-gray-500 rounded-md shadow-md lg:max-w-xl">
         <h1 className="text-3xl font-mono cursor-pointer text-white underline">
           Contact

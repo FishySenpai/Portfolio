@@ -17,10 +17,10 @@ function App() {
           path="/"
           element={
             <>
-              <Home id="home" />
-              <About id="about" />
-              <Projects id="projects" />
-              <Contact id="contact" />
+              <Home />
+              <About />
+              <Projects />
+              <Contact  />
             </>
           }
         />
