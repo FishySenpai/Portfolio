@@ -5,8 +5,8 @@ const About = () => {
     <div id="about" className=" text-white">
       <div className="pt-16 text-[50px] ml-96 pl-96 mt-96">ABOUT ME</div>
 
-      <div className="flex flex-row mt-10">
-        <div className="text-xl text-gray-300 w-[600px] ml-96">
+      <div className="flex flex-col mt-10">
+        <div className="text-xl text-gray-300  ml-96 mr-96">
           <p>
             As a dedicated <strong>Full Stack Developer</strong>, I specialize
             in creating robust and user-friendly websites and web applications
@@ -38,7 +38,7 @@ const About = () => {
             create something extraordinary together!
           </p>
         </div>
-        <div className="flex flex-col ml-40 text-xl space-y-12 ">
+        <div className="flex flex-col ml-96 mt-4 text-xl space-y-12 ">
           <div className="text-2xl font-bold">Skills</div>
           <div className="flex flex-row space-x-5">
             <div className="px-3 py-2 bg-slate-500 rounded w-fit">HTML</div>
