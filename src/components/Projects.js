@@ -73,13 +73,13 @@ const Projects = () => {
   return (
     <div id="projects">
       <div className="pt-16 ml-96 pl-22 mt-36 pb-10 text-[50px]">Projects</div>
-      <div className="mx-auto max-w-[1000px]">
+      <div className="mx-auto max-w-[1100px]">
         <div className=" grid grid-cols-2 justify-center">
           {projects.map((project, index) => (
             <div>
               <div className="relative group mb-10">
                 <div
-                  className="group w-[450px] h-[330px] rounded-lg overflow-hidden"
+                  className="group w-[500px] h-[330px] rounded-lg overflow-hidden"
                   onMouseOver={() => handleMouseOver(index)}
                   onMouseOut={() => handleMouseOut(index)}
                   onClick={() => handleProjectClick(project)}
@@ -101,7 +101,7 @@ const Projects = () => {
                   </a>
                   <button
                     onClick={() => setShowModal(true)}
-                    className="hidden group-hover:block cursor-pointer absolute top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-75 rounded-lg w-[450px]"
+                    className="hidden group-hover:block cursor-pointer absolute top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-75 rounded-lg w-[500px]"
                   >
                     <div className="flex flex-col items-center justify-center h-full">
                       <ul className="flex flex-row space-x-5 font-bold text-[13px] text-slate-200 tag-list pt-28 pb-24">
