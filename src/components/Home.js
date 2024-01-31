@@ -31,12 +31,16 @@ const resetScroll = () => {
     };
   }, []);
   return (
-    <div id="home" className="flex items-center justify-center pt-16">
+    <div id="home" className="flex items-center justify-center pt-16 text ">
       <div>
-        <div className="text-[30px] ml-5 mt-64 sm:text-[50px] sm:ml-96 sm:pl-72  sm:mt-96">
-          HELLO, I'M FISHY SENPAI
+        <div className="flex flex-row text-[30px]  ml-5 mt-54 sm:text-[50px] sm:ml-96 sm:pl-72  sm:mt-80">
+          Hello, I'm
+          <div className="text-pink-600 pl-3">Noman Basit.</div>
         </div>
-        <div className="text-xl ml-5 mr-5 sm:ml-96 sm:mr-96 text-gray-200 ">
+        <div className="text-[16px]  ml-5 sm:text-[40px] mt-2 sm:ml-96 sm:pl-72 ">
+          I'm a full-stack web developer.
+        </div>
+        <div className="text-xl ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 text-gray-200 ">
           A passionate and results-driven web developer with a focus on creating
           immersive and user-friendly digital experiences. Whether you're a
           startup looking to establish an online presence or an enterprise

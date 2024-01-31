@@ -20,7 +20,10 @@ code {
 }
 
 /* app.css */
+.text{
+font-family: 'Noto Sans JP', sans-serif;
 
+}
 .bg-color {
   background-color: rgb(15 23 42);
 }
