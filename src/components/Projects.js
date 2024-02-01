@@ -104,10 +104,10 @@ const Projects = () => {
                     className="hidden group-hover:block cursor-pointer absolute top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-75 rounded-lg w-[500px]"
                   >
                     <div className="flex flex-col items-center justify-center h-full">
-                      <ul className="flex flex-row space-x-5 font-bold text-[13px] text-slate-200 tag-list pt-28 pb-24">
+                      <ul className="flex flex-row space-x-5 font-bold text-[16px] text-slate-200 tag-list pt-28 pb-24">
                         {project.technologies.map((tech, index) => (
                           <li key={index} className="tag-animation">
-                            <div className="px-3 py-2 bg-slate-800 rounded shadow-md shadow-slate-950 w-fit">
+                            <div className="px-4 py-2 bg-slate-800 rounded shadow-md shadow-slate-950 w-fit">
                               {tech}
                               {console.log(tech)}
                             </div>
@@ -115,8 +115,8 @@ const Projects = () => {
                         ))}
                       </ul>
 
-                      <div className="details-animation font-bold text-[13px] text-slate-200 ">
-                        <div className="px-3 py-2 bg-slate-800 rounded shadow-md shadow-slate-950 w-fit">
+                      <div className="details-animation font-bold text-[16px] text-slate-200 ">
+                        <div className="px-4 py-2 bg-slate-800 rounded shadow-md shadow-slate-950 w-fit">
                           details..
                         </div>
                       </div>
