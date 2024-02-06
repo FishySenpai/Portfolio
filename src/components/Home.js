@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import gmail from "./Assets/gmail.png"
 const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
+const scrollToSection = (sectionId) => {
+  const targetSection = document.getElementById(sectionId);
 
+  if (targetSection) {
+    console.log(`Scrolling to section: ${sectionId}`);
+    window.scrollTo({
+      top: targetSection.offsetTop,
+      behavior: "smooth",
+    });
+  } else {
+    console.log(`Section not found: ${sectionId}`);
+  }
+};
   const handleScroll = () => {
     const scrollThreshold =
       document.documentElement.scrollHeight - window.innerHeight;
@@ -42,10 +55,10 @@ const resetScroll = () => {
         </div>
         <div className="text-xl ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 text-gray-400 ">
           A passionate and results-driven web developer with a focus on creating
-          <strong className="text-white"> responsive</strong> and user-friendly digital experiences.
-          Whether you're a startup looking to establish an online presence or an
-          enterprise seeking to enhance your web applications, I'm here to turn
-          your ideas into reality.
+          <strong className="text-white"> responsive</strong> and user-friendly
+          digital experiences. Whether you're a startup looking to establish an
+          online presence or an enterprise seeking to enhance your web
+          applications, I'm here to turn your ideas into reality.
         </div>
         <div className="relative cursor-pointer">
           <div className="fixed top-[394px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
@@ -72,9 +85,11 @@ const resetScroll = () => {
               />
             </svg>
           </div>
-          <div className="fixed top-[506px] bg-[#fff] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
-            <img src={gmail} alt="email" className="h-10 w-10 " />
-          </div>
+          <Link to="/" onClick={() => scrollToSection("contact")}>
+            <div className="fixed top-[506px] bg-[#fff] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
+              <img src={gmail} alt="email" className="h-10 w-10 " />
+            </div>
+          </Link>
         </div>
       </div>
       <div

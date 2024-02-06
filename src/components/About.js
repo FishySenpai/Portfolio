@@ -42,10 +42,10 @@ const About = () => {
             Let's collaborate and create something extraordinary together!
           </p>
         </div>
-        <div className="flex flex-col ml-40 text-xl space-y-12 ">
+        <div className="flex flex-col ml-40 text-xl space-y-12 text-white text ">
           <div className="text-2xl font-bold">Skills</div>
           <div className="flex flex-row space-x-5">
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">HTML</div>
+            <div className="px-3 py-2 bg-slate-500 rounded w-fit ">HTML</div>
             <div className="px-3 py-2 bg-slate-500 rounded w-fit">CSS</div>
             <div className="px-3 py-2 bg-slate-500 rounded w-fit">
               TailwindCss
