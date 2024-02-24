@@ -11,7 +11,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
   if (project) {
     return (
       <div className={!showModal ? "hidden" : "flex"}>
-        <div class="fixed inset-0 pt-[450px] sm:pt-[56px]  h-full  bg-gray-900/50  z-50">
+        <div class="fixed inset-0  pt-[450px] sm:pt-[56px]  h-full  bg-gray-900/50  z-50">
           <div
             ref={projectModalRef}
             class="bg-color relative  md:mx-auto w-full sm:w-[700px]  shadow-xl rounded"
@@ -32,7 +32,9 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
               <h3 class="md:text-2xl text-base text-gray-200 font-bold text-left">
                 {project.projectName}
               </h3>
-              <p class="text-gray-300 my-2 description">{project.projectDescription}</p>
+              <p class="text-gray-300 my-2 description">
+                {project.projectDescription}
+              </p>
               <h3 class="md:text-2xl text-base text-gray-200 font-bold text-left">
                 Technologies
               </h3>
@@ -42,7 +44,21 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                   Cool Technologies i used to create this project.
                 </div>
                 {project.technologies.map((tech, index) => (
-                  <li className="flex flex-row"><svg xmlns="http://www.w3.org/2000/svg" height="6" width="6" viewBox="0 0 512 512" className="mt-[10px] mr-2 "><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" fill="white"/></svg>{tech}</li>
+                  <li className="flex flex-row">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="6"
+                      width="6"
+                      viewBox="0 0 512 512"
+                      className="mt-[10px] mr-2 "
+                    >
+                      <path
+                        d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
+                        fill="white"
+                      />
+                    </svg>
+                    {tech}
+                  </li>
                 ))}
               </ul>
               <div class="pt-4 pb-4 text-[14px] space-x-4 flex flex-row ">

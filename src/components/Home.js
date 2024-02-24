@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import gmail from "./Assets/gmail.png"
+import gmail from "./Assets/gmail.png";
 const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
-const scrollToSection = (sectionId) => {
-  const targetSection = document.getElementById(sectionId);
+  const scrollToSection = (sectionId) => {
+    const targetSection = document.getElementById(sectionId);
 
-  if (targetSection) {
-    console.log(`Scrolling to section: ${sectionId}`);
-    window.scrollTo({
-      top: targetSection.offsetTop,
-      behavior: "smooth",
-    });
-  } else {
-    console.log(`Section not found: ${sectionId}`);
-  }
-};
+    if (targetSection) {
+      console.log(`Scrolling to section: ${sectionId}`);
+      window.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: "smooth",
+      });
+    } else {
+      console.log(`Section not found: ${sectionId}`);
+    }
+  };
   const handleScroll = () => {
     const scrollThreshold =
       document.documentElement.scrollHeight - window.innerHeight;
@@ -24,17 +24,16 @@ const scrollToSection = (sectionId) => {
     setIsScrolledToBottom(isAtBottom);
   };
 
-const resetScroll = () => {
-  console.log("test")
-  if (isScrolledToBottom) {
-    // Reset scroll to the top of the page
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // You can use 'auto' or 'instant' for different scrolling behavior
-    });
-  }
-};
-
+  const resetScroll = () => {
+    console.log("test");
+    if (isScrolledToBottom) {
+      // Reset scroll to the top of the page
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth", // You can use 'auto' or 'instant' for different scrolling behavior
+      });
+    }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -60,7 +59,7 @@ const resetScroll = () => {
           online presence or an enterprise seeking to enhance your web
           applications, I'm here to turn your ideas into reality.
         </div>
-        <div className="relative cursor-pointer">
+        <div className="relative cursor-pointer z-50">
           <div className="fixed top-[394px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
