@@ -2,11 +2,11 @@ import React from "react";
 
 const About = () => {
   return (
-    <div id="about" className=" text-white">
-      <div className="pt-16 text-[50px] ml-96 pl-96 mt-96">ABOUT ME</div>
+    <div id="about" className=" text-white flex flex-col">
+      <div className="pt-16 text-[40px] mx-auto mt-96">ABOUT ME</div>
 
       <div className="flex flex-row mt-10">
-        <div className="text-xl text-gray-400 w-[600px] ml-96 ">
+        <div className="text-lg text-gray-300 w-[600px] ml-96 ">
           <p>
             As a dedicated{" "}
             <strong className="text-white">Full Stack Developer</strong>, I
@@ -42,33 +42,51 @@ const About = () => {
             Let's collaborate and create something extraordinary together!
           </p>
         </div>
-        <div className="flex flex-col ml-40 text-xl space-y-12 text-white text ">
+        <div className="flex flex-col ml-40 text-lg space-y-12 text-white text ">
           <div className="text-2xl font-bold">Skills</div>
           <div className="flex flex-row space-x-5">
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit ">HTML</div>
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">CSS</div>
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
+              HTML
+            </div>
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
+              CSS
+            </div>
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
               TailwindCss
             </div>
 
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
               Bootstrap
             </div>
           </div>
 
           <div className="flex flex-row space-x-5">
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
               JavaScript
             </div>
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">Reactjs</div>
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">Firebase</div>
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
+              Reactjs
+            </div>
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
+              Firebase
+            </div>
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
+              Nodejs
+            </div>
           </div>
           <div className="flex flex-row space-x-5">
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">MySql</div>
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
+              MySql
+            </div>
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
               Postgresql
             </div>
-            <div className="px-3 py-2 bg-slate-500 rounded w-fit">Git</div>
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
+              Git
+            </div>
+            <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">
+              GitHub
+            </div>
           </div>
         </div>
       </div>
