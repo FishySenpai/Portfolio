@@ -106,26 +106,27 @@ const Projects = () => {
                       alt="Image description"
                     />
                     <div
-                      className={`absolute inset-0 z-10 bg-neutral-900  duration-300 ${
+                      className={`absolute inset-0 z-10  overflow-hidden w-[500px] h-[330px] ${
                         hoveredStates[index]
-                          ? "bg-opacity-90 "
-                          : "bg-opacity-0 "
+                          ? "bg-neutral-900 bg-opacity-80 absolute top-0 duration-300"
+                          : "bg-neutral-900 bg-opacity-80 absolute -top-[330px] duration-300 opacity-0 "
                       }`}
                     >
-                      <img
-                        className={`w-full h-full z-0 rounded-sm overflow-hidden   ${
-                          hoveredStates[index]
-                            ? "absolute top-0 duration-300"
-                            : "absolute -top-[330px] duration-300 "
-                        }`}
-                        src={project?.images[0]}
-                        alt="Image description"
-                      />
+                      {" "}
                     </div>
+                    <img
+                      className={`w-full h-full z-0 rounded-sm overflow-hidden   ${
+                        hoveredStates[index]
+                          ? "absolute top-0 duration-300"
+                          : "absolute -top-[330px] duration-300 opacity-0 "
+                      }`}
+                      src={project?.images[0]}
+                      alt="Image description"
+                    />
                   </a>
                   <button
                     onClick={() => setShowModal(true)}
-                    className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0 bg-neutral-900 bg-opacity-50  rounded-sm w-[500px]"
+                    className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0  rounded-sm w-[500px]"
                   >
                     <div className="flex flex-col items-center justify-center h-full">
                       <ul className="flex flex-row space-x-5 font-bold text-[16px] text-slate-200 tag-list pt-28 pb-24">
