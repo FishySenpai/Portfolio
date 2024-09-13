@@ -11,7 +11,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
   if (project) {
     return (
       <div className={!showModal ? "hidden" : "flex"}>
-        <div class="fixed inset-0  pt-[450px] sm:pt-[56px]  h-full  bg-gray-900/50  z-50">
+        <div class="fixed inset-0  pt-[450px] sm:pt-[56px]  h-full  bg-neutral-800/60  z-50">
           <div
             ref={projectModalRef}
             class="bg-color relative  md:mx-auto w-full sm:w-[700px]  shadow-xl rounded"
@@ -29,10 +29,10 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
               </Slider>
             </div>
             <div class="px-4">
-              <h3 class="md:text-2xl text-base text-gray-200 font-bold text-left">
+              <h3 class="md:text-2xl text-base text-[#285B23] font-bold text-left">
                 {project.projectName}
               </h3>
-              <p class="text-gray-300 my-2 description">
+              <p class="text-[#F2CFF1] my-2 description">
                 {project.projectDescription}
               </p>
               <h3 class="md:text-2xl text-base text-gray-200 font-bold text-left">
@@ -65,7 +65,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                 <a
                   href="https://attirenova.netlify.app/"
                   target="_blank"
-                  class="p-2 px-5 flex flex-row bg-gray-800 hover:bg-gray-700 border-b-[3px] border-gray-900 shadow-md shadow-gray-950 text-white font-semibold rounded-sm hover-effect"
+                  class="p-2 px-5 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                 <a
                   href="https://github.com/FishySenpai/Ecommerce"
                   target="_blank"
-                  class="p-2 px-5 bg-gray-800 hover:bg-gray-700 border-b-[3px] border-gray-900 shadow-md shadow-gray-950  text-white font-semibold rounded-sm hover-effect"
+                  class="p-2 px-5 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950  text-white font-semibold rounded-sm hover-effect"
                 >
                   GITHUB
                 </a>
