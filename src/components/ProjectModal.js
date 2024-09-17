@@ -39,14 +39,14 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
             <h3 className="md:text-xl text-base font-[600] text-neutral-200  text-left">
               {project.projectName}
             </h3>
-            <p className=" text-[16px] text-[#c2c1c1]">
+            <p className=" text-[16px] secondary-color">
               {project.projectDescription}
             </p>
             <h3 className="md:text-xl text-base font-[600] text-left my-1 text-neutral-200 ">
               Technologies
             </h3>
 
-            <ul className="text-[16px] text-[#c2c1c1]">
+            <ul className="text-[16px] secondary-color">
               <div className="">
                 Cool Technologies I used to create this project.
               </div>

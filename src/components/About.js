@@ -2,20 +2,20 @@ import React from "react";
 
 const About = () => {
   return (
-    <div id="about" className=" text-white flex flex-col">
-      <div className="pt-16 text-[40px] mx-auto mt-96">ABOUT ME</div>
+    <div id="about" className=" text-neutral-200 flex flex-col">
+      <div className=" text-[40px] mx-auto mt-64">ABOUT ME</div>
 
       <div className="flex flex-row mt-10">
-        <div className="text-lg text-gray-300 w-[600px] ml-96 ">
+        <div className="text-lg secondary-color w-[600px] ml-96 ">
           <p>
             As a dedicated{" "}
-            <strong className="text-white">Full Stack Developer</strong>, I
+            <strong className="text-neutral-200">Full Stack Developer</strong>, I
             specialize in creating robust and user-friendly websites and web
             applications by seamlessly integrating both frontend and backend
             technologies. My expertise extends from crafting engaging user
             interfaces to architecting and optimizing scalable server-side
             solutions. The
-            <strong className="text-white"> Projects</strong> section showcases
+            <strong className="text-neutral-200"> Projects</strong> section showcases
             some of my notable achievements, providing a glimpse into the
             comprehensive skill set I bring to every project.
           </p>
@@ -29,7 +29,7 @@ const About = () => {
             </a>
             , where I consistently share content spanning a wide array of topics
             related to{" "}
-            <strong className="text-white">Full Stack Development</strong> and
+            <strong className="text-neutral-200">Full Stack Development</strong> and
             Programming.
           </p>
           <br />
@@ -38,11 +38,11 @@ const About = () => {
             that allow me to contribute holistically, continuously learn, and
             foster personal and professional growth. If you have an exciting
             opportunity that aligns with my skills and experiences, don't
-            hesitate to <strong className="text-white">contact</strong> me.
+            hesitate to <strong className="text-neutral-200">contact</strong> me.
             Let's collaborate and create something extraordinary together!
           </p>
         </div>
-        <div className="flex flex-col ml-40 text-lg space-y-12 text-white text ">
+        <div className="flex flex-col ml-40 text-lg space-y-12 text-neutral-200 text ">
           <div className="text-2xl font-bold">Skills</div>
           <div className="flex flex-row space-x-5">
             <div className="px-4 py-3 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit ">

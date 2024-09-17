@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import gmail from "./Assets/gmail.png";
+import bg from "./Assets/bg.jpg";
 const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const scrollToSection = (sectionId) => {
@@ -43,21 +44,35 @@ const Home = () => {
     };
   }, []);
   return (
-    <div id="home" className="flex items-center justify-center pt-16 text ">
+    <div
+      id="home"
+      className="flex items-center justify-center pt-16 text text-neutral-200 "
+    >
+      {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div>
         <div className="flex flex-row text-[30px]  ml-5 mt-54 sm:text-[50px] sm:ml-96 sm:pl-72  sm:mt-80">
           Hello, I'm
-          <div className="text-pink-600 pl-3">Noman Basit.</div>
+          <div className="text-pink-600 pl-3">Fishy Sensei.</div>
         </div>
         <div className="text-[16px]  ml-5 sm:text-[40px] mt-2 sm:ml-96 sm:pl-72 ">
           I'm a full-stack web developer.
         </div>
-        <div className="text-xl ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 text-gray-400 ">
+        <div className="text-xl ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 secondary-color ">
           A passionate and results-driven web developer with a focus on creating
           <strong className="text-white"> responsive</strong> and user-friendly
           digital experiences. Whether you're a startup looking to establish an
           online presence or an enterprise seeking to enhance your web
           applications, I'm here to turn your ideas into reality.
+        </div>
+        <div className="pt-12 pb-4 text-[20px] space-x-4 flex flex-row justify-center ">
+          <a
+            href="https://attirenova.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 px-8 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect"
+          >
+            View Projects
+          </a>
         </div>
         <div className="relative cursor-pointer z-50">
           <div className="fixed top-[394px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">

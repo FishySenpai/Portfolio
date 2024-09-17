@@ -73,17 +73,18 @@ const Projects = () => {
 
   return (
     <div id="projects" className="flex flex-col">
-      <div className="pt-16  mx-auto mt-36 pb-5 text-[50px] text-gray-100">
-        Projects
+      <div className="pt-16  mx-auto mt-36 pb-5 text-[40px] text-neutral-300">
+        PROJECTS
+        <div className="w-32 h-[3px] bg-neutral-300 mx-auto mt-1"></div>
       </div>
-      <div className="mx-auto pl-2 pb-8 max-w-[1100px]">
+      <div className="mx-auto pl-2 pb-8 max-w-[1160px] secondary-color">
         From Web Components and UI/UX animations to React.JS, Redux, Vue.JS, and
         Node.JS. Check out my latest web software development portfolio
         projects. From Web Components and UI/UX animations to React.JS, Redux,
         Vue.JS, and Node.JS. Check out my latest web software development
         portfolio projects.
       </div>
-      <div className="mx-auto max-w-[1100px]">
+      <div className="mx-auto max-w-[1250px]">
         <div className=" grid grid-cols-2 justify-center">
           {projects.map((project, index) => (
             <div>
@@ -108,7 +109,7 @@ const Projects = () => {
                   <img src={titleBar} alt="" className="" />
                 </div>
                 <div
-                  className="group w-[500px] h-[330px] rounded-sm overflow-hidden"
+                  className="group w-[550px] h-[330px] rounded-sm overflow-hidden"
                   onMouseOver={() => handleMouseOver(index)}
                   onMouseOut={() => handleMouseOut(index)}
                   onClick={() => handleProjectClick(project)}
@@ -116,7 +117,7 @@ const Projects = () => {
                   <a
                     href="https://attirenova.netlify.app/"
                     target="_blank"
-                    className={`w-[500px] h-[330px] relative overflow-hidden`}
+                    className={`w-[550px] h-[330px] relative overflow-hidden`}
                   >
                     <img
                       className={`w-full h-[330px] rounded-sm  ${
@@ -126,7 +127,7 @@ const Projects = () => {
                       alt="Image description"
                     />
                     <div
-                      className={`absolute inset-0 z-10  overflow-hidden w-[500px] h-[330px] ${
+                      className={`absolute inset-0 z-10  overflow-hidden w-[550px] h-[330px] ${
                         hoveredStates[index]
                           ? "bg-neutral-900 bg-opacity-80 absolute top-0 duration-300"
                           : "bg-neutral-900 bg-opacity-80 absolute -top-[330px] duration-300  "
