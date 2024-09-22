@@ -3,21 +3,23 @@ import React from "react";
 const About = () => {
   return (
     <div id="about" className=" text-neutral-200 flex flex-col">
-      <div className=" text-[40px] mx-auto mt-64">ABOUT ME</div>
-
+      <div className="pt-16  mx-auto mt-36 pb-5 text-[40px] text-neutral-700">
+        ABOUT
+        <div className="w-32 h-[3px] bg-pink-600 mx-auto mt-1"></div>
+      </div>
       <div className="flex flex-row mt-10">
         <div className="text-lg secondary-color w-[600px] ml-96 ">
           <p>
             As a dedicated{" "}
-            <strong className="text-neutral-200">Full Stack Developer</strong>, I
-            specialize in creating robust and user-friendly websites and web
+            <strong className="text-neutral-700">Full Stack Developer</strong>,
+            I specialize in creating robust and user-friendly websites and web
             applications by seamlessly integrating both frontend and backend
             technologies. My expertise extends from crafting engaging user
             interfaces to architecting and optimizing scalable server-side
             solutions. The
-            <strong className="text-neutral-200"> Projects</strong> section showcases
-            some of my notable achievements, providing a glimpse into the
-            comprehensive skill set I bring to every project.
+            <strong className="text-neutral-700"> Projects</strong> section
+            showcases some of my notable achievements, providing a glimpse into
+            the comprehensive skill set I bring to every project.
           </p>
           <br />
           <p>
@@ -29,8 +31,10 @@ const About = () => {
             </a>
             , where I consistently share content spanning a wide array of topics
             related to{" "}
-            <strong className="text-neutral-200">Full Stack Development</strong> and
-            Programming.
+            <strong className="text-neutral-700">
+              Full Stack Development
+            </strong>{" "}
+            and Programming.
           </p>
           <br />
           <p>
@@ -38,8 +42,8 @@ const About = () => {
             that allow me to contribute holistically, continuously learn, and
             foster personal and professional growth. If you have an exciting
             opportunity that aligns with my skills and experiences, don't
-            hesitate to <strong className="text-neutral-200">contact</strong> me.
-            Let's collaborate and create something extraordinary together!
+            hesitate to <strong className="text-neutral-200">contact</strong>{" "}
+            me. Let's collaborate and create something extraordinary together!
           </p>
         </div>
         <div className="flex flex-col ml-40 text-lg space-y-12 text-neutral-200 text ">

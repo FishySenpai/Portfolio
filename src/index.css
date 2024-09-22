@@ -6,7 +6,7 @@ body {
   margin: 0;
 
   color: white;
-  background-color: #2f2f2f;
+  background-color: rgb(230, 227, 227);
   font-family: "Noto Sans JP", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -108,5 +108,5 @@ code {
   font-size: 18px;
 }
 .secondary-color {
-  color: #c2c1c1;
+  color: #525151;
 }

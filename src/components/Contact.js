@@ -1,13 +1,13 @@
-import React, { useState, useRef } from 'react'
-import emailjs from "@emailjs/browser"
-import {useNavigate} from "react-router-dom"
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 const Contact = () => {
-  const [userName , setUserName] = useState("");
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
-  
+
   const form = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          setSuccess(true)
+          setSuccess(true);
         },
         (error) => {
           console.log(error.text);
@@ -31,52 +31,48 @@ const Contact = () => {
       );
   };
 
-
   return (
-    <div
-      id="contact"
-      className="relative flex flex-col justify-center pb-44 "
-    >
-      <div className="mx-auto mt-36 pb-5 text-[35px] text-neutral-300">
+    <div id="contact" className="relative flex flex-col justify-center pb-44 ">
+      <div className="mx-auto mt-36 pb-5 text-[35px] text-neutral-700">
         CONTACTS
-        <div className="w-32 h-[3px] bg-neutral-300 mx-auto mt-1"></div>
+        <div className="w-32 h-[3px] bg-pink-600 mx-auto mt-1"></div>
       </div>
       <div className="w-full mx-auto  lg:max-w-3xl">
         <form ref={form} onSubmit={handleSubmit}>
           <div className="mb-2">
-            <label for="username" className="text-[16px] text-white">
+            <label for="username" className="text-[16px] text-neutral-700">
               Username
             </label>
             <input
               type="text"
               name="name"
-              className="block w-full px-4 py-4 mt-2 border border-neutral-700 text-neutral-100 bg-neutral-800 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-4 mt-2 border border-neutral-700 text-neutral-100 bg-neutral-100 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
               onChange={(e) => {
                 setUserName(e.target.value);
               }}
             />
           </div>
           <div className="mb-2">
-            <label for="email" className="text-[16px] text-white">
+            <label for="email" className="text-[16px] text-neutral-700">
               Email
             </label>
             <input
               type="email"
               name="email"
-              className="block w-full px-4 py-4 mt-2 border border-neutral-700 text-gray-800 bg-neutral-800 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-4 mt-2 border border-neutral-700 text-gray-800 bg-neutral-100 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
             />
           </div>
           <div className="mb-2">
-            <label for="text" className="text-[16px] text-white">
+            <label for="text" className="text-[16px] text-neutral-700">
               Message
             </label>
             <textarea
               type="text"
               name="message"
-              className="w-full  h-[220px] flex flex-wrap items-start px-4 py-2 mt-2 border border-neutral-700 text-gray-800 bg-neutral-800 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="w-full  h-[220px] flex flex-wrap items-start px-4 py-2 mt-2 border border-neutral-700 text-gray-800 bg-neutral-100 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
               onChange={(e) => {
                 setMessage(e.target.value);
               }}
@@ -94,6 +90,6 @@ const Contact = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Contact
+export default Contact;

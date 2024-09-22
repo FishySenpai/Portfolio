@@ -46,34 +46,43 @@ const Home = () => {
   return (
     <div
       id="home"
-      className="flex items-center justify-center pt-16 text text-neutral-200 "
+      className="flex items-center justify-center pt-16 text text-neutral-700 "
     >
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div>
-        <div className="flex flex-row text-[30px]  ml-5 mt-54 sm:text-[50px] sm:ml-96 sm:pl-72  sm:mt-80">
+        <div className="flex flex-row text-[30px]  ml-5 mt-54 sm:text-[45px] sm:ml-96 sm:pl-72  sm:mt-80">
           Hello, I'm
-          <div className="text-pink-600 pl-3">Fishy Sensei.</div>
+          <div className="text-pink-600 pl-3">Noman Basit.</div>
         </div>
-        <div className="text-[16px]  ml-5 sm:text-[40px] mt-2 sm:ml-96 sm:pl-72 ">
+        <div className="text-[16px]  ml-5 sm:text-[35px] mt-2 sm:ml-96 sm:pl-72 ">
           I'm a full-stack web developer.
         </div>
-        <div className="text-xl ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 secondary-color ">
+        <div className="text-lg ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 secondary-color ">
           A passionate and results-driven web developer with a focus on creating
-          <strong className="text-white"> responsive</strong> and user-friendly
-          digital experiences. Whether you're a startup looking to establish an
-          online presence or an enterprise seeking to enhance your web
-          applications, I'm here to turn your ideas into reality.
+          <strong className="text-neutral-900"> responsive</strong> and
+          user-friendly digital experiences. Whether you're a startup looking to
+          establish an online presence or an enterprise seeking to enhance your
+          web applications, I'm here to turn your ideas into reality.
         </div>
-        <div className="pt-12 pb-4 text-[20px] space-x-4 flex flex-row justify-center ">
-          <a
-            href="https://attirenova.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 px-8 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect"
+        <div className="pt-12 pb-4 text-[22px] space-x-4 flex flex-row justify-center mr-16  ">
+          <button
+            onClick={() => scrollToSection("projects")}
+            className="p-3 relative px-10 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 font-semibold rounded-sm  group hover-effect"
           >
-            View Projects
-          </a>
+            <p>View Projects</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              className="h-[23px] w-[23px] mt-2 ml-2 -rotate-90 transition-transform duration-300 transform group-hover:rotate-0"
+            >
+              <path
+                d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                fill="rgb(229 229 229)"
+              />
+            </svg>
+          </button>
         </div>
+
         <div className="relative cursor-pointer z-50">
           <div className="fixed top-[394px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
             <svg
