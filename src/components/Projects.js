@@ -73,9 +73,9 @@ const Projects = () => {
 
   return (
     <div id="projects" className="flex flex-col">
-      <div className="pt-16  mx-auto mt-36 pb-5 text-[40px] text-neutral-700">
+      <div className="pt-16  mx-auto mt-36 pb-5 text-[40px] text-neutral-300">
         PROJECTS
-        <div className="w-32 h-[3px] bg-pink-600 mx-auto mt-1"></div>
+        <div className="w-32 h-[3px] bg-orange-600 mx-auto mt-1"></div>
       </div>
       <div className="mx-auto pl-2 pb-8 max-w-[1160px] secondary-color">
         From Web Components and UI/UX animations to React.JS, Redux, Vue.JS, and

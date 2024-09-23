@@ -46,28 +46,28 @@ const Home = () => {
   return (
     <div
       id="home"
-      className="flex items-center justify-center pt-16 text text-neutral-700 "
+      className="flex items-center justify-center pt-16 text text-neutral-200 "
     >
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div>
         <div className="flex flex-row text-[30px]  ml-5 mt-54 sm:text-[45px] sm:ml-96 sm:pl-72  sm:mt-80">
           Hello, I'm
-          <div className="text-pink-600 pl-3">Noman Basit.</div>
+          <div className="text-orange-600 pl-3">Noman Basit.</div>
         </div>
         <div className="text-[16px]  ml-5 sm:text-[35px] mt-2 sm:ml-96 sm:pl-72 ">
           I'm a full-stack web developer.
         </div>
         <div className="text-lg ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 secondary-color ">
           A passionate and results-driven web developer with a focus on creating
-          <strong className="text-neutral-900"> responsive</strong> and
-          user-friendly digital experiences. Whether you're a startup looking to
-          establish an online presence or an enterprise seeking to enhance your
-          web applications, I'm here to turn your ideas into reality.
+          <strong className="text-white"> responsive</strong> and user-friendly
+          digital experiences. Whether you're a startup looking to establish an
+          online presence or an enterprise seeking to enhance your web
+          applications, I'm here to turn your ideas into reality.
         </div>
         <div className="pt-12 pb-4 text-[22px] space-x-4 flex flex-row justify-center mr-16  ">
           <button
             onClick={() => scrollToSection("projects")}
-            className="p-3 relative px-10 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 font-semibold rounded-sm  group hover-effect"
+            className="p-3 relative px-10 flex flex-row bg-[#297c74]  hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 font-semibold rounded-sm  group hover-effect"
           >
             <p>View Projects</p>
             <svg
