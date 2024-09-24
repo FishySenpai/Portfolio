@@ -111,14 +111,18 @@ code {
 }
 
 .css-typing p {
-  border-right: .15em solid orange;
+  border: none;
+  border-right: .15em solid rgb(234 88 12);
   white-space: nowrap;
   overflow: hidden;
 }
 .css-typing p:nth-child(1) {
   width: 1130px;
-  -webkit-animation: type 5s steps(80, end);
-  animation: type 3s steps(80, end);
+  opacity: 0;
+  -webkit-animation: type 1.5s steps(40, end);
+  animation: type 1.5s steps(40, end);
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -126,10 +130,10 @@ code {
 .css-typing p:nth-child(2) {
   width: 1130px;
   opacity: 0;
-  -webkit-animation: type2 5s steps(40, end);
-  animation: type2 5s steps(40, end);
-  -webkit-animation-delay: 5s;
-  animation-delay: 5s;
+  -webkit-animation: type2 1.5s steps(40, end);
+  animation: type2 1.5s steps(40, end);
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -139,8 +143,8 @@ code {
   opacity: 0;
   -webkit-animation: type3 0.5s steps(20, end), blink .5s step-end infinite alternate;
   animation: type3 0.5s steps(20, end), blink .5s step-end infinite alternate;
-  -webkit-animation-delay: 10s;
-  animation-delay: 10s;
+  -webkit-animation-delay: 4.5s;
+  animation-delay: 4.5s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -149,10 +153,14 @@ code {
   0% {
     width: 0;
   }
+  1% {
+    opacity: 1;
+  }
   99.9% {
-    border-right: .15em solid orange;
+    border-right: .15em solid rgb(234 88 12);
   }
   100% {
+    opacity: 1;
     border: none;
   }
 }
@@ -161,10 +169,14 @@ code {
   0% {
     width: 0;
   }
+  1% {
+    opacity: 1;
+  }
   99.9% {
-    border-right: .15em solid orange;
+    border-right: .15em solid rgb(234 88 12);
   }
   100% {
+    opacity: 1;
     border: none;
   }
 }
@@ -177,7 +189,7 @@ code {
     opacity: 1;
   }
   99.9% {
-    border-right: .15em solid orange;
+    border-right: .15em solid rgb(234 88 12);
   }
   100% {
     opacity: 1;
@@ -193,7 +205,7 @@ code {
     opacity: 1;
   }
   99.9% {
-    border-right: .15em solid orange;
+    border-right: .15em solid rgb(234 88 12);
   }
   100% {
     opacity: 1;
@@ -233,5 +245,93 @@ code {
 @-webkit-keyframes blink {
   50% {
     border-color: tranparent;
+  }
+}
+
+.header-typing p {
+  border: none;
+  border-right: .15em solid rgb(234 88 12);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.header-typing p:nth-child(1) {
+  width: 780px;
+  -webkit-animation: headertype 0.5s steps(40, end);
+  animation: headertype 0.5s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.header-typing p:nth-child(2) {
+  width: 785px;
+  opacity: 0;
+  -webkit-animation: headertype2 1s steps(40, end);
+  animation: headertype2 1s steps(40, end);
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes headertype {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid rgb(234 88 12);
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes headertype {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid rgb(234 88 12);
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+@keyframes headertype2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid rgb(234 88 12);
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes headertype2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid rgb(234 88 12);
+  }
+  100% {
+    opacity: 1;
+    border: none;
   }
 }

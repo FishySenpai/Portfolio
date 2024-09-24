@@ -50,21 +50,31 @@ const Home = () => {
       className="flex items-center justify-center pt-16 text text-neutral-200 "
     >
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
-      <div>
-        <div className="flex flex-row text-[30px]  ml-5 mt-54 sm:text-[45px] sm:ml-96 sm:pl-72  sm:mt-80">
-          Hello, I'm
-          <div className=" text-orange-600 pl-3">Noman Basit.</div>
+      <div className="">
+        <div className="header-typing">
+          <p className="flex flex-row text-[30px]  ml-5 mt-54 sm:text-[45px] sm:ml-96 sm:pl-72  sm:mt-80">
+            Hello, I'm
+            <div className=" text-orange-600 pl-3">Noman Basit.</div>
+          </p>
+          <p className="text-[16px]  ml-5 sm:text-[35px] mt-2 sm:ml-96 sm:pl-72 ">
+            I'm a full-stack web developer.
+          </p>
         </div>
-        <div className="text-[16px]  ml-5 sm:text-[35px] mt-2 sm:ml-96 sm:pl-72 ">
-          I'm a full-stack web developer.
-        </div>
-        <div class="text-lg ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 secondary-color max-w-[1133px]">
-          {" "}
-          A passionate and results-driven web developer with a focus on creating
-          <strong className="text-white"> responsive</strong> and user-friendly
-          digital experiences. Whether you're a startup looking to establish an
-          online presence or an enterprise seeking to enhance your web
-          applications, I'm here to turn your ideas into reality.
+        <div class="css-typing text-lg ml-5 mr-5 sm:ml-96 sm:mr-96 mt-4 secondary-color max-w-[1133px]">
+          <p>
+            {" "}
+            A passionate and results-driven web developer with a focus on
+            creating
+            <strong className="text-white"> responsive</strong> and
+            user-friendly digital experiences. Whether you're a
+          </p>
+          <p>
+            {" "}
+            startup looking to establish an online presence or an enterprise
+            seeking to enhance your web applications, I'm here to turn your
+            ideas into
+          </p>
+          <p>reality.</p>
         </div>
         <div className="pt-12 pb-4 text-[22px] space-x-4 flex flex-row justify-center mr-16  ">
           <button
