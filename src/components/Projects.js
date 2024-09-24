@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ProjectModal from "./ProjectModal";
 import attirenova_2 from "./Assets/attirenova/attirenova_2.png";
 import attirenova_3 from "./Assets/attirenova/attirenova_3.png";
@@ -12,6 +12,7 @@ import titleBar from "./Assets/titleBar.png";
 const Projects = () => {
   const projects = [
     {
+      id: 1,
       imageUrl: "attirenova.png",
       projectLink: "https://attirenova.netlify.app/",
       projectName: "AttireNova",
@@ -21,6 +22,7 @@ const Projects = () => {
       images: [attirenova_2, attirenova_3, attirenova_4, attirenova_5],
     },
     {
+      id: 2,
       imageUrl: "react-wind.png",
       projectLink: "https://attirenova.netlify.app/",
       projectName: "React-wind",
@@ -30,6 +32,7 @@ const Projects = () => {
       images: [reactwind_2, reactwind_3, reactwind_4, reactwind_5],
     },
     {
+      id: 3,
       imageUrl: "weatherApp.png",
       projectLink: "https://attirenova.netlify.app/",
       projectName: "WeatherApp",
@@ -39,6 +42,7 @@ const Projects = () => {
       images: [attirenova_2, attirenova_3, attirenova_4, attirenova_5],
     },
     {
+      id: 4,
       imageUrl: "skyClarity.png",
       projectLink: "https://attirenova.netlify.app/",
       projectName: "SkyClarity",
@@ -48,6 +52,47 @@ const Projects = () => {
       images: [attirenova_2, attirenova_3, attirenova_4, attirenova_5],
     },
   ];
+  const [visibleProjects, setVisibleProjects] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const projectsRef = useRef(null);
+
+  useEffect(() => {
+    if (isVisible) {
+      // Reveal one project at a time with 500ms delay between each
+      const interval = setInterval(() => {
+        setVisibleProjects((prev) =>
+          prev < projects.length ? prev + 1 : prev
+        );
+      }, 200);
+
+      // Cleanup the interval on unmount
+      return () => clearInterval(interval);
+    }
+  }, [isVisible]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing after it becomes visible
+        }
+      },
+      { threshold: 0.01 } // Trigger when 50% of the section is visible
+    );
+
+    if (projectsRef.current) {
+      observer.observe(projectsRef.current);
+    }
+
+    return () => {
+      if (projectsRef.current) {
+        observer.disconnect(); // Ensure the observer is disconnected on cleanup
+      }
+    };
+  }, []);
+
   const [hoveredStates, setHoveredStates] = useState(
     Array(projects.length).fill(false)
   );
@@ -72,22 +117,39 @@ const Projects = () => {
   };
 
   return (
-    <div id="projects" className="flex flex-col">
-      <div className="pt-16 mx-auto  pb-5 text-[40px] text-neutral-300">
-        PROJECTS
-        <div className="w-32 h-[3px] bg-orange-600 mx-auto mt-1"></div>
+    <div id="projects" className="flex flex-col" ref={projectsRef}>
+      <div className="pt-16 mx-auto  pb-5">
+        <div
+          className={`text-[40px] text-neutral-300 transition-transform duration-1000 ease-out ${
+            isVisible
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-40 opacity-0"
+          }`}
+        >
+          Projects
+        </div>
+        <div
+          className={`w-32 h-[3px] bg-orange-600 mx-auto mt-1 transition-transform duration-[0.7s] ease-out delay-150 ${
+            isVisible ? "translate-x-0 opacity-100" : "translate-x-40 opacity-0"
+          }`}
+        ></div>
       </div>
-      <div className="mx-auto pl-2 pb-8 max-w-[1160px] secondary-color">
+      <div className="mx-auto pr-5 pb-8 max-w-[1160px] secondary-color">
         From Web Components and UI/UX animations to React.JS, Redux, Vue.JS, and
         Node.JS. Check out my latest web software development portfolio
-        projects. From Web Components and UI/UX animations to React.JS, Redux,
-        Vue.JS, and Node.JS. Check out my latest web software development
-        portfolio projects.
+        projects.
       </div>
       <div className="mx-auto max-w-[1250px]">
         <div className=" grid grid-cols-2 justify-center">
           {projects.map((project, index) => (
-            <div>
+            <div
+              key={project.id}
+              className={` transition-opacity duration-700 transform ${
+                index < visibleProjects
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
               <div className="relative group mb-8 mr-10">
                 <div className="bg-[#DDDDDD] flex justify-between z-30 py-0.5">
                   <div className="flex">

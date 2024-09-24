@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 const Contact = () => {
@@ -7,7 +7,31 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
+  const contactRef = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing after it becomes visible
+        }
+      },
+      { threshold: 0.01 } // Trigger when 50% of the section is visible
+    );
+
+    if (contactRef.current) {
+      observer.observe(contactRef.current);
+    }
+
+    return () => {
+      if (contactRef.current) {
+        observer.disconnect(); // Ensure the observer is disconnected on cleanup
+      }
+    };
+  }, []);
   const form = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,12 +56,32 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="relative flex flex-col justify-center pb-44 ">
-      <div className="mx-auto mt-36 pb-5 text-[35px] text-neutral-300">
-        CONTACTS
-        <div className="w-32 h-[3px] bg-orange-600 mx-auto mt-1"></div>
+    <div
+      id="contact"
+      className="relative flex flex-col justify-center pb-44 "
+      ref={contactRef}
+    >
+      <div className="mt-36 mx-auto  pb-5">
+        <div
+          className={`text-[40px] text-neutral-300 transition-transform duration-1000 ease-out ${
+            isVisible
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-40 opacity-0"
+          }`}
+        >
+          Contact
+        </div>
+        <div
+          className={`w-32 h-[3px] bg-orange-600 mx-auto mt-1 transition-transform duration-1000 ease-out delay-150 ${
+            isVisible ? "translate-x-0 opacity-100" : "translate-x-40 opacity-0"
+          }`}
+        ></div>
       </div>
-      <div className="w-full mx-auto  lg:max-w-3xl">
+      <div
+        className={`w-full mx-auto  lg:max-w-3xl transform transition-all duration-[1.5s]   ${
+          isVisible ? "scale-100 opacity-100" : "scale-50 opacity-0"
+        } `}
+      >
         <form ref={form} onSubmit={handleSubmit}>
           <div className="mb-2">
             <label for="username" className="text-[16px] text-white">

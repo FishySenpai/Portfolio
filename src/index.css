@@ -141,8 +141,8 @@ code {
 .css-typing p:nth-child(3) {
   width: 60px;
   opacity: 0;
-  -webkit-animation: type3 0.5s steps(20, end), blink .5s step-end infinite alternate;
-  animation: type3 0.5s steps(20, end), blink .5s step-end infinite alternate;
+  -webkit-animation: type3 0.1s steps(40, end), blink .5s step-end infinite alternate;
+  animation: type3 0.1s steps(20, end), blink .5s step-end infinite alternate;
   -webkit-animation-delay: 4.5s;
   animation-delay: 4.5s;
   -webkit-animation-fill-mode: forwards;

@@ -54,7 +54,7 @@ const Home = () => {
         <div className="header-typing">
           <p className="flex flex-row text-[30px]  ml-5 mt-54 sm:text-[45px] sm:ml-96 sm:pl-72  sm:mt-80">
             Hello, I'm
-            <div className=" text-orange-600 pl-3">Noman Basit.</div>
+            <div className=" text-orange-600 pl-3">Fishy Sensei.</div>
           </p>
           <p className="text-[16px]  ml-5 sm:text-[35px] mt-2 sm:ml-96 sm:pl-72 ">
             I'm a full-stack web developer.
