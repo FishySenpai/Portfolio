@@ -2,8 +2,8 @@ import React from "react";
 
 const About = () => {
   return (
-    <div id="about" className=" text-neutral-200 flex flex-col">
-      <div className="pt-16  mx-auto mt-36 pb-5 text-[40px] text-neutral-300">
+    <div id="about" className=" text-neutral-200 flex flex-col  pb-36">
+      <div className="pt-16  mx-auto mt-36  pb-5 text-[40px] text-neutral-300">
         ABOUT
         <div className="w-32 h-[3px] bg-orange-600 mx-auto mt-1"></div>
       </div>
@@ -49,46 +49,46 @@ const About = () => {
         <div className="flex flex-col ml-40 text-lg space-y-12 text-neutral-200 text ">
           <div className="text-2xl font-bold">Skills</div>
           <div className="flex flex-row space-x-5">
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               HTML
             </div>
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               CSS
             </div>
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               TailwindCss
             </div>
 
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               Bootstrap
             </div>
           </div>
 
           <div className="flex flex-row space-x-5">
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               JavaScript
             </div>
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               Reactjs
             </div>
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               Firebase
             </div>
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               Nodejs
             </div>
           </div>
           <div className="flex flex-row space-x-5">
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               MySql
             </div>
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               Postgresql
             </div>
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               Git
             </div>
-            <div className="px-4 py-3 bg-[#297c74] rounded shadow-md shadow-[#212121] w-fit ">
+            <div className="px-4 py-3 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200  w-fit ">
               GitHub
             </div>
           </div>

@@ -73,7 +73,7 @@ const Projects = () => {
 
   return (
     <div id="projects" className="flex flex-col">
-      <div className="pt-16  mx-auto mt-36 pb-5 text-[40px] text-neutral-300">
+      <div className="pt-16 mx-auto  pb-5 text-[40px] text-neutral-300">
         PROJECTS
         <div className="w-32 h-[3px] bg-orange-600 mx-auto mt-1"></div>
       </div>
@@ -88,7 +88,7 @@ const Projects = () => {
         <div className=" grid grid-cols-2 justify-center">
           {projects.map((project, index) => (
             <div>
-              <div className="relative group mb-10 mr-10">
+              <div className="relative group mb-8 mr-10">
                 <div className="bg-[#DDDDDD] flex justify-between z-30 py-0.5">
                   <div className="flex">
                     <svg
@@ -109,7 +109,7 @@ const Projects = () => {
                   <img src={titleBar} alt="" className="" />
                 </div>
                 <div
-                  className="group w-[550px] h-[330px] rounded-sm overflow-hidden"
+                  className="group w-[550px] h-[310px] rounded-sm overflow-hidden"
                   onMouseOver={() => handleMouseOver(index)}
                   onMouseOut={() => handleMouseOut(index)}
                   onClick={() => handleProjectClick(project)}
@@ -117,17 +117,17 @@ const Projects = () => {
                   <a
                     href="https://attirenova.netlify.app/"
                     target="_blank"
-                    className={`w-[550px] h-[330px] relative overflow-hidden`}
+                    className={`w-[550px] h-[310px] relative overflow-hidden`}
                   >
                     <img
-                      className={`w-full h-[330px] rounded-sm  ${
+                      className={`w-full h-[310px] rounded-sm  ${
                         hoveredStates[index] ? "" : ""
                       }`}
                       src={project.imageUrl}
                       alt="Image description"
                     />
                     <div
-                      className={`absolute inset-0 z-10  overflow-hidden w-[550px] h-[330px] ${
+                      className={`absolute inset-0 z-10  overflow-hidden w-[550px] h-[310px] ${
                         hoveredStates[index]
                           ? "bg-neutral-900 bg-opacity-80 absolute top-0 duration-300"
                           : "bg-neutral-900 bg-opacity-80 absolute -top-[330px] duration-300  "
