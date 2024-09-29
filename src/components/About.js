@@ -39,7 +39,7 @@ useEffect(() => {
       className=" text-neutral-200 flex flex-col  pb-36 "
       ref={aboutRef}
     >
-      <div className="pt-16 mx-auto mt-36 pb-5">
+      <div className="pt-16 mx-auto mt-36 pb-5 text-center">
         <div
           className={`text-[40px] text-neutral-300 transition-transform duration-1000 ease-out ${
             isVisible
@@ -54,6 +54,10 @@ useEffect(() => {
             isVisible ? "translate-x-0 opacity-100" : "translate-x-40 opacity-0"
           }`}
         ></div>
+        <div className="pt-5 text-lg text-neutral-200">
+          Here you will find more information about me, what I do, and my
+          current skills mostly in terms of programming and technology
+        </div>
       </div>
       <div className={`flex flex-row mt-10 `}>
         <div
@@ -65,13 +69,11 @@ useEffect(() => {
         >
           <p>
             As a dedicated{" "}
-            <strong className="text-neutral-200">Full Stack Developer</strong>,
+            <strong className="text-neutral-300">Full Stack Developer</strong>,
             I specialize in creating robust and user-friendly websites and web
             applications by seamlessly integrating both frontend and backend
-            technologies. My expertise extends from crafting engaging user
-            interfaces to architecting and optimizing scalable server-side
-            solutions. The
-            <strong className="text-neutral-200"> Projects</strong> section
+            technologies. The
+            <strong className="text-neutral-300"> Projects</strong> section
             showcases some of my notable achievements, providing a glimpse into
             the comprehensive skill set I bring to every project.
           </p>
@@ -79,13 +81,16 @@ useEffect(() => {
           <p>
             Beyond the code, I am committed to fostering knowledge-sharing
             within the dynamic developer community. Connect with me on
-            <a href="#" className="underline text-purple-300">
+            <a
+              href="#"
+              className="underline text-orange-500 font-[300] leading-relaxed "
+            >
               {" "}
               LinkedIn
             </a>
             , where I consistently share content spanning a wide array of topics
             related to{" "}
-            <strong className="text-neutral-200">
+            <strong className="text-neutral-300">
               Full Stack Development
             </strong>{" "}
             and Programming.
@@ -96,7 +101,10 @@ useEffect(() => {
             that allow me to contribute holistically, continuously learn, and
             foster personal and professional growth. If you have an exciting
             opportunity that aligns with my skills and experiences, don't
-            hesitate to <strong className="text-neutral-200">contact</strong>{" "}
+            hesitate to{" "}
+            <strong className="text-orange-500 font-[300] leading-relaxed underline">
+              contact
+            </strong>{" "}
             me. Let's collaborate and create something extraordinary together!
           </p>
         </div>
