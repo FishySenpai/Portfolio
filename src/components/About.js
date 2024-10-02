@@ -59,7 +59,7 @@ useEffect(() => {
           current skills mostly in terms of programming and technology
         </div>
       </div>
-      <div className={`flex flex-row mt-10 `}>
+      <div className={`flex flex-row mt-5 `}>
         <div
           className={`text-lg secondary-color w-[600px] ml-96 transition-transform duration-1000 ease-out delay-150 ${
             isVisible
@@ -67,45 +67,46 @@ useEffect(() => {
               : "-translate-x-20 opacity-0"
           }`}
         >
+          <div className="text-2xl font-bold mb-5">Get to know me!</div>
           <p>
-            As a dedicated{" "}
+            I'm a passionate{" "}
             <strong className="text-neutral-300">Full Stack Developer</strong>,
-            I specialize in creating robust and user-friendly websites and web
-            applications by seamlessly integrating both frontend and backend
-            technologies. The
-            <strong className="text-neutral-300"> Projects</strong> section
-            showcases some of my notable achievements, providing a glimpse into
-            the comprehensive skill set I bring to every project.
+            focused on building functional and user-friendly websites and web
+            apps that blend both frontend and backend technologies. You can
+            check out some of my{" "}
+            <a
+              href="#projects"
+              className="text-orange-500 font-[300] leading-relaxed underline scroll-smooth"
+            >
+              {" "}
+              Projects
+            </a>{" "}
+            on GitHub to see what I've been working on.
           </p>
           <br />
           <p>
-            Beyond the code, I am committed to fostering knowledge-sharing
-            within the dynamic developer community. Connect with me on
+            Though I don’t post much, feel free to connect with me on{" "}
             <a
               href="#"
-              className="underline text-orange-500 font-[300] leading-relaxed "
+              className="underline text-orange-500 font-[300] leading-relaxed mr-1"
             >
               {" "}
               LinkedIn
             </a>
-            , where I consistently share content spanning a wide array of topics
-            related to{" "}
-            <strong className="text-neutral-300">
-              Full Stack Development
-            </strong>{" "}
-            and Programming.
+             I’m always open to chatting about{" "}
+            <strong className="text-neutral-300">Full Stack Development</strong>
+            , new tech, and programming.
           </p>
           <br />
           <p>
-            Actively seeking new opportunities, I am enthusiastic about roles
-            that allow me to contribute holistically, continuously learn, and
-            foster personal and professional growth. If you have an exciting
-            opportunity that aligns with my skills and experiences, don't
-            hesitate to{" "}
+            Right now, I’m actively looking for new{" "}
+            <strong className="text-neutral-300">Job</strong>{" "}
+            opportunities that let me grow, learn, and make an impact. If you’re
+            hiring or have a cool project in mind, I’d love to{" "}
             <strong className="text-orange-500 font-[300] leading-relaxed underline">
               contact
             </strong>{" "}
-            me. Let's collaborate and create something extraordinary together!
+            with you. Let’s create something awesome together!
           </p>
         </div>
         <div
