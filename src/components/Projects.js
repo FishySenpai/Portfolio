@@ -63,7 +63,7 @@ const Projects = () => {
         setVisibleProjects((prev) =>
           prev < projects.length ? prev + 1 : prev
         );
-      }, 200);
+      }, 400);
 
       // Cleanup the interval on unmount
       return () => clearInterval(interval);
@@ -79,7 +79,7 @@ const Projects = () => {
           observer.disconnect(); // Stop observing after it becomes visible
         }
       },
-      { threshold: 0.01 } // Trigger when 50% of the section is visible
+      { threshold: 0.4 } // Trigger when 50% of the section is visible
     );
 
     if (projectsRef.current) {
@@ -134,7 +134,11 @@ const Projects = () => {
           }`}
         ></div>
       </div>
-      <div className="mx-auto pr-5 pb-8 max-w-[1160px] secondary-color">
+      <div
+        className={`mx-auto pr-5 pb-8 max-w-[1160px] secondary-color transition-transform duration-[0.7s] ease-out delay-200  ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        }`}
+      >
         From Web Components and UI/UX animations to React.JS, Redux, Vue.JS, and
         Node.JS. Check out my latest web software development portfolio
         projects.
@@ -144,7 +148,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={` transition-opacity duration-700 transform ${
+              className={` transition-opacity duration-[1s] transform ${
                 index < visibleProjects
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
