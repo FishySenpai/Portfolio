@@ -44,6 +44,39 @@ const Home = () => {
     };
   }, []);
 
+  const text = `A A passionate and results-driven web developer with a focus on creating 
+  responsive and user-friendly digital experiences. Whether you're a startup looking to establish an online presence 
+  or an enterprise seeking to enhance your web applications, I'm here to turn your ideas into reality.`;
+  const [displayedText, setDisplayedText] = useState("");
+  const [isBlinking, setIsBlinking] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
+
+  useEffect(() => {
+    const typingDelay = 1500; // Delay before starting to type
+    const typeSpeed = 30; // Typing speed
+    let index = 0;
+
+    const startTyping = () => {
+      const interval = setInterval(() => {
+        if (index < text.length - 1) {
+          setDisplayedText((prev) => prev + text[index]);
+          index++;
+        } else {
+          clearInterval(interval); // Stop the interval when all characters are typed
+          setIsBlinking(true); // Start blinking after text is fully displayed
+        }
+      }, typeSpeed); // Adjust typing speed by changing the interval time
+    };
+
+    const typingTimeout = setTimeout(() => {
+      startTyping(); // Start typing after the delay
+      setIsStarted(true);
+    }, typingDelay);
+
+    return () => {
+      clearTimeout(typingTimeout); // Cleanup timeout on component unmount
+    };
+  }, [text]);
   return (
     <div
       id="home"
@@ -52,29 +85,27 @@ const Home = () => {
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div className="w-full flex flex-col">
         <div className="header-typing mx-auto flex flex-col justify-center mt-54 sm:mt-80 ">
-          <p className="flex flex-row text-[30px]  sm:text-[45px] text-center max-w-[490px]">
+          <p className="flex flex-row text-[30px]  sm:text-[45px] text-center max-w-[495px]">
             Hello, I'm
             <div className=" text-orange-600 pl-3">Noman Basit.</div>
           </p>
-          <p className="text-[16px] sm:text-[35px] mt-2  text-center max-w-[490px]">
+          <p className="text-[16px] sm:text-[35px] mt-2  text-center max-w-[495px]">
             I'm a full-stack web developer.
           </p>
         </div>
-        <div className="css-typing text-lg mx-auto mt-4 secondary-color max-w-[1133px]">
-          <p>
-            A passionate and results-driven web developer with a focus on
-            creating
-            <strong className="text-white"> responsive</strong> and
-            user-friendly digital experiences. Whether you're a
+        <div className="text-lg mx-auto px-4 mt-4 secondary-color w-[98%] xl:w-[1133px] min-h-[100px]">
+          <p className="typewriter-text">
+            {displayedText}
+            <p
+              className={`w-[2px] ${isStarted ? "cursor" : ""} ${
+                isBlinking ? "blinking" : ""
+              }`}
+            >
+              &nbsp;
+            </p>{" "}
+            {/* Cursor blinks after text is displayed */}
           </p>
-          <p>
-            startup looking to establish an online presence or an enterprise
-            seeking to enhance your web applications, I'm here to turn your
-            ideas into
-          </p>
-          <p>reality.</p>
         </div>
-
         <div className="pt-12 pb-4 text-[22px] space-x-4 flex flex-row justify-center mr-16  ">
           <button
             onClick={() => scrollToSection("projects")}
@@ -94,7 +125,7 @@ const Home = () => {
           </button>
         </div>
 
-        <div className="relative cursor-pointer z-50">
+        <div className="relative cursor-pointer z-50 hidden xl:block">
           <div className="fixed top-[394px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
             <svg
               xmlns="http://www.w3.org/2000/svg"

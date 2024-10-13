@@ -110,132 +110,6 @@ code {
   color: #c2c1c1;
 }
 
-.css-typing p {
-  border: none;
-  border-right: .15em solid rgb(234 88 12);
-  white-space: nowrap;
-  overflow: hidden;
-}
-.css-typing p:nth-child(1) {
-  width: 1130px;
-  opacity: 0;
-  -webkit-animation: type 1.5s steps(40, end);
-  animation: type 1.5s steps(40, end);
-  -webkit-animation-delay: 1.5s;
-  animation-delay: 1.5s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-.css-typing p:nth-child(2) {
-  width: 1130px;
-  opacity: 0;
-  -webkit-animation: type2 1.5s steps(40, end);
-  animation: type2 1.5s steps(40, end);
-  -webkit-animation-delay: 3s;
-  animation-delay: 3s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-.css-typing p:nth-child(3) {
-  width: 60px;
-  opacity: 0;
-  -webkit-animation: type3 0.1s steps(40, end), blink .5s step-end infinite alternate;
-  animation: type3 0.1s steps(20, end), blink .5s step-end infinite alternate;
-  -webkit-animation-delay: 4.5s;
-  animation-delay: 4.5s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-@keyframes type {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid rgb(234 88 12);
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@-webkit-keyframes type {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid rgb(234 88 12);
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@keyframes type2 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid rgb(234 88 12);
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@-webkit-keyframes type2 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid rgb(234 88 12);
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@keyframes type3 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes type3 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
 @keyframes blink {
   50% {
@@ -335,3 +209,41 @@ code {
     border: none;
   }
 }
+
+
+@keyframes typing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.typewriter-text span {
+  opacity: 0;
+  animation: typing 0.05s forwards;
+  animation-delay: calc(var(--char-index) * 0.05s);
+}
+
+.cursor {
+  display: inline-block;
+  border-right: 2px solid rgb(234 88 12); /* Cursor appearance */
+  opacity: 1;
+}
+
+.blinking {
+  display: inline-block;
+  border-right: 2px solid rgb(234 88 12); /* Cursor appearance */
+  animation: blink 0.75s step-end infinite; /* Apply blinking animation */
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent; /* Cursor becomes invisible */
+  }
+}
+
+
+
+
