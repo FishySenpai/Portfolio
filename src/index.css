@@ -110,7 +110,6 @@ code {
   color: #c2c1c1;
 }
 
-
 @keyframes blink {
   50% {
     border-color: transparent;
@@ -124,7 +123,7 @@ code {
 
 .header-typing p {
   border: none;
-  border-right: .15em solid rgb(234 88 12);
+  border-right: 0.15em solid rgb(234 88 12);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -155,7 +154,7 @@ code {
     opacity: 1;
   }
   99.9% {
-    border-right: .15em solid rgb(234 88 12);
+    border-right: 0.15em solid rgb(234 88 12);
   }
   100% {
     opacity: 1;
@@ -171,7 +170,7 @@ code {
     opacity: 1;
   }
   99.9% {
-    border-right: .15em solid rgb(234 88 12);
+    border-right: 0.15em solid rgb(234 88 12);
   }
   100% {
     opacity: 1;
@@ -186,7 +185,7 @@ code {
     opacity: 1;
   }
   99.9% {
-    border-right: .15em solid rgb(234 88 12);
+    border-right: 0.15em solid rgb(234 88 12);
   }
   100% {
     opacity: 1;
@@ -202,14 +201,13 @@ code {
     opacity: 1;
   }
   99.9% {
-    border-right: .15em solid rgb(234 88 12);
+    border-right: 0.15em solid rgb(234 88 12);
   }
   100% {
     opacity: 1;
     border: none;
   }
 }
-
 
 @keyframes typing {
   from {
@@ -243,7 +241,3 @@ code {
     border-color: transparent; /* Cursor becomes invisible */
   }
 }
-
-
-
-

@@ -44,39 +44,57 @@ const Home = () => {
     };
   }, []);
 
-  const text = `A A passionate and results-driven web developer with a focus on creating 
-  responsive and user-friendly digital experiences. Whether you're a startup looking to establish an online presence 
-  or an enterprise seeking to enhance your web applications, I'm here to turn your ideas into reality.`;
-  const [displayedText, setDisplayedText] = useState("");
-  const [isBlinking, setIsBlinking] = useState(false);
-  const [isStarted, setIsStarted] = useState(false);
+const text = `A passionate and results-driven web developer with a focus on creating 
+<b class="text-white">responsive</b> and user-friendly digital experiences. Whether you're a startup looking to establish an online presence 
+or an enterprise seeking to enhance your web applications, I'm here to turn your ideas into reality.`;
+const [displayedText, setDisplayedText] = useState("");
+const [isBlinking, setIsBlinking] = useState(false);
+const [isStarted, setIsStarted] = useState(false);
 
-  useEffect(() => {
-    const typingDelay = 1500; // Delay before starting to type
-    const typeSpeed = 30; // Typing speed
-    let index = 0;
+useEffect(() => {
+  const typingDelay = 1500; // Delay before starting to type
+  const typeSpeed = 30; // Normal typing speed
+  const boldTypeSpeed = 10; // Faster typing speed for bold content
+  let index = 0;
+  let isInBold = false;
 
-    const startTyping = () => {
-      const interval = setInterval(() => {
-        if (index < text.length - 1) {
-          setDisplayedText((prev) => prev + text[index]);
-          index++;
+  const startTyping = () => {
+    const interval = setInterval(
+      () => {
+        if (index < text.length) {
+          const currentChar = text[index];
+
+          // Check if starting or ending bold tags
+          if (text.slice(index, index + 3) === "<b>") {
+            isInBold = true;
+            setDisplayedText((prev) => prev + "<b class='text-white'>");
+            index += 17; // Skip the "<b class='text-white'>" characters
+          } else if (text.slice(index, index + 4) === "</b>") {
+            isInBold = false;
+            setDisplayedText((prev) => prev + "</b>");
+            index += 4; // Skip the "</b>" characters
+          } else {
+            setDisplayedText((prev) => prev + currentChar);
+            index++;
+          }
         } else {
           clearInterval(interval); // Stop the interval when all characters are typed
           setIsBlinking(true); // Start blinking after text is fully displayed
         }
-      }, typeSpeed); // Adjust typing speed by changing the interval time
-    };
+      },
+      isInBold ? boldTypeSpeed : typeSpeed
+    ); // Adjust typing speed based on bold state
+  };
 
-    const typingTimeout = setTimeout(() => {
-      startTyping(); // Start typing after the delay
-      setIsStarted(true);
-    }, typingDelay);
+  const typingTimeout = setTimeout(() => {
+    startTyping(); // Start typing after the delay
+    setIsStarted(true);
+  }, typingDelay);
 
-    return () => {
-      clearTimeout(typingTimeout); // Cleanup timeout on component unmount
-    };
-  }, [text]);
+  return () => {
+    clearTimeout(typingTimeout); // Cleanup timeout on component unmount
+  };
+}, [text]);
   return (
     <div
       id="home"
@@ -95,7 +113,7 @@ const Home = () => {
         </div>
         <div className="text-lg mx-auto px-4 mt-4 secondary-color w-[98%] xl:w-[1133px] min-h-[100px]">
           <p className="typewriter-text">
-            {displayedText}
+            <span dangerouslySetInnerHTML={{ __html: displayedText }} />
             <p
               className={`w-[2px] ${isStarted ? "cursor" : ""} ${
                 isBlinking ? "blinking" : ""
