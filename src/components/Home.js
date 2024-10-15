@@ -102,12 +102,12 @@ useEffect(() => {
     >
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div className="w-full flex flex-col">
-        <div className="header-typing mx-auto flex flex-col justify-center mt-54 sm:mt-80 ">
-          <p className="flex flex-row text-[30px]  sm:text-[45px] text-center max-w-[495px]">
+        <div className="header-typing sm:mx-auto flex flex-col justify-center items-center mt-72  sm:mt-80 ">
+          <p className="flex flex-row text-[36px]  sm:text-[45px] text-center max-w-fit sm:max-w-[495px]">
             Hello, I'm
             <div className=" text-orange-600 pl-3">Noman Basit.</div>
           </p>
-          <p className="text-[16px] sm:text-[35px] mt-2  text-center max-w-[495px]">
+          <p className="text-[28px] sm:text-[35px] mt-2  text-center max-w-fit sm:max-w-[495px]">
             I'm a full-stack web developer.
           </p>
         </div>
