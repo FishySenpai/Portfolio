@@ -50,7 +50,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-[#383838] text-white p-3 py-5 font-semibold text-lg">
-        <div className="flex flex-row space-x-12 justify-end mr-32">
+        <div className="flex flex-row space-x-6 2sm:space-x-12 2sm:justify-end 2sm:mr-32">
           <NavLink
             to="/"
             onClick={() => scrollToSection("home")}

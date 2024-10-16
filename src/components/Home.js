@@ -103,16 +103,16 @@ useEffect(() => {
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div className="w-full flex flex-col">
         <div className="header-typing sm:mx-auto flex flex-col justify-center items-center mt-72  sm:mt-80 ">
-          <p className="flex flex-row text-[36px]  sm:text-[45px] text-center max-w-fit sm:max-w-[495px]">
+          <p className="flex flex-row text-[30px]  sm:text-[45px] text-center max-w-fit sm:max-w-[495px]">
             Hello, I'm
             <div className=" text-orange-600 pl-3">Noman Basit.</div>
           </p>
-          <p className="text-[28px] sm:text-[35px] mt-2  text-center max-w-fit sm:max-w-[495px]">
+          <p className="text-[22px] sm:text-[35px] mt-2  text-center max-w-fit sm:max-w-[495px]">
             I'm a full-stack web developer.
           </p>
         </div>
         <div className="text-lg mx-auto px-4 mt-4 secondary-color w-[98%] xl:w-[1133px] min-h-[100px]">
-          <p className="typewriter-text">
+          <p className="typewriter-text text-center w-full">
             <span dangerouslySetInnerHTML={{ __html: displayedText }} />
             <p
               className={`w-[2px] ${isStarted ? "cursor" : ""} ${

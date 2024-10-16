@@ -122,7 +122,7 @@ const Contact = () => {
       </div>
       {/* Form Section */}
       <div
-        className={`w-full mx-auto lg:max-w-3xl transform transition-all duration-[0.7s] ${scale}`}
+        className={` mx-auto w-[90%] 1md:w-[800px] transform transition-all duration-[0.7s] ${scale}`}
       >
         <form ref={formRef} onSubmit={handleSubmit}>
           {/* Username Input */}
