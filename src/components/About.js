@@ -122,7 +122,7 @@ const About = () => {
           </div>
         </div>
         <div
-          className={`flex flex-col w-fit mt-10 lg:mt-0 lg:ml-20 xl:ml-40 text-lg space-y-12 text-neutral-200 transition-transform duration-1000 ease-out delay-150 ${
+          className={`flex flex-col w-fit mt-10 lg:mt-0 lg:ml-20 xl:ml-24 text-lg space-y-12 text-neutral-200 transition-transform duration-1000 ease-out delay-150 ${
             isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
           }`}
         >

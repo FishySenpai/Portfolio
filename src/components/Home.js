@@ -45,7 +45,7 @@ const Home = () => {
   }, []);
 
 const text = `A passionate and results-driven web developer with a focus on creating 
-<b class="text-white">responsive</b> and user-friendly digital experiences. Whether you're a startup looking to establish an online presence 
+<b >responsive</b> and user-friendly digital experiences. Whether you're a startup looking to establish an online presence 
 or an enterprise seeking to enhance your web applications, I'm here to turn your ideas into reality.`;
 const [displayedText, setDisplayedText] = useState("");
 const [isBlinking, setIsBlinking] = useState(false);
@@ -67,7 +67,7 @@ useEffect(() => {
           // Check if starting or ending bold tags
           if (text.slice(index, index + 3) === "<b>") {
             isInBold = true;
-            setDisplayedText((prev) => prev + "<b class='text-white'>");
+            setDisplayedText((prev) => prev + "<b>");
             index += 17; // Skip the "<b class='text-white'>" characters
           } else if (text.slice(index, index + 4) === "</b>") {
             isInBold = false;
@@ -112,7 +112,7 @@ useEffect(() => {
           </p>
         </div>
         <div className="text-lg mx-auto px-4 mt-4 secondary-color w-[98%] xl:w-[1133px] min-h-[100px]">
-          <p className="typewriter-text text-center w-full">
+          <p className="typewriter-text ">
             <span dangerouslySetInnerHTML={{ __html: displayedText }} />
             <p
               className={`w-[2px] ${isStarted ? "cursor" : ""} ${
@@ -129,11 +129,11 @@ useEffect(() => {
             onClick={() => scrollToSection("projects")}
             className="p-3 relative px-10 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 font-semibold rounded-sm  group hover-effect"
           >
-            <p>View Projects</p>
+            <p className="text-xl">View Projects</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 384 512"
-              className="h-[23px] w-[23px] mt-2 ml-2 -rotate-90 transition-transform duration-300 transform group-hover:rotate-0"
+              className="h-[20px] w-[20px] mt-1.5 ml-2 -rotate-90 transition-transform duration-300 transform group-hover:rotate-0"
             >
               <path
                 d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
@@ -176,7 +176,7 @@ useEffect(() => {
         </div>
       </div>
       <div
-        className="fixed bottom-10 right-20 bg-white rounded-full px-4 py-3 z-50"
+        className="fixed bottom-10 right-20 bg-white rounded-full px-4 py-3 z-50 hidden"
         onClick={() => {
           resetScroll();
         }}
