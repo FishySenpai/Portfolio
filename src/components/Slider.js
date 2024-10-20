@@ -87,7 +87,7 @@ const Slider = ({ children }) => {
       ));
 
       return [
-        <li key={children.length + 1} className={styles.Slide}>
+        <li key={children.length + 1} className={`max-w-fit ${styles.Slide}`}>
           {children[children.length - 1]}
         </li>,
         ...items,
@@ -106,10 +106,10 @@ const Slider = ({ children }) => {
   }, []);
 
   return (
-    <section className={styles.Root}>
+    <section className={` slider_Root w-full h-[300px] sm:h-[400px]`}>
       <ul
         ref={containerRef}
-        className={styles.Container}
+        className={`${styles.Container}`}
         style={{
           transform: `translate3d(${-translateX}px, 0, 0)`,
         }}
@@ -122,12 +122,10 @@ const Slider = ({ children }) => {
           className="absolute top-[170px] -left-8 w-[90px] h-[90px] z-50"
         />
       </button>
-      <button
-        onClick={() => actionHandler("next")}
-      >
+      <button onClick={() => actionHandler("next")}>
         <img
           src={arrowRight}
-          className="absolute top-[170px] -right-8  sm:right-[110px] md:right-[110px]  lg:-right-8 w-[90px] h-[90px]"
+          className="absolute top-[170px] -right-8  w-[90px] h-[90px]"
         />
       </button>
     </section>

@@ -12,25 +12,25 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
   if (project) {
     return (
       <div
-        className={`fixed inset-0  h-full bg-neutral-800/60 z-50 transition-opacity duration-500 
+        className={`fixed inset-0  h-full bg-neutral-800/60 z-50 transition-opacity duration-500  
           ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
         {/* Modal Content Wrapper */}
         <div
           ref={projectModalRef}
-          className={`bg-[#2F2F2F] top-16 relative md:mx-auto w-full sm:w-[700px] shadow-xl rounded transform transition-all duration-500 
+          className={`bg-[#2F2F2F] top-32 sm:top-16 relative md:mx-auto w-full 1sm:w-[700px] shadow-xl rounded transform transition-all duration-500 
             ${
               showModal ? "scale-100 opacity-100" : "scale-50 opacity-0"
             } mx-auto`}
         >
-          <div className="border-b-[3px] border-neutral-600">
+          <div className="border-b-[3px] border-neutral-600 w-full 1sm:w-[700px] ">
             <Slider>
               {project?.images.map((imgSrc, index) => (
                 <img
                   key={index}
                   src={imgSrc}
                   alt={`Image ${index + 1}`}
-                  style={{ width: "100%", height: "100%" }}
+                  className="w-full h-full overflow-hidden"
                 />
               ))}
             </Slider>

@@ -10,7 +10,7 @@ import {
 
 function App() {
   return (
-    <div className="App overflow-hidden">
+    <div className="App">
       <Navbar />
       <Routes>
         <Route
