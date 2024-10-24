@@ -135,7 +135,7 @@ const Projects = () => {
         ></div>
       </div>
       <div
-        className={`mx-auto pr-5 pb-8 max-w-[1160px] secondary-color transition-transform duration-[0.7s] ease-out delay-200  ${
+        className={`mx-auto pr-5 pb-8 max-w-[1160px] text-center secondary-color transition-transform duration-[0.2s] ease-out delay-200  ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
       >
@@ -148,7 +148,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={` transition-opacity duration-[1s] transform ${
+              className={` transition-opacity duration-[0.5s] transform ${
                 index < visibleProjects
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -221,7 +221,6 @@ const Projects = () => {
                           <li key={index} className="tag-animation">
                             <div className="px-4 py-2 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit">
                               {tech}
-                              {console.log(tech)}
                             </div>
                           </li>
                         ))}
@@ -237,6 +236,7 @@ const Projects = () => {
               </div>
             </div>
           ))}
+
           <ProjectModal
             project={selectedProject}
             showModal={showModal}

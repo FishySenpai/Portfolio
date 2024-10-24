@@ -1,29 +1,36 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import useOutsideClick from "./useOutsideClick";
 import Slider from "./Slider";
 
 const ProjectModal = ({ project, showModal, setShowModal }) => {
   const projectModalRef = useRef(null);
+  const [modalScale, setModalScale] = useState("scale-50 opacity-0");
 
   useOutsideClick(projectModalRef, () => {
     setShowModal(false);
   });
 
+  useEffect(() => {
+    if (showModal) {
+      setModalScale("scale-100 opacity-100");
+    } else {
+      setModalScale("scale-50 opacity-0");
+    }
+  }, [showModal]);
+
   if (project) {
     return (
       <div
-        className={`fixed inset-0  h-full bg-neutral-800/60 z-50 transition-opacity duration-500  
+        className={`fixed inset-0 h-full bg-neutral-800/60 z-50 transition-opacity duration-500  
           ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
         {/* Modal Content Wrapper */}
         <div
           ref={projectModalRef}
           className={`bg-[#2F2F2F] top-32 sm:top-16 relative md:mx-auto w-full 1sm:w-[700px] shadow-xl rounded transform transition-all duration-500 
-            ${
-              showModal ? "scale-100 opacity-100" : "scale-50 opacity-0"
-            } mx-auto`}
+            ${modalScale} mx-auto`}
         >
-          <div className="border-b-[3px] border-neutral-600 w-full 1sm:w-[700px] ">
+          <div className="border-b-[3px] border-neutral-600 w-full 1sm:w-[700px]">
             <Slider>
               {project?.images.map((imgSrc, index) => (
                 <img
@@ -36,22 +43,19 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
             </Slider>
           </div>
           <div className="px-4 pt-2">
-            <h3 className="md:text-xl text-base font-[600] text-neutral-200  text-left">
+            <h3 className="md:text-xl text-base font-[600] text-neutral-200 text-left">
               {project.projectName}
             </h3>
-            <p className=" text-[16px] secondary-color">
+            <p className="text-[16px] secondary-color">
               {project.projectDescription}
             </p>
-            <h3 className="md:text-xl text-base font-[600] text-left my-1 text-neutral-200 ">
+            <h3 className="md:text-xl text-base font-[600] text-left my-1 text-neutral-200">
               Technologies
             </h3>
-
             <ul className="text-[16px] secondary-color">
-              <div className="">
-                Cool Technologies I used to create this project.
-              </div>
+              <div>Cool Technologies I used to create this project.</div>
               {project.technologies.map((tech, index) => (
-                <li className="flex flex-row " key={index}>
+                <li className="flex flex-row" key={index}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="6"

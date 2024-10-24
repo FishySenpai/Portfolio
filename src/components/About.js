@@ -64,7 +64,9 @@ const About = () => {
             isVisible ? "translate-x-0 opacity-100" : "translate-x-40 opacity-0"
           }`}
         ></div>
-        <div className="pt-5 text-lg text-neutral-200">
+        <div className={`mx-auto text-lg pt-5 pr-5 max-w-[1160px] text-center secondary-color transition-transform duration-[0.2s] ease-out delay-200  ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        }`}>
           Here you will find more information about me, what I do, and my
           current skills mostly in terms of programming and technology.
         </div>
