@@ -103,29 +103,65 @@ useEffect(() => {
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div className="w-full flex flex-col">
         <div className="sm:mx-auto flex flex-col justify-center items-center mt-72  sm:mt-80 ">
-          <div className="header-typing ">
-            <p className="flex flex-row text-[30px]  sm:text-[45px] text-left max-w-fit sm:max-w-[495px]">
+          <div className=" ">
+            <p className="flex flex-row text-[30px]  sm:text-[45px] text-left max-w-fit sm:max-w-[495px] header-typing header-1">
               Hello, I'm
               <div className=" text-orange-600 pl-3">Fishy Senpai.</div>
             </p>
-            <p className="text-[22px] sm:text-[35px] mt-2 text-left  max-w-fit sm:max-w-[495px]">
+            <p className="text-[22px] sm:text-[35px] mt-2 text-left  max-w-fit sm:max-w-[495px] header-typing header-2">
               I'm a full-stack web developer.
             </p>
           </div>
         </div>
-        <div className="text-lg mx-auto px-4 mt-4 secondary-color w-[98%] xl:w-[1133px] min-h-[100px] justify-between">
-          <p className="typewriter-text ">
-            <span dangerouslySetInnerHTML={{ __html: displayedText }} />
-            <p
-              className={`w-[2px] ${isStarted ? "cursor" : ""} ${
-                isBlinking ? "blinking" : ""
-              }`}
-            >
-              &nbsp;
-            </p>{" "}
-            {/* Cursor blinks after text is displayed */}
-          </p>
+        <div className="">
+          <div className="flex flex-col text-lg px-4 mt-4 secondary-color">
+            <div className="mx-auto min-w-[1100px]">
+              <p className="header-typing header-3 ">
+                A passionate and results-driven web developer with a focus on
+                creating{" "}
+                <b
+                  className="text-white"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  responsive
+                </b>{" "}
+                and user-friendly digital experiences. Whether
+              </p>
+            </div>
+            <div className="mx-auto min-w-[1100px]">
+              <p className="header-typing header-3 ">
+                you're a startup looking to establish an online presence or an
+                enterprise seeking to enhance your web applications, I'm here to
+                turn
+              </p>
+            </div>
+            {/* <div className="mx-auto min-w-[450px]">
+              <p className="header-typing header-4">
+                <b
+                  className="text-white"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  responsive
+                </b>{" "}
+                and user-friendly digital experiences.
+              </p>
+            </div>
+            <div className="mx-auto min-w-[560px]">
+              <p className="header-typing header-5">
+                Whether you're a startup looking to establish an online presence{" "}
+              </p>
+            </div>
+            <div className="mx-auto min-w-[500px]">
+              <p className="header-typing header-6">
+                or an enterprise seeking to enhance your web applications,{" "}
+              </p>
+            </div> */}
+            <div className="mx-auto min-w-[250px]">
+              <p className="header-typing header-7">your ideas into reality.</p>
+            </div>
+          </div>
         </div>
+
         <div className="pt-12 pb-4 text-[22px] space-x-4 flex flex-row justify-center mr-16  ">
           <button
             onClick={() => scrollToSection("projects")}
