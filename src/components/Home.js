@@ -4,6 +4,12 @@ import gmail from "./Assets/gmail.png";
 import bg from "./Assets/bg.jpg";
 const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
+  const [animate, setAnimate] = useState(true);
+
+  useEffect(() => {
+    // Set the animation to false after the first load
+    setAnimate(false);
+  }, []);
   const scrollToSection = (sectionId) => {
     const targetSection = document.getElementById(sectionId);
 
@@ -44,57 +50,57 @@ const Home = () => {
     };
   }, []);
 
-const text = `A passionate and results-driven web developer with a focus on creating 
+  const text = `A passionate and results-driven web developer with a focus on creating 
 <b >responsive</b> and user-friendly digital experiences. Whether you're a startup looking to establish an online presence 
 or an enterprise seeking to enhance your web applications, I'm here to turn your ideas into reality.`;
-const [displayedText, setDisplayedText] = useState("");
-const [isBlinking, setIsBlinking] = useState(false);
-const [isStarted, setIsStarted] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isBlinking, setIsBlinking] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
 
-useEffect(() => {
-  const typingDelay = 1500; // Delay before starting to type
-  const typeSpeed = 30; // Normal typing speed
-  const boldTypeSpeed = 10; // Faster typing speed for bold content
-  let index = 0;
-  let isInBold = false;
+  useEffect(() => {
+    const typingDelay = 1500; // Delay before starting to type
+    const typeSpeed = 30; // Normal typing speed
+    const boldTypeSpeed = 10; // Faster typing speed for bold content
+    let index = 0;
+    let isInBold = false;
 
-  const startTyping = () => {
-    const interval = setInterval(
-      () => {
-        if (index < text.length) {
-          const currentChar = text[index];
+    const startTyping = () => {
+      const interval = setInterval(
+        () => {
+          if (index < text.length) {
+            const currentChar = text[index];
 
-          // Check if starting or ending bold tags
-          if (text.slice(index, index + 3) === "<b>") {
-            isInBold = true;
-            setDisplayedText((prev) => prev + "<b>");
-            index += 17; // Skip the "<b class='text-white'>" characters
-          } else if (text.slice(index, index + 4) === "</b>") {
-            isInBold = false;
-            setDisplayedText((prev) => prev + "</b>");
-            index += 4; // Skip the "</b>" characters
+            // Check if starting or ending bold tags
+            if (text.slice(index, index + 3) === "<b>") {
+              isInBold = true;
+              setDisplayedText((prev) => prev + "<b>");
+              index += 17; // Skip the "<b class='text-white'>" characters
+            } else if (text.slice(index, index + 4) === "</b>") {
+              isInBold = false;
+              setDisplayedText((prev) => prev + "</b>");
+              index += 4; // Skip the "</b>" characters
+            } else {
+              setDisplayedText((prev) => prev + currentChar);
+              index++;
+            }
           } else {
-            setDisplayedText((prev) => prev + currentChar);
-            index++;
+            clearInterval(interval); // Stop the interval when all characters are typed
+            setIsBlinking(true); // Start blinking after text is fully displayed
           }
-        } else {
-          clearInterval(interval); // Stop the interval when all characters are typed
-          setIsBlinking(true); // Start blinking after text is fully displayed
-        }
-      },
-      isInBold ? boldTypeSpeed : typeSpeed
-    ); // Adjust typing speed based on bold state
-  };
+        },
+        isInBold ? boldTypeSpeed : typeSpeed
+      ); // Adjust typing speed based on bold state
+    };
 
-  const typingTimeout = setTimeout(() => {
-    startTyping(); // Start typing after the delay
-    setIsStarted(true);
-  }, typingDelay);
+    const typingTimeout = setTimeout(() => {
+      startTyping(); // Start typing after the delay
+      setIsStarted(true);
+    }, typingDelay);
 
-  return () => {
-    clearTimeout(typingTimeout); // Cleanup timeout on component unmount
-  };
-}, [text]);
+    return () => {
+      clearTimeout(typingTimeout); // Cleanup timeout on component unmount
+    };
+  }, [text]);
   return (
     <div
       id="home"
@@ -115,25 +121,58 @@ useEffect(() => {
         </div>
         <div className="">
           <div className="flex flex-col text-lg px-4 mt-4 secondary-color">
-            <div className="mx-auto min-w-[1100px]">
-              <p className="header-typing header-3 ">
-                A passionate and results-driven web developer with a focus on
-                creating{" "}
-                <b
-                  className="text-white"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  responsive
-                </b>{" "}
-                and user-friendly digital experiences. Whether
-              </p>
+            <div className="hidden 3lg:block mx-auto">
+              <div className="mx-auto min-w-[1100px]">
+                <p className={`${animate ? "header-typing header-3 " : ""}`}>
+                  A passionate and results-driven web developer with a focus on
+                  creating{" "}
+                  <b
+                    className="text-white"
+                    onClick={() => scrollToSection("contact")}
+                  >
+                    responsive
+                  </b>{" "}
+                  and user-friendly digital experiences. Whether
+                </p>
+              </div>
+              <div className="mx-auto min-w-[1100px]">
+                <p className={` ${animate ? "header-typing header-3" : ""}`}>
+                  you're a startup looking to establish an online presence or an
+                  enterprise seeking to enhance your web applications, I'm here
+                  to turn
+                </p>
+              </div>
+              <div className="mx-auto min-w-[250px]">
+                <p className={` ${animate ? "header-typing header-7" : ""}`}>
+                  your ideas into reality.
+                </p>
+              </div>
             </div>
-            <div className="mx-auto min-w-[1100px]">
-              <p className="header-typing header-3 ">
-                you're a startup looking to establish an online presence or an
-                enterprise seeking to enhance your web applications, I'm here to
-                turn
-              </p>
+            <div className="block 3lg:hidden">
+              <div className="mx-auto min-w-[1100px]">
+                <p className={` ${animate ? "header-typing header-3" : ""}`}>
+                  A passionate and results-driven web developer with a focus on
+                  creating{" "}
+                  <b
+                    className="text-white"
+                    onClick={() => scrollToSection("contact")}
+                  >
+                    responsive
+                  </b>{" "}
+                  and user-friendly digital experiences. Whether
+                </p>
+              </div>
+              <div className="mx-auto min-w-[1100px]">
+                <p className={` ${animate ? "header-typing header-3" : ""}`}>
+                  you're a startup looking to establish an online presence or an
+                  enterprise seeking to enhance your web applications,
+                </p>
+              </div>
+              <div className="mx-auto min-w-[250px]">
+                <p className={` ${animate ? "header-typing header-7" : ""}`}>
+                  I'm here to turn your ideas into reality.
+                </p>
+              </div>
             </div>
             {/* <div className="mx-auto min-w-[450px]">
               <p className="header-typing header-4">
