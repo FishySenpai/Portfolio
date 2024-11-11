@@ -4,12 +4,17 @@ import gmail from "./Assets/gmail.png";
 import bg from "./Assets/bg.jpg";
 const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
-  const [animate, setAnimate] = useState(true);
+  const [animate, setAnimate] = useState(false);
 
-  useEffect(() => {
-    // Set the animation to false after the first load
-    setAnimate(false);
-  }, []);
+useEffect(() => {
+  // Set a timeout to delay setting the animation to false
+  const timeout = setTimeout(() => {
+    setAnimate(true);
+  }, 7000); // 1000ms = 1 second
+
+  return () => clearTimeout(timeout);
+}, []);
+
   const scrollToSection = (sectionId) => {
     const targetSection = document.getElementById(sectionId);
 
@@ -50,57 +55,7 @@ const Home = () => {
     };
   }, []);
 
-  const text = `A passionate and results-driven web developer with a focus on creating 
-<b >responsive</b> and user-friendly digital experiences. Whether you're a startup looking to establish an online presence 
-or an enterprise seeking to enhance your web applications, I'm here to turn your ideas into reality.`;
-  const [displayedText, setDisplayedText] = useState("");
-  const [isBlinking, setIsBlinking] = useState(false);
-  const [isStarted, setIsStarted] = useState(false);
 
-  useEffect(() => {
-    const typingDelay = 1500; // Delay before starting to type
-    const typeSpeed = 30; // Normal typing speed
-    const boldTypeSpeed = 10; // Faster typing speed for bold content
-    let index = 0;
-    let isInBold = false;
-
-    const startTyping = () => {
-      const interval = setInterval(
-        () => {
-          if (index < text.length) {
-            const currentChar = text[index];
-
-            // Check if starting or ending bold tags
-            if (text.slice(index, index + 3) === "<b>") {
-              isInBold = true;
-              setDisplayedText((prev) => prev + "<b>");
-              index += 17; // Skip the "<b class='text-white'>" characters
-            } else if (text.slice(index, index + 4) === "</b>") {
-              isInBold = false;
-              setDisplayedText((prev) => prev + "</b>");
-              index += 4; // Skip the "</b>" characters
-            } else {
-              setDisplayedText((prev) => prev + currentChar);
-              index++;
-            }
-          } else {
-            clearInterval(interval); // Stop the interval when all characters are typed
-            setIsBlinking(true); // Start blinking after text is fully displayed
-          }
-        },
-        isInBold ? boldTypeSpeed : typeSpeed
-      ); // Adjust typing speed based on bold state
-    };
-
-    const typingTimeout = setTimeout(() => {
-      startTyping(); // Start typing after the delay
-      setIsStarted(true);
-    }, typingDelay);
-
-    return () => {
-      clearTimeout(typingTimeout); // Cleanup timeout on component unmount
-    };
-  }, [text]);
   return (
     <div
       id="home"
@@ -110,20 +65,20 @@ or an enterprise seeking to enhance your web applications, I'm here to turn your
       <div className="w-full flex flex-col">
         <div className="sm:mx-auto flex flex-col justify-center items-center mt-72  sm:mt-80 ">
           <div className=" ">
-            <p className="flex flex-row text-[30px]  sm:text-[45px] text-left max-w-fit sm:max-w-[495px] header-typing header-1">
+            <p className="flex flex-row text-[30px] 4sm:text-[40px]  1sm:text-[45px] text-left max-w-fit sm:max-w-[440px] 1sm:max-w-[495px] header-typing header-1">
               Hello, I'm
               <div className=" text-orange-600 pl-3">Fishy Senpai.</div>
             </p>
-            <p className="text-[22px] sm:text-[35px] mt-2 text-left  max-w-fit sm:max-w-[495px] header-typing header-2">
+            <p className="text-[22px] 4sm:text-[30px]  1sm:text-[35px] mt-2 text-left  max-w-fit sm:max-w-[420px] 1sm:max-w-[495px] header-typing header-2">
               I'm a full-stack web developer.
             </p>
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col text-lg px-4 mt-4 secondary-color">
+          <div className="flex flex-col text-[17px] leading-[28px] 1sm:text-lg px-4 mt-4 secondary-color">
             <div className="hidden 3lg:block mx-auto">
               <div className="mx-auto min-w-[1100px]">
-                <p className={`${animate ? "header-typing header-3 " : ""}`}>
+                <p className={`${animate ? "" : "header-typing header-3 "}`}>
                   A passionate and results-driven web developer with a focus on
                   creating{" "}
                   <b
@@ -136,21 +91,21 @@ or an enterprise seeking to enhance your web applications, I'm here to turn your
                 </p>
               </div>
               <div className="mx-auto min-w-[1100px]">
-                <p className={` ${animate ? "header-typing header-3" : ""}`}>
+                <p className={` ${animate ? "" : "header-typing header-3"}`}>
                   you're a startup looking to establish an online presence or an
                   enterprise seeking to enhance your web applications, I'm here
                   to turn
                 </p>
               </div>
-              <div className="mx-auto min-w-[250px]">
-                <p className={` ${animate ? "header-typing header-7" : ""}`}>
+              <div className="mx-auto min-w-[250px] max-w-[250px]">
+                <p className={` ${animate ? "" : "header-typing header-7"}`}>
                   your ideas into reality.
                 </p>
               </div>
             </div>
-            <div className="block 3lg:hidden">
-              <div className="mx-auto min-w-[1100px]">
-                <p className={` ${animate ? "header-typing header-3" : ""}`}>
+            <div className="hidden 1sm:block 3lg:hidden">
+              <div className="mx-auto min-w-[700px] max-w-[700px]">
+                <p className={` ${animate ? "" : "header-typing header-4"}`}>
                   A passionate and results-driven web developer with a focus on
                   creating{" "}
                   <b
@@ -159,44 +114,132 @@ or an enterprise seeking to enhance your web applications, I'm here to turn your
                   >
                     responsive
                   </b>{" "}
-                  and user-friendly digital experiences. Whether
                 </p>
               </div>
-              <div className="mx-auto min-w-[1100px]">
-                <p className={` ${animate ? "header-typing header-3" : ""}`}>
-                  you're a startup looking to establish an online presence or an
-                  enterprise seeking to enhance your web applications,
+              <div className="mx-auto min-w-[700px] max-w-[700px]">
+                <p className={` ${animate ? "" : "header-typing header-5"}`}>
+                  and user-friendly digital experiences. Whether you're a
+                  startup looking to establish
                 </p>
               </div>
-              <div className="mx-auto min-w-[250px]">
-                <p className={` ${animate ? "header-typing header-7" : ""}`}>
+              <div className="mx-auto min-w-[700px] max-w-[700px]">
+                <p className={` ${animate ? "" : "header-typing header-6"}`}>
+                  an online presence or an enterprise seeking to enhance your
+                  web applications,
+                </p>
+              </div>
+              <div className="mx-auto min-w-[250px] max-w-[400px]">
+                <p className={` ${animate ? "" : "header-typing header-7"}`}>
                   I'm here to turn your ideas into reality.
                 </p>
               </div>
             </div>
-            {/* <div className="mx-auto min-w-[450px]">
-              <p className="header-typing header-4">
-                <b
-                  className="text-white"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  responsive
-                </b>{" "}
-                and user-friendly digital experiences.
-              </p>
+            <div className="hidden sm:block 1sm:hidden">
+              <div className="mx-auto min-w-[500px] max-w-[500px]">
+                <p className={` ${animate ? "" : "header-typing header-8"}`}>
+                  A passionate and results-driven web developer with a focus on{" "}
+                </p>
+              </div>
+              <div className="mx-auto min-w-[580px] max-w-[580px]">
+                <p className={` ${animate ? "" : "header-typing header-9"}`}>
+                  creating{" "}
+                  <b
+                    className="text-white"
+                    onClick={() => scrollToSection("contact")}
+                  >
+                    responsive
+                  </b>{" "}
+                  and user-friendly digital experiences. Whether you're
+                </p>
+              </div>
+              <div className="mx-auto min-w-[550px] max-w-[400px]">
+                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                  a startup looking to establish an online presence or an
+                  enterprise
+                </p>
+              </div>
+              <div className="mx-auto min-w-[250px] max-w-[320px]">
+                <p className={` ${animate ? "" : "header-typing header-7"}`}>
+                  I'm here to turn your ideas into reality.
+                </p>
+              </div>
             </div>
-            <div className="mx-auto min-w-[560px]">
-              <p className="header-typing header-5">
-                Whether you're a startup looking to establish an online presence{" "}
-              </p>
+            <div className="hidden 4sm:block sm:hidden">
+              <div className="mx-auto min-w-[370px] max-w-[370px]">
+                <p className={` ${animate ? "" : "header-typing header-8"}`}>
+                  A passionate and results-driven web developer
+                </p>
+              </div>
+              <div className="mx-auto min-w-[450px] max-w-[470px]">
+                <p className={` ${animate ? "" : "header-typing header-9"}`}>
+                  with a focus on creating{" "}
+                  <b
+                    className="text-white"
+                    onClick={() => scrollToSection("contact")}
+                  >
+                    responsive
+                  </b>{" "}
+                  and user-friendly digital
+                </p>
+              </div>
+              <div className="mx-auto min-w-[450px] max-w-[458px]">
+                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                  experiences. Whether you're a startup looking to establish
+                </p>
+              </div>
+              <div className="mx-auto min-w-[400px] max-w-[420px]">
+                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                  an online presence or an enterprise I'm here to turn
+                </p>
+              </div>
+              <div className="mx-auto min-w-[200px] max-w-[200px]">
+                <p className={` ${animate ? "" : "header-typing header-7"}`}>
+                  your ideas into reality.
+                </p>
+              </div>
             </div>
-            <div className="mx-auto min-w-[500px]">
-              <p className="header-typing header-6">
-                or an enterprise seeking to enhance your web applications,{" "}
-              </p>
-            </div> */}
-            <div className="mx-auto min-w-[250px]">
-              <p className="header-typing header-7">your ideas into reality.</p>
+            <div className="block 4sm:hidden">
+              <div className="mx-auto min-w-[290px] max-w-[290px]">
+                <p className={` ${animate ? "" : "header-typing header-8"}`}>
+                  A passionate and results-driven web
+                </p>
+              </div>
+              <div className="mx-auto min-w-[290px] max-w-[290px]">
+                <p className={` ${animate ? "" : "header-typing header-9"}`}>
+                  developer with a focus on creating{" "}
+                </p>
+              </div>
+              <div className="mx-auto min-w-[290px] max-w-[290px]">
+                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                  <b
+                    className="text-white"
+                    onClick={() => scrollToSection("contact")}
+                  >
+                    responsive
+                  </b>{" "}
+                  and user-friendly digital
+                </p>
+              </div>
+              <div className="mx-auto min-w-[290px] max-w-[320px]">
+                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                  experiences. Whether you're a startup
+                </p>
+              </div>
+              <div className="mx-auto min-w-[290px] max-w-[320px]">
+                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                  looking to establish an online presence
+                </p>
+              </div>
+              <div className="mx-auto min-w-[290px] max-w-[290px]">
+                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                  or an enterprise I'm here to turn
+                </p>
+              </div>
+              <div className="mx-auto min-w-[200px] max-w-[200px]">
+                <p className={` ${animate ? "" : "header-typing header-7"}`}>
+                  your ideas into reality.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -25,21 +25,21 @@
 }
 
 .header-4 {
-  width: 450px; /* Adjust width as needed */
+  width: 700px; /* Adjust width as needed */
   opacity: 0;
   animation: headertype 1s steps(40, end) forwards;
   animation-delay: 3s; /* Start after 3s delay */
 }
 
 .header-5 {
-  width: 560px; /* Adjust width as needed */
+  width: 700px; /* Adjust width as needed */
   opacity: 0;
   animation: headertype 1s steps(40, end) forwards;
   animation-delay: 4s; /* Start after 4s delay */
 }
 
 .header-6 {
-  width: 500px; /* Adjust width as needed */
+  width: 700px; /* Adjust width as needed */
   opacity: 0;
   animation: headertype 1s steps(40, end) forwards;
   animation-delay: 5s; /* Start after 3s delay */
@@ -50,6 +50,24 @@
   opacity: 0;
   animation: headertype 1s steps(40, end) forwards;
   animation-delay: 6s; /* Start after 4s delay */
+}
+.header-8 {
+  width: 500px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1s steps(40, end) forwards;
+  animation-delay: 5s; /* Start after 3s delay */
+}
+.header-9 {
+  width: 500px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1s steps(40, end) forwards;
+  animation-delay: 5s; /* Start after 3s delay */
+}
+.header-10 {
+  width: 500px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1s steps(40, end) forwards;
+  animation-delay: 5s; /* Start after 3s delay */
 }
 
 @keyframes headertype {

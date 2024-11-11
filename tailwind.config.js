@@ -12,6 +12,7 @@ export default {
         "1sm": "720px",
         "2sm": "565px",
         "3sm": "360px",
+        "4sm":"520px",
       },
     },
   },
