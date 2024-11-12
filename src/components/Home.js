@@ -199,9 +199,9 @@ useEffect(() => {
               </div>
             </div>
             <div className="block 4sm:hidden">
-              <div className="mx-auto min-w-[290px] max-w-[290px]">
+              <div className="mx-auto min-w-[300px] max-w-[320px]">
                 <p className={` ${animate ? "" : "header-typing header-8"}`}>
-                  A passionate and results-driven web
+                  A passionate and results-driven website
                 </p>
               </div>
               <div className="mx-auto min-w-[290px] max-w-[290px]">
@@ -209,7 +209,7 @@ useEffect(() => {
                   developer with a focus on creating{" "}
                 </p>
               </div>
-              <div className="mx-auto min-w-[290px] max-w-[290px]">
+              <div className="mx-auto min-w-[310px] max-w-[330px]">
                 <p className={` ${animate ? "" : "header-typing header-10"}`}>
                   <b
                     className="text-white"
@@ -217,27 +217,22 @@ useEffect(() => {
                   >
                     responsive
                   </b>{" "}
-                  and user-friendly digital
+                  and user-friendly experiences.
                 </p>
               </div>
-              <div className="mx-auto min-w-[290px] max-w-[320px]">
+              <div className="mx-auto min-w-[250px] max-w-[270px]">
                 <p className={` ${animate ? "" : "header-typing header-10"}`}>
-                  experiences. Whether you're a startup
-                </p>
-              </div>
-              <div className="mx-auto min-w-[290px] max-w-[320px]">
-                <p className={` ${animate ? "" : "header-typing header-10"}`}>
-                  looking to establish an online presence
+                  Whether you are a startup looking
                 </p>
               </div>
               <div className="mx-auto min-w-[290px] max-w-[290px]">
                 <p className={` ${animate ? "" : "header-typing header-10"}`}>
-                  or an enterprise I'm here to turn
+                  to establish an online presence or an
                 </p>
               </div>
-              <div className="mx-auto min-w-[200px] max-w-[200px]">
-                <p className={` ${animate ? "" : "header-typing header-7"}`}>
-                  your ideas into reality.
+              <div className="mx-auto min-w-[290px] max-w-[320px]">
+                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                  enterprise I will make your ideas reality.
                 </p>
               </div>
             </div>
