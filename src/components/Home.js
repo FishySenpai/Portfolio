@@ -77,7 +77,7 @@ useEffect(() => {
         <div className="">
           <div className="flex flex-col text-[17px] leading-[28px] 1sm:text-lg px-4 mt-4 secondary-color">
             <div className="hidden 3lg:block mx-auto">
-              <div className="mx-auto min-w-[1100px]">
+              <div className="mx-auto min-w-[1080px] max-w-[1080px]">
                 <p className={`${animate ? "" : "header-typing header-3 "}`}>
                   A passionate and results-driven web developer with a focus on
                   creating{" "}
@@ -90,16 +90,16 @@ useEffect(() => {
                   and user-friendly digital experiences. Whether
                 </p>
               </div>
-              <div className="mx-auto min-w-[1100px]">
-                <p className={` ${animate ? "" : "header-typing header-3"}`}>
-                  you're a startup looking to establish an online presence or an
-                  enterprise seeking to enhance your web applications, I'm here
-                  to turn
+              <div className="mx-auto min-w-[1070px] max-w-[1070px]">
+                <p className={` ${animate ? "" : "header-typing header-4"}`}>
+                  you are a startup looking to establish an online presence or
+                  an enterprise seeking to enhance your web applications, I'm
+                  here to
                 </p>
               </div>
-              <div className="mx-auto min-w-[250px] max-w-[250px]">
-                <p className={` ${animate ? "" : "header-typing header-7"}`}>
-                  your ideas into reality.
+              <div className="mx-auto min-w-[230px] max-w-[230px]">
+                <p className={` ${animate ? "" : "header-typing header-5"}`}>
+                  turn your ideas into reality.
                 </p>
               </div>
             </div>
