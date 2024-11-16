@@ -6,14 +6,14 @@ const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [animate, setAnimate] = useState(false);
 
-useEffect(() => {
-  // Set a timeout to delay setting the animation to false
-  const timeout = setTimeout(() => {
-    setAnimate(true);
-  }, 7000); // 1000ms = 1 second
+  useEffect(() => {
+    // Set a timeout to delay setting the animation to false
+    const timeout = setTimeout(() => {
+      setAnimate(true);
+    }, 8000); // 1000ms = 1 second
 
-  return () => clearTimeout(timeout);
-}, []);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const targetSection = document.getElementById(sectionId);
@@ -55,7 +55,6 @@ useEffect(() => {
     };
   }, []);
 
-
   return (
     <div
       id="home"
@@ -65,17 +64,17 @@ useEffect(() => {
       <div className="w-full flex flex-col">
         <div className="sm:mx-auto flex flex-col justify-center items-center mt-72  sm:mt-80 ">
           <div className=" ">
-            <p className="flex flex-row text-[30px] 4sm:text-[40px]  1sm:text-[45px] text-left max-w-fit sm:max-w-[440px] 1sm:max-w-[495px] header-typing header-1">
+            <p className="flex flex-row text-[30px] 4sm:text-[40px] 1sm:text-[45px] text-left max-w-[327px] w-[327px] 4sm:max-w-[435px] 4sm:w-[435px] 2sm:max-w-[440px] 2sm:w-[440px] 1sm:max-w-[490px] 1sm:w-[490px] header-typing header-1">
               Hello, I'm
               <div className=" text-orange-600 pl-3">Fishy Senpai.</div>
             </p>
-            <p className="text-[22px] 4sm:text-[30px]  1sm:text-[35px] mt-2 text-left  max-w-fit sm:max-w-[420px] 1sm:max-w-[495px] header-typing header-2">
+            <p className="text-[22px] 4sm:text-[30px]  1sm:text-[35px] mt-2 text-left  max-w-fit sm:max-w-[420px] 1sm:max-w-[495px] w-[600px] header-typing header-2">
               I'm a full-stack web developer.
             </p>
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col text-[17px] leading-[28px] 1sm:text-lg px-4 mt-4 secondary-color">
+          <div className="flex flex-col text-[17px] leading-[28px] 1sm:text-lg mt-4 secondary-color">
             <div className="hidden 3lg:block mx-auto">
               <div className="mx-auto min-w-[1080px] max-w-[1080px]">
                 <p className={`${animate ? "" : "header-typing header-3 "}`}>
@@ -104,8 +103,8 @@ useEffect(() => {
               </div>
             </div>
             <div className="hidden 1sm:block 3lg:hidden">
-              <div className="mx-auto min-w-[700px] max-w-[700px]">
-                <p className={` ${animate ? "" : "header-typing header-4"}`}>
+              <div className="mx-auto min-w-[690px] max-w-[690px]">
+                <p className={` ${animate ? "" : "header-typing header-6"}`}>
                   A passionate and results-driven web developer with a focus on
                   creating{" "}
                   <b
@@ -116,32 +115,40 @@ useEffect(() => {
                   </b>{" "}
                 </p>
               </div>
-              <div className="mx-auto min-w-[700px] max-w-[700px]">
-                <p className={` ${animate ? "" : "header-typing header-5"}`}>
+              <div className="mx-auto min-w-[690px] max-w-[690px]">
+                <p className={` ${animate ? "" : "header-typing header-7"}`}>
                   and user-friendly digital experiences. Whether you're a
                   startup looking to establish
                 </p>
               </div>
-              <div className="mx-auto min-w-[700px] max-w-[700px]">
-                <p className={` ${animate ? "" : "header-typing header-6"}`}>
+              <div className="mx-auto min-w-[660px] max-w-[660px]">
+                <p className={` ${animate ? "" : "header-typing header-8"}`}>
                   an online presence or an enterprise seeking to enhance your
-                  web applications,
+                  web applications.
                 </p>
               </div>
-              <div className="mx-auto min-w-[250px] max-w-[400px]">
-                <p className={` ${animate ? "" : "header-typing header-7"}`}>
+              <div className="mx-auto min-w-[320px] max-w-[320px]">
+                <p className={` ${animate ? "" : "header-typing header-9"}`}>
                   I'm here to turn your ideas into reality.
                 </p>
               </div>
             </div>
             <div className="hidden sm:block 1sm:hidden">
               <div className="mx-auto min-w-[500px] max-w-[500px]">
-                <p className={` ${animate ? "" : "header-typing header-8"}`}>
+                <p
+                  className={` ${
+                    animate ? "" : "w-[500px] header-typing header-10"
+                  }`}
+                >
                   A passionate and results-driven web developer with a focus on{" "}
                 </p>
               </div>
               <div className="mx-auto min-w-[580px] max-w-[580px]">
-                <p className={` ${animate ? "" : "header-typing header-9"}`}>
+                <p
+                  className={` ${
+                    animate ? "" : "w-[580px] header-typing header-11"
+                  }`}
+                >
                   creating{" "}
                   <b
                     className="text-white"
@@ -152,26 +159,42 @@ useEffect(() => {
                   and user-friendly digital experiences. Whether you're
                 </p>
               </div>
-              <div className="mx-auto min-w-[550px] max-w-[400px]">
-                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+              <div className="mx-auto min-w-[520px] max-w-[520px]">
+                <p
+                  className={` ${
+                    animate ? "" : "w-[520px] header-typing header-12"
+                  }`}
+                >
                   a startup looking to establish an online presence or an
                   enterprise
                 </p>
               </div>
-              <div className="mx-auto min-w-[250px] max-w-[320px]">
-                <p className={` ${animate ? "" : "header-typing header-7"}`}>
+              <div className="mx-auto min-w-[310px] max-w-[310px]">
+                <p
+                  className={` ${
+                    animate ? "blinking" : "w-[310px] header-typing header-13"
+                  }`}
+                >
                   I'm here to turn your ideas into reality.
                 </p>
               </div>
             </div>
             <div className="hidden 4sm:block sm:hidden">
               <div className="mx-auto min-w-[370px] max-w-[370px]">
-                <p className={` ${animate ? "" : "header-typing header-8"}`}>
+                <p
+                  className={` ${
+                    animate ? "" : "w-[370px] header-typing header-14"
+                  }`}
+                >
                   A passionate and results-driven web developer
                 </p>
               </div>
-              <div className="mx-auto min-w-[450px] max-w-[470px]">
-                <p className={` ${animate ? "" : "header-typing header-9"}`}>
+              <div className="mx-auto min-w-[470px] max-w-[470px]">
+                <p
+                  className={` ${
+                    animate ? "" : "w-[470px] header-typing header-15"
+                  }`}
+                >
                   with a focus on creating{" "}
                   <b
                     className="text-white"
@@ -182,35 +205,59 @@ useEffect(() => {
                   and user-friendly digital
                 </p>
               </div>
-              <div className="mx-auto min-w-[450px] max-w-[458px]">
-                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+              <div className="mx-auto min-w-[458px] max-w-[458px]">
+                <p
+                  className={` ${
+                    animate ? "" : "w-[458px] header-typing header-16"
+                  }`}
+                >
                   experiences. Whether you're a startup looking to establish
                 </p>
               </div>
-              <div className="mx-auto min-w-[400px] max-w-[420px]">
-                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+              <div className="mx-auto min-w-[420px] max-w-[420px]">
+                <p
+                  className={` ${
+                    animate ? "" : "w-[420px] header-typing header-17"
+                  }`}
+                >
                   an online presence or an enterprise I'm here to turn
                 </p>
               </div>
-              <div className="mx-auto min-w-[200px] max-w-[200px]">
-                <p className={` ${animate ? "" : "header-typing header-7"}`}>
+              <div className="mx-auto min-w-[180px] max-w-[180px]">
+                <p
+                  className={` ${
+                    animate ? "blinking" : "w-[180px] header-typing header-18"
+                  }`}
+                >
                   your ideas into reality.
                 </p>
               </div>
             </div>
             <div className="block 4sm:hidden">
-              <div className="mx-auto min-w-[300px] max-w-[320px]">
-                <p className={` ${animate ? "" : "header-typing header-8"}`}>
+              <div className="mx-auto min-w-[320px] max-w-[320px]">
+                <p
+                  className={` ${
+                    animate ? "" : "w-[320px] header-typing header-19"
+                  }`}
+                >
                   A passionate and results-driven website
                 </p>
               </div>
               <div className="mx-auto min-w-[290px] max-w-[290px]">
-                <p className={` ${animate ? "" : "header-typing header-9"}`}>
+                <p
+                  className={` ${
+                    animate ? "" : "w-[290px] header-typing header-20"
+                  }`}
+                >
                   developer with a focus on creating{" "}
                 </p>
               </div>
-              <div className="mx-auto min-w-[310px] max-w-[330px]">
-                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+              <div className="mx-auto min-w-[330px] max-w-[330px]">
+                <p
+                  className={` ${
+                    animate ? "" : "w-[330px] header-typing header-21"
+                  }`}
+                >
                   <b
                     className="text-white"
                     onClick={() => scrollToSection("contact")}
@@ -220,18 +267,30 @@ useEffect(() => {
                   and user-friendly experiences.
                 </p>
               </div>
-              <div className="mx-auto min-w-[250px] max-w-[270px]">
-                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+              <div className="mx-auto min-w-[270px] max-w-[270px]">
+                <p
+                  className={` ${
+                    animate ? "" : "w-[270px] header-typing header-22"
+                  }`}
+                >
                   Whether you are a startup looking
                 </p>
               </div>
               <div className="mx-auto min-w-[290px] max-w-[290px]">
-                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+                <p
+                  className={` ${
+                    animate ? "" : "w-[290px] header-typing header-23"
+                  }`}
+                >
                   to establish an online presence or an
                 </p>
               </div>
-              <div className="mx-auto min-w-[290px] max-w-[320px]">
-                <p className={` ${animate ? "" : "header-typing header-10"}`}>
+              <div className="mx-auto min-w-[320px] max-w-[320px]">
+                <p
+                  className={` ${
+                    animate ? "blinking" : "w-[320px] header-typing header-24"
+                  }`}
+                >
                   enterprise I will make your ideas reality.
                 </p>
               </div>
@@ -239,7 +298,7 @@ useEffect(() => {
           </div>
         </div>
 
-        <div className="pt-12 pb-4 text-[22px] space-x-4 flex flex-row justify-center mr-16  ">
+        <div className="pt-12 pb-4 text-[22px] space-x-4 flex flex-row justify-center  ">
           <button
             onClick={() => scrollToSection("projects")}
             className="p-3 relative px-10 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 font-semibold rounded-sm  group hover-effect"

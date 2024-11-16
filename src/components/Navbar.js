@@ -49,8 +49,13 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      <div className="bg-[#383838] text-white p-3 py-5 font-semibold text-lg">
-        <div className="flex flex-row space-x-6 2sm:space-x-12 2sm:justify-end 2sm:mr-32">
+      <div className="bg-[#383838] text-white p-3 py-5 font-semibold text-lg flex flex-row justify-between ">
+        <div className=" h-[30px] text-md flex ml-44">
+          <img src="logo3.png" alt="" className=" h-[30px] mt-0.5 w-full " />
+          <img src="logo4.png" alt="" className=" h-[35px]  w-full " />
+          {/* <p>NOMANBASIT</p> */}
+        </div>
+        <div className="flex flex-row space-x-6 2sm:space-x-12 2sm:justify-end 2sm:mr-32 ">
           <NavLink
             to="/"
             onClick={() => scrollToSection("home")}
