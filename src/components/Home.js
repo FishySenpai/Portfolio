@@ -66,7 +66,7 @@ const Home = () => {
           <div className=" ">
             <p className="flex flex-row text-[30px] 4sm:text-[40px] 1sm:text-[45px] text-left max-w-[327px] w-[327px] 4sm:max-w-[435px] 4sm:w-[435px] 2sm:max-w-[440px] 2sm:w-[440px] 1sm:max-w-[490px] 1sm:w-[490px] header-typing header-1">
               Hello, I'm
-              <div className=" text-orange-600 pl-3">Fishy Senpai.</div>
+              <div className=" text-orange-600 pl-3">Noman Basit.</div>
             </p>
             <p className="text-[22px] 4sm:text-[30px]  1sm:text-[35px] mt-2 text-left  max-w-fit sm:max-w-[420px] 1sm:max-w-[495px] w-[600px] header-typing header-2">
               I'm a full-stack web developer.

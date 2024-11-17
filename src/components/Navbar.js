@@ -3,7 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   const scrollToSection = (sectionId) => {
     setActiveLink(sectionId);
     const targetSection = document.getElementById(sectionId);
@@ -50,12 +54,12 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-[#383838] text-white p-3 py-5 font-semibold text-lg flex flex-row justify-between ">
-        <div className=" h-[30px] text-md flex ml-44">
+        <div className=" h-[30px] text-md flex ml-[2%] 1md:ml-[5%] lg:ml-[10%]">
           <img src="logo3.png" alt="" className=" h-[30px] mt-0.5 w-full " />
           <img src="logo4.png" alt="" className=" h-[35px]  w-full " />
           {/* <p>NOMANBASIT</p> */}
         </div>
-        <div className="flex flex-row space-x-6 2sm:space-x-12 2sm:justify-end 2sm:mr-32 ">
+        <div className="hidden 1sm:flex flex-row space-x-6 2sm:space-x-14 2sm:justify-end mr-10 1md:mr-20 lg:mr-28 ">
           <NavLink
             to="/"
             onClick={() => scrollToSection("home")}
@@ -108,6 +112,84 @@ const Navbar = () => {
               <span>Contact</span>
             </div>
           </NavLink>
+        </div>
+        <div className="relative 1sm:hidden text-black">
+          {/* Hamburger/X Icon */}
+          <button
+            onClick={toggleMenu}
+            className="flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none"
+          >
+            <div
+              className={`h-1 w-8 bg-[#FEFFFD] transition-transform duration-300 ${
+                isOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            ></div>
+            <div
+              className={`h-1 w-8 bg-[#FEFFFD] transition-opacity duration-300 ${
+                isOpen ? "opacity-0" : "opacity-100"
+              }`}
+            ></div>
+            <div
+              className={`h-1 w-8 bg-[#FEFFFD] transition-transform duration-300 ${
+                isOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            ></div>
+          </button>
+        </div>
+      </div>
+      <div className="relative overflow-hidden h-[400px] w-full">
+        {/* Dropdown Menu */}
+        <div
+          className={`absolute right-0 bg-[#383838] text-white p-3 pb-5 font-semibold text-lg text-center border-t-2 border-neutral-800 w-full  transform transition-transform duration-300 ${
+            isOpen ? "translate-y-0 opacity-100" : "-translate-y-44 opacity-0"
+          }`}
+        >
+          <ul className="py-2">
+            <NavLink
+              to="/"
+              onClick={() => {
+                scrollToSection("home");
+                setIsOpen(false);
+              }}
+            >
+              <li className="px-4 py-2 hover:bg-neutral-400 cursor-pointer">
+                Home
+              </li>
+            </NavLink>
+            <NavLink
+              to="/"
+              onClick={() => {
+                scrollToSection("about");
+                setIsOpen(false);
+              }}
+            >
+              <li className="px-4 py-2 hover:bg-neutral-400 cursor-pointer">
+                About
+              </li>
+            </NavLink>
+            <NavLink
+              to="/"
+              onClick={() => {
+                scrollToSection("projects");
+                setIsOpen(false);
+              }}
+            >
+              <li className="px-4 py-2 hover:bg-neutral-400 cursor-pointer">
+                Projects
+              </li>
+            </NavLink>
+            <NavLink
+              to="/"
+              onClick={() => {
+                scrollToSection("contact");
+                setIsOpen(false);
+              }}
+            >
+              <li className="px-4 py-2 hover:bg-neutral-400 cursor-pointer">
+                Contact
+              </li>
+            </NavLink>
+          </ul>
         </div>
       </div>
     </div>
