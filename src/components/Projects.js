@@ -202,7 +202,7 @@ const Projects = () => {
                       {" "}
                     </div>
                     <img
-                      className={`w-full h-full z-0 rounded-sm overflow-hidden   ${
+                      className={`w-[80%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  lg:w-[450px] 1md:w-[400px] 1md:h-[260px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] z-0 rounded-sm overflow-hidden   ${
                         hoveredStates[index]
                           ? "absolute top-0 duration-300"
                           : "absolute -top-[330px] duration-300  "
@@ -213,12 +213,12 @@ const Projects = () => {
                   </a>
                   <button
                     onClick={() => setShowModal(true)}
-                    className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0  rounded-sm w-[500px]"
+                    className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0 w-[80%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] rounded-sm"
                   >
                     <div className="flex flex-col items-center justify-center h-full">
-                      <ul className="flex flex-row space-x-5 font-bold text-[16px] text-slate-200 tag-list pt-28 pb-24">
+                      <ul className="flex flex-wrap items-center justify-center w-[80%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px]   font-bold text-[16px] text-slate-200 tag-list pt-28 pb-24">
                         {project.technologies.map((tech, index) => (
-                          <li key={index} className="tag-animation">
+                          <li key={index} className="tag-animation mr-5 mt-5">
                             <div className="px-4 py-2 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit">
                               {tech}
                             </div>
