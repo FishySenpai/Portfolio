@@ -216,17 +216,17 @@ const Projects = () => {
                     className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0 w-[80%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] rounded-sm"
                   >
                     <div className="flex flex-col items-center justify-center h-full">
-                      <ul className="flex flex-wrap items-center justify-center w-[80%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px]   font-bold text-[16px] text-slate-200 tag-list pt-28 pb-24">
+                      <ul className="flex flex-wrap items-center justify-center w-[400px] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] text-[16px] text-slate-200 tag-list py-8 2sm:py-12 1md:py-10 lg:py-14 xl:py-24">
                         {project.technologies.map((tech, index) => (
                           <li key={index} className="tag-animation mr-5 mt-5">
-                            <div className="px-4 py-2 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit">
+                            <div className="px-3 py-2 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 w-fit">
                               {tech}
                             </div>
                           </li>
                         ))}
                       </ul>
-                      <div className="details-animation font-bold text-[16px] text-slate-200 ">
-                        <div className="px-4 py-2 bg-[#444444] rounded shadow-md shadow-[#212121] w-fit">
+                      <div className="details-animation text-[16px] mr-5 text-slate-200  ">
+                        <div className="px-3 py-2 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 w-fit">
                           details..
                         </div>
                       </div>
