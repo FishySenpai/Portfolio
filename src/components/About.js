@@ -71,9 +71,9 @@ const About = () => {
           current skills mostly in terms of programming and technology.
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row mt-5 mx-auto px-4">
+      <div className="flex flex-col lg:flex-row pl-12 mt-5 mx-auto px-4">
         <div
-          className={`text-lg secondary-color w-full lg:w-[50%] xl:w-[600px] transition-transform duration-1000 ease-out delay-150 ${
+          className={`text-lg secondary-color w-full lg:w-[50%] xl:w-[580px] transition-transform duration-1000 ease-out delay-150 ${
             isVisible
               ? "translate-x-0 opacity-100"
               : "-translate-x-20 opacity-0"
@@ -132,7 +132,7 @@ const About = () => {
           {skills.map((row, rowIndex) => (
             <div
               key={rowIndex}
-              className="flex flex-wrap min-w-[300px] lg:max-w-[500px]"
+              className="flex flex-wrap min-w-[300px] lg:max-w-[488px]"
             >
               {row.map((skill, skillIndex) => (
                 <div

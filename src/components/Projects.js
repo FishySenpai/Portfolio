@@ -144,7 +144,7 @@ const Projects = () => {
         projects.
       </div>
       <div className="mx-auto max-w-[1250px]">
-        <div className=" grid grid-cols-1 1md:grid-cols-2 justify-center">
+        <div className=" grid grid-cols-1 1md:grid-cols-2 gap-12 justify-center ">
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -154,7 +154,7 @@ const Projects = () => {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <div className="relative group mb-8 1md:mr-10 ">
+              <div className="relative group ">
                 <div className="bg-[#DDDDDD] flex justify-between z-30 py-0.5 w-[96%]  2sm:w-[450px] sm:w-[450px]  1md:w-[400px]  lg:w-[450px]  xl:w-[550px] ">
                   <div className="flex">
                     <svg
