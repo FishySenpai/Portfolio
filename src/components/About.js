@@ -64,19 +64,23 @@ const About = () => {
             isVisible ? "translate-x-0 opacity-100" : "translate-x-40 opacity-0"
           }`}
         ></div>
-        <div className={`mx-auto text-lg pt-5 pr-5 max-w-[1160px] text-center secondary-color transition-transform duration-[0.2s] ease-out delay-200  ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}>
+        <div
+          className={`mx-auto text-lg pt-5 pr-5 max-w-[1160px] text-center secondary-color transition ease-in-out delay-200  ${
+            isVisible
+              ? "translate-y-0 opacity-100 duration-[1s]"
+              : "translate-y-10 opacity-0 duration-[1s]"
+          }`}
+        >
           Here you will find more information about me, what I do, and my
           current skills mostly in terms of programming and technology.
         </div>
       </div>
       <div className="flex flex-col lg:flex-row pl-12 mt-5 mx-auto px-4">
         <div
-          className={`text-lg secondary-color w-full lg:w-[50%] xl:w-[580px] transition-transform duration-1000 ease-out delay-150 ${
+          className={`text-lg secondary-color w-full lg:w-[50%] xl:w-[580px] transition  ease-in-out delay-200 ${
             isVisible
-              ? "translate-x-0 opacity-100"
-              : "-translate-x-20 opacity-0"
+              ? "translate-x-0 opacity-100 duration-1000"
+              : "-translate-x-20 opacity-0 duration-1000"
           }`}
         >
           <div className="text-2xl font-bold mb-5">Get to know me!</div>
@@ -124,7 +128,7 @@ const About = () => {
           </div>
         </div>
         <div
-          className={`flex flex-col w-fit mt-10 lg:mt-0 lg:ml-20 xl:ml-24 text-lg space-y-12 text-neutral-200 transition-transform duration-1000 ease-out delay-150 ${
+          className={`flex flex-col w-fit mt-10 lg:mt-0 lg:ml-20 xl:ml-24 text-lg space-y-12 text-neutral-200 transition duration-1000 ease-in-out delay-150 ${
             isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
           }`}
         >

@@ -135,20 +135,23 @@ const Projects = () => {
         ></div>
       </div>
       <div
-        className={`mx-auto pr-5 pb-8 max-w-[1160px] text-center secondary-color transition-transform duration-[0.2s] ease-out delay-200  ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        className={`mx-auto pr-5 pb-8 max-w-[1160px] text-center secondary-color transition ease-in-out delay-200 ${
+          isVisible
+            ? "translate-y-0 opacity-100 duration-[1s]"
+            : "translate-y-10 opacity-0 duration-[1s]"
         }`}
       >
         From Web Components and UI/UX animations to React.JS, Redux, Vue.JS, and
         Node.JS. Check out my latest web software development portfolio
         projects.
       </div>
+
       <div className="mx-auto max-w-[1250px]">
         <div className=" grid grid-cols-1 1md:grid-cols-2 gap-12 justify-center ">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={` transition-opacity duration-[0.5s] transform ${
+              className={` transition-opacity duration-[0.7s] transform ${
                 index < visibleProjects
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
