@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     userName: "",
     email: "",
     message: "",
   });
+  const [formErrors, setFormErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
@@ -21,10 +23,10 @@ const Contact = () => {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Stop observing after it becomes visible
+          observer.disconnect();
         }
       },
-      { threshold: 0.01 } // Trigger when 50% of the section is visible
+      { threshold: 0.01 }
     );
 
     if (contactRef.current) {
@@ -33,20 +35,21 @@ const Contact = () => {
 
     return () => {
       if (contactRef.current) {
-        observer.disconnect(); // Ensure the observer is disconnected on cleanup
+        observer.disconnect();
       }
     };
   }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setIsFormVisible(true);
-          observer.disconnect(); // Stop observing after it becomes visible
+          observer.disconnect();
         }
       },
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
+      { threshold: 0.5 }
     );
 
     if (formRef.current) {
@@ -55,45 +58,66 @@ const Contact = () => {
 
     return () => {
       if (formRef.current) {
-        observer.disconnect(); // Ensure the observer is disconnected on cleanup
+        observer.disconnect();
       }
     };
   }, []);
+
   useEffect(() => {
     if (isFormVisible) {
-      // Start at opacity 0 and scale 120%
       setScale("scale-[1.05] opacity-100");
-
-      // After opacity is fully transitioned, scale down to 100%
       setTimeout(() => {
         setScale("scale-100 opacity-100");
-      }, 700); // Adjust this duration to match the opacity transition time
+      }, 700);
     } else {
-      // When hidden, set scale to 50% and opacity to 0
       setScale("scale-50 opacity-0");
     }
   }, [isFormVisible]);
 
-  // Handle form data change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormErrors((prev) => ({ ...prev, [name]: "" })); // Clear error when user starts typing
   };
-  const form = useRef();
+
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.userName.trim()) {
+      errors.userName = "Username is required.";
+    }
+    if (!formData.email.trim()) {
+      errors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Email is invalid.";
+    }
+    if (!formData.message.trim()) {
+      errors.message = "Message is required.";
+    } else if (formData.message.length < 10) {
+      errors.message = "Message must be at least 10 characters long.";
+    }
+    return errors;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
 
     emailjs
       .sendForm(
         "service_f6yokj7",
         "template_dn8yhwa",
-        form.current,
+        formRef.current,
         "KiAU3CUZWGB6HPIP2"
       )
       .then(
         (result) => {
           console.log(result.text);
           setSuccess(true);
+          setFormData({ userName: "", email: "", message: "" });
         },
         (error) => {
           console.log(error.text);
@@ -120,12 +144,10 @@ const Contact = () => {
           }`}
         ></div>
       </div>
-      {/* Form Section */}
       <div
-        className={` mx-auto w-[90%] 1md:w-[800px] transform transition-all duration-[0.7s] ${scale}`}
+        className={`mx-auto w-[90%] 1md:w-[800px] transform transition-all duration-[0.7s] ${scale}`}
       >
         <form ref={formRef} onSubmit={handleSubmit}>
-          {/* Username Input */}
           <div className="mb-2">
             <label htmlFor="userName" className="text-[16px] text-white">
               Username
@@ -137,9 +159,11 @@ const Contact = () => {
               className="block w-full px-4 py-4 mt-2 border border-neutral-700 text-neutral-100 bg-neutral-800 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
               onChange={handleInputChange}
             />
+            {formErrors.userName && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.userName}</p>
+            )}
           </div>
 
-          {/* Email Input */}
           <div className="mb-2">
             <label htmlFor="email" className="text-[16px] text-white">
               Email
@@ -151,9 +175,11 @@ const Contact = () => {
               className="block w-full px-4 py-4 mt-2 border border-neutral-700 text-neutral-100 bg-neutral-800 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
               onChange={handleInputChange}
             />
+            {formErrors.email && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+            )}
           </div>
 
-          {/* Message Input */}
           <div className="mb-2">
             <label htmlFor="message" className="text-[16px] text-white">
               Message
@@ -164,9 +190,11 @@ const Contact = () => {
               className="w-full h-[220px] px-4 py-2 mt-2 border border-neutral-700 text-neutral-100 bg-neutral-800 rounded-md focus:border-neutral-400 focus:ring-neutral-100 focus:outline-none focus:ring focus:ring-opacity-40"
               onChange={handleInputChange}
             ></textarea>
+            {formErrors.message && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>
+            )}
           </div>
 
-          {/* Submit Button */}
           <div className="mt-6">
             <button className="w-full px-4 py-2 text-[16px] text-white bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 transition-colors">
               Send
