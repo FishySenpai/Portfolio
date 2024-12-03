@@ -137,12 +137,14 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <div className={`relative overflow-hidden h-[400px] w-full ${
-            isOpen ? "block" : "hidden"
-          }`}>
+      <div
+        className={`relative overflow-hidden w-full  ${
+          isOpen ? "h-[400px]" : "h-[0px] duration-300"
+        }`}
+      >
         {/* Dropdown Menu */}
         <div
-          className={`absolute right-0 bg-[#383838] text-white p-3 pb-5 font-semibold text-lg text-center border-t-2 border-neutral-800 w-full  transform transition-transform duration-300 ${
+          className={`absolute right-0 bg-[#383838] text-white p-3 pb-5 font-semibold text-lg text-center border-t-2 border-neutral-800 w-full transform transition-all  duration-300 ${
             isOpen ? "translate-y-0 opacity-100" : "-translate-y-44 opacity-0"
           }`}
         >

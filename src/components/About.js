@@ -75,7 +75,7 @@ const About = () => {
           current skills mostly in terms of programming and technology.
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row pl-12 mt-5 mx-auto px-4">
+      <div className="flex flex-col lg:flex-row lg:pl-12 mt-5 mx-auto px-4">
         <div
           className={`text-lg secondary-color w-full lg:w-[50%] xl:w-[580px] transition  ease-in-out delay-200 ${
             isVisible
