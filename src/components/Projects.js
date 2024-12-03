@@ -54,6 +54,7 @@ const Projects = () => {
   ];
   const [visibleProjects, setVisibleProjects] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [timeOut, setTimeOut] = useState(false);
   const projectsRef = useRef(null);
 
   useEffect(() => {
@@ -99,10 +100,20 @@ const Projects = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const handleProjectClick = (project) => {
+
+const handleProjectClick = (project) => {
+  if (window.innerWidth < 720) {
+    // Add 1-second delay for small screens
+    setTimeout(() => {
+      setSelectedProject(project);
+      setShowModal(true); // Show modal only after timeout
+    }, 1000);
+  } else {
+    // Immediately execute for larger screens
     setSelectedProject(project);
     setShowModal(true);
-  };
+  }
+};
 
   const handleMouseOver = (index) => {
     const updatedHoveredStates = [...hoveredStates];
@@ -147,7 +158,7 @@ const Projects = () => {
       </div>
 
       <div className="mx-auto max-w-[1250px]">
-        <div className=" grid grid-cols-1 1md:grid-cols-2 gap-12 justify-center ">
+        <div className=" grid grid-cols-1 1md:grid-cols-2 gap-9 4sm:gap-12 justify-center ">
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -156,9 +167,10 @@ const Projects = () => {
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
+              onClick={() => handleProjectClick(project)}
             >
-              <div className="relative group ">
-                <div className="bg-[#DDDDDD] flex justify-between z-30 py-0.5 w-[96%]  2sm:w-[450px] sm:w-[450px]  1md:w-[400px]  lg:w-[450px]  xl:w-[550px] ">
+              <div className="relative group mx-4">
+                <div className="bg-[#DDDDDD] flex justify-between z-30 py-0.5 w-[100%]  2sm:w-[450px] sm:w-[450px]  1md:w-[400px]  lg:w-[450px]  xl:w-[550px] ">
                   <div className="flex">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -178,25 +190,22 @@ const Projects = () => {
                   <img src={titleBar} alt="" className="" />
                 </div>
                 <div
-                  className="group w-[120%] h-[240px] 2sm:w-[450px] 2sm:h-[280px] sm:w-[550px] sm:h-[310px] 1md:w-[400px] 1md:h-[260px] lg:w-[450px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] rounded-sm overflow-hidden"
+                  className="group mw-[100%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  1md:w-[400px] 1md:h-[260px] lg:w-[450px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] rounded-sm overflow-hidden"
                   onMouseOver={() => handleMouseOver(index)}
                   onMouseOut={() => handleMouseOut(index)}
-                  onClick={() => handleProjectClick(project)}
                 >
-                  <a
-                    href="https://attirenova.netlify.app/"
-                    target="_blank"
-                    className={` w-[80%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  lg:w-[450px] 1md:w-[400px] 1md:h-[260px]  lg:h-[280px] xl:w-[550px] xl:h-[310px]] relative overflow-hidden`}
+                  <div
+                    className={` w-[100%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  lg:w-[450px] 1md:w-[400px] 1md:h-[260px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] relative overflow-hidden`}
                   >
                     <img
-                      className={`w-[80%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  lg:w-[450px] 1md:w-[400px] 1md:h-[260px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] rounded-sm  ${
+                      className={`w-[100%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  lg:w-[450px] 1md:w-[400px] 1md:h-[260px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] rounded-sm  ${
                         hoveredStates[index] ? "" : ""
                       }`}
                       src={project.imageUrl}
                       alt="Image description"
                     />
                     <div
-                      className={`absolute inset-0 z-10  overflow-hidden w-[80%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  1md:w-[400px] 1md:h-[260px]  lg:w-[450px] lg:h-[280px] xl:w-[550px] xl:h-[310px] ${
+                      className={`absolute inset-0 z-10  overflow-hidden w-[100%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  1md:w-[400px] 1md:h-[260px]  lg:w-[450px] lg:h-[280px] xl:w-[550px] xl:h-[310px] ${
                         hoveredStates[index]
                           ? "bg-neutral-900 bg-opacity-80 absolute top-0 duration-300"
                           : "bg-neutral-900 bg-opacity-80 absolute -top-[330px] duration-300  "
@@ -205,7 +214,7 @@ const Projects = () => {
                       {" "}
                     </div>
                     <img
-                      className={`w-[80%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  lg:w-[450px] 1md:w-[400px] 1md:h-[260px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] z-0 rounded-sm overflow-hidden   ${
+                      className={`w-[100%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  lg:w-[450px] 1md:w-[400px] 1md:h-[260px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] z-0 rounded-sm overflow-hidden   ${
                         hoveredStates[index]
                           ? "absolute top-0 duration-300"
                           : "absolute -top-[330px] duration-300  "
@@ -213,13 +222,12 @@ const Projects = () => {
                       src={project?.images[0]}
                       alt="Image description"
                     />
-                  </a>
+                  </div>
                   <button
-                    onClick={() => setShowModal(true)}
-                    className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0 w-[80%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] rounded-sm"
+                    className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0 w-[100%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] rounded-sm"
                   >
                     <div className="flex flex-col items-center justify-center h-full">
-                      <ul className="flex flex-wrap items-center justify-center w-[400px] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] text-[16px] text-slate-200 tag-list py-8 2sm:py-12 1md:py-10 lg:py-14 xl:py-24">
+                      <ul className="flex flex-wrap items-center justify-center w-[100%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] text-[16px] text-slate-200 tag-list py-8 2sm:py-12 1md:py-10 lg:py-14 xl:py-24">
                         {project.technologies.map((tech, index) => (
                           <li key={index} className="tag-animation mr-5 mt-5">
                             <div className="px-3 py-2 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 w-fit">
@@ -239,12 +247,15 @@ const Projects = () => {
               </div>
             </div>
           ))}
-
-          <ProjectModal
-            project={selectedProject}
-            showModal={showModal}
-            setShowModal={setShowModal}
-          />
+          {showModal ? (
+            <ProjectModal
+              project={selectedProject}
+              showModal={showModal}
+              setShowModal={setShowModal}
+            />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
