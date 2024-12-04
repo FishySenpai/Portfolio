@@ -5,10 +5,19 @@ import Slider from "./Slider";
 const ProjectModal = ({ project, showModal, setShowModal }) => {
   const projectModalRef = useRef(null);
   const [modalScale, setModalScale] = useState("scale-50 opacity-0");
+  const [isClosing, setIsClosing] = useState(false);
 
   useOutsideClick(projectModalRef, () => {
-    setShowModal(false);
+    if (!isClosing) handleClose();
   });
+
+  const handleClose = () => {
+    setIsClosing(true); // Trigger closing animation
+    setTimeout(() => {
+      setShowModal(false); // Remove modal after animation completes
+      setIsClosing(false); // Reset closing state
+    }, 600); // Match duration of your CSS animation
+  };
 
   useEffect(() => {
     if (showModal) {
@@ -18,17 +27,21 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
     }
   }, [showModal]);
 
+  if (!showModal && !isClosing) {
+    return null; // Don't render modal if it's neither opening nor closing
+  }
+
   if (project) {
     return (
       <div
-        className={`fixed inset-0 h-full bg-neutral-800/60 z-50 transition-opacity duration-500  
-          ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 h-full bg-neutral-800/60 z-50 transition-opacity duration-[0.6s]  
+          ${isClosing ? "opacity-0 " : "opacity-100"}`}
       >
         {/* Modal Content Wrapper */}
         <div
           ref={projectModalRef}
-          className={`bg-[#2F2F2F] top-32 sm:top-16 relative md:mx-auto w-full 1sm:w-[700px] shadow-xl rounded transform transition-all duration-500 
-            ${modalScale} mx-auto`}
+          className={`bg-[#2F2F2F] top-32 sm:top-16 relative md:mx-auto w-full 1sm:w-[700px] shadow-xl rounded transform transition-all duration-[0.6s] 
+            ${modalScale} ${isClosing ? "scale-50 opacity-0" : ""}  mx-auto`}
         >
           <div className="border-b-[3px] border-neutral-600 w-full 1sm:w-[700px]">
             <Slider>

@@ -100,20 +100,22 @@ const Projects = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
-
-const handleProjectClick = (project) => {
-  if (window.innerWidth < 720) {
-    // Add 1-second delay for small screens
-    setTimeout(() => {
-      setSelectedProject(project);
-      setShowModal(true); // Show modal only after timeout
-    }, 1000);
-  } else {
-    // Immediately execute for larger screens
-    setSelectedProject(project);
-    setShowModal(true);
-  }
-};
+  const handleProjectClick = (project) => {
+    if (window.innerWidth < 720) {
+      console.log("Test")
+      // Add 1-second delay for small screens
+      setTimeout(() => {
+        setSelectedProject(project);
+        setShowModal(true); // Show modal only after timeout
+        console.log("Test");
+      }, 1000);
+    } else {
+      console.log("Test");
+        // Immediately execute for larger screens
+        setSelectedProject(project);
+        setShowModal(true);
+    }
+  };
 
   const handleMouseOver = (index) => {
     const updatedHoveredStates = [...hoveredStates];
@@ -158,7 +160,7 @@ const handleProjectClick = (project) => {
       </div>
 
       <div className="mx-auto max-w-[1250px]">
-        <div className=" grid grid-cols-1 1md:grid-cols-2 gap-9 4sm:gap-12 justify-center ">
+        <div className=" grid grid-cols-1 1md:grid-cols-2  justify-center ">
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -167,9 +169,8 @@ const handleProjectClick = (project) => {
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
-              onClick={() => handleProjectClick(project)}
             >
-              <div className="relative group mx-4">
+              <div className="relative group m-4">
                 <div className="bg-[#DDDDDD] flex justify-between z-30 py-0.5 w-[100%]  2sm:w-[450px] sm:w-[450px]  1md:w-[400px]  lg:w-[450px]  xl:w-[550px] ">
                   <div className="flex">
                     <svg
@@ -193,6 +194,7 @@ const handleProjectClick = (project) => {
                   className="group mw-[100%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  1md:w-[400px] 1md:h-[260px] lg:w-[450px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] rounded-sm overflow-hidden"
                   onMouseOver={() => handleMouseOver(index)}
                   onMouseOut={() => handleMouseOut(index)}
+                  onClick={() => handleProjectClick(project)}
                 >
                   <div
                     className={` w-[100%] h-[240px] 2sm:w-[450px] 2sm:h-[280px]  lg:w-[450px] 1md:w-[400px] 1md:h-[260px]  lg:h-[280px] xl:w-[550px] xl:h-[310px] relative overflow-hidden`}
@@ -223,9 +225,7 @@ const handleProjectClick = (project) => {
                       alt="Image description"
                     />
                   </div>
-                  <button
-                    className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0 w-[100%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] rounded-sm"
-                  >
+                  <button className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0 w-[100%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] rounded-sm">
                     <div className="flex flex-col items-center justify-center h-full">
                       <ul className="flex flex-wrap items-center justify-center w-[100%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] text-[16px] text-slate-200 tag-list py-8 2sm:py-12 1md:py-10 lg:py-14 xl:py-24">
                         {project.technologies.map((tech, index) => (
