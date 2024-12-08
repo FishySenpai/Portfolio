@@ -46,10 +46,10 @@ const About = () => {
   return (
     <div
       id="about"
-      className="text-neutral-200 flex flex-col pb-36"
+      className="text-neutral-200 flex flex-col pb-36 "
       ref={aboutRef}
     >
-      <div className="pt-16 mx-auto mt-36 pb-5 text-center">
+      <div className="pt-16 mx-auto mt-36 pb-5 text-center ">
         <div
           className={`text-[40px] text-neutral-300 transition-transform duration-1000 ease-out ${
             isVisible
@@ -65,7 +65,7 @@ const About = () => {
           }`}
         ></div>
         <div
-          className={`mx-auto text-lg pt-5 pr-5 max-w-[1160px] text-center secondary-color transition ease-in-out delay-200  ${
+          className={`mx-2 4sm:mx-auto text-[17px] leading-[28px] 1sm:text-lg pt-5 pr-5 max-w-[1160px] text-center secondary-color transition ease-in-out delay-200  ${
             isVisible
               ? "translate-y-0 opacity-100 duration-[1s]"
               : "translate-y-10 opacity-0 duration-[1s]"
@@ -77,7 +77,7 @@ const About = () => {
       </div>
       <div className="flex flex-col lg:flex-row lg:pl-12 mt-5 mx-auto px-4">
         <div
-          className={`text-lg secondary-color w-full lg:w-[50%] xl:w-[580px] transition  ease-in-out delay-200 ${
+          className={`text-[17px] leading-[28px] 1sm:text-lg secondary-color w-full lg:w-[50%] xl:w-[580px] transition  ease-in-out delay-200 ${
             isVisible
               ? "translate-x-0 opacity-100 duration-1000"
               : "-translate-x-20 opacity-0 duration-1000"

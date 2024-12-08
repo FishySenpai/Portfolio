@@ -52,7 +52,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50">
+    <div className="fixed top-0 left-0 right-0 z-50 h-full">
       <div className="bg-[#383838] text-white p-3 py-5 font-semibold text-lg flex flex-row justify-between ">
         <div className=" h-[30px] text-md flex ml-[2%] 1md:ml-[5%] lg:ml-[10%]">
           <img src="logo3.png" alt="" className=" h-[30px] mt-0.5 w-full " />
@@ -139,59 +139,85 @@ const Navbar = () => {
       </div>
       <div
         className={`relative overflow-hidden w-full  ${
-          isOpen ? "h-[400px]" : "h-[0px] duration-300"
+          isOpen ? "h-full" : "h-[0px] duration-300"
         }`}
       >
         {/* Dropdown Menu */}
         <div
-          className={`absolute right-0 bg-[#383838] text-white p-3 pb-5 font-semibold text-lg text-center border-t-2 border-neutral-800 w-full transform transition-all  duration-300 ${
+          className={`absolute right-0 h-full  bg-[#383838] text-white p-3 pb-5 font-semibold text-3xl text-center border-t-2 border-neutral-800 w-full transform transition-all  duration-300 ${
             isOpen ? "translate-y-0 opacity-100" : "-translate-y-44 opacity-0"
           }`}
         >
-          <ul className="py-2">
+          <ul className="py-2 flex flex-col items-center">
             <NavLink
+              className={`w-[75%] hover:w-[100%] ${
+                activeLink === "home" ? "" : "text-gray-100"
+              } `}
               to="/"
               onClick={() => {
                 scrollToSection("home");
                 setIsOpen(false);
               }}
             >
-              <li className="px-4 py-2 hover:bg-neutral-400 cursor-pointer">
-                Home
-              </li>
+              <div className="py-16">
+                <li className="px-4 py-2 hover:bg-neutral-600 cursor-pointer">
+                  Home
+                </li>
+                <div className={` h-[3px] bg-neutral-600 mx-auto mt-2`}></div>
+              </div>
             </NavLink>
             <NavLink
+              className={`w-[75%] hover:w-[100%] ${
+                activeLink === "about" ? "" : "text-gray-100"
+              } `}
               to="/"
               onClick={() => {
                 scrollToSection("about");
                 setIsOpen(false);
               }}
             >
-              <li className="px-4 py-2 hover:bg-neutral-400 cursor-pointer">
-                About
-              </li>
+              <div className="py-16">
+                <li className="px-4 py-2 hover:bg-neutral-600 cursor-pointer">
+                  About
+                </li>
+                <div className={` h-[3px] bg-neutral-600 mx-auto mt-2`}></div>
+              </div>
             </NavLink>
             <NavLink
+              className={`w-[75%] hover:w-[100%]   ${
+                activeLink === "projects" ? "" : "text-gray-100"
+              } `}
               to="/"
               onClick={() => {
                 scrollToSection("projects");
                 setIsOpen(false);
               }}
             >
-              <li className="px-4 py-2 hover:bg-neutral-400 cursor-pointer">
-                Projects
-              </li>
+              <div className="py-16 ">
+                <li className="px-4 py-2 hover:bg-neutral-600 cursor-pointer">
+                  Projects
+                </li>
+                <div className={` h-[3px] bg-neutral-600 mx-auto `}></div>
+              </div>
             </NavLink>
             <NavLink
+              className={`w-[75%] hover:w-[100%] ${
+                activeLink === "contact" ? "" : "text-gray-100"
+              } `}
               to="/"
               onClick={() => {
                 scrollToSection("contact");
                 setIsOpen(false);
               }}
             >
-              <li className="px-4 py-2 hover:bg-neutral-400 cursor-pointer">
-                Contact
-              </li>
+              <div className="py-16">
+                <li className="px-4 py-2 hover:bg-neutral-600 cursor-pointer">
+                  Contact
+                </li>
+                <div
+                  className={` h-[3px] bg-neutral-600 mx-auto mt-2`}
+                ></div>
+              </div>
             </NavLink>
           </ul>
         </div>

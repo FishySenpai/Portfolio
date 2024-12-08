@@ -65,7 +65,6 @@ const Projects = () => {
           prev < projects.length ? prev + 1 : prev
         );
       }, 400);
-
       // Cleanup the interval on unmount
       return () => clearInterval(interval);
     }
@@ -131,7 +130,7 @@ const Projects = () => {
 
   return (
     <div id="projects" className="flex flex-col" ref={projectsRef}>
-      <div className="pt-16 mx-auto  pb-5">
+      <div className="pt-16 mx-auto  pb-5 ">
         <div
           className={`text-[40px] text-neutral-300 transition-transform duration-1000 ease-out ${
             isVisible
@@ -148,7 +147,7 @@ const Projects = () => {
         ></div>
       </div>
       <div
-        className={`mx-auto pr-5 pb-8 max-w-[1160px] text-center secondary-color transition ease-in-out delay-200 ${
+        className={`mx-2 4sm:mx-auto pr-5 pb-8 max-w-[1160px] text-center text-[17px] leading-[28px] 1sm:text-lg secondary-color transition ease-in-out delay-200 ${
           isVisible
             ? "translate-y-0 opacity-100 duration-[1s]"
             : "translate-y-10 opacity-0 duration-[1s]"
