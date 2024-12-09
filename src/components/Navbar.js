@@ -52,7 +52,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-full">
+    <div className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-[#383838] text-white p-3 py-5 font-semibold text-lg flex flex-row justify-between ">
         <div className=" h-[30px] text-md flex ml-[2%] 1md:ml-[5%] lg:ml-[10%]">
           <img src="logo3.png" alt="" className=" h-[30px] mt-0.5 w-full " />
@@ -144,14 +144,14 @@ const Navbar = () => {
       >
         {/* Dropdown Menu */}
         <div
-          className={`absolute right-0 h-full  bg-[#383838] text-white p-3 pb-5 font-semibold text-3xl text-center border-t-2 border-neutral-800 w-full transform transition-all  duration-300 ${
+          className={`absolute right-0 h-full  bg-[#383838] text-neutral-400 p-3 pb-5 font-semibold text-3xl text-center border-t-2 border-neutral-800 w-full transform transition-all  duration-300 ${
             isOpen ? "translate-y-0 opacity-100" : "-translate-y-44 opacity-0"
           }`}
         >
           <ul className="py-2 flex flex-col items-center">
             <NavLink
-              className={`w-[75%] hover:w-[100%] ${
-                activeLink === "home" ? "" : "text-gray-100"
+              className={`w-[75%] hover:w-[100%] my-14 ${
+                activeLink === "home" ? "text-white" : ""
               } `}
               to="/"
               onClick={() => {
@@ -159,16 +159,16 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
             >
-              <div className="py-16">
-                <li className="px-4 py-2 hover:bg-neutral-600 cursor-pointer">
+              <div className="">
+                <li className="px-4 py-4 hover:bg-neutral-600 hover:text-white cursor-pointer">
                   Home
                 </li>
-                <div className={` h-[3px] bg-neutral-600 mx-auto mt-2`}></div>
+                <div className={` h-[3px] bg-neutral-600 mx-auto `}></div>
               </div>
             </NavLink>
             <NavLink
-              className={`w-[75%] hover:w-[100%] ${
-                activeLink === "about" ? "" : "text-gray-100"
+              className={`w-[75%] hover:w-[100%] my-14 ${
+                activeLink === "about" ? "text-white" : ""
               } `}
               to="/"
               onClick={() => {
@@ -176,16 +176,16 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
             >
-              <div className="py-16">
-                <li className="px-4 py-2 hover:bg-neutral-600 cursor-pointer">
+              <div className="">
+                <li className="px-4 py-4 hover:bg-neutral-600 hover:text-white cursor-pointer">
                   About
                 </li>
-                <div className={` h-[3px] bg-neutral-600 mx-auto mt-2`}></div>
+                <div className={` h-[3px] bg-neutral-600 mx-auto `}></div>
               </div>
             </NavLink>
             <NavLink
-              className={`w-[75%] hover:w-[100%]   ${
-                activeLink === "projects" ? "" : "text-gray-100"
+              className={`w-[75%] hover:w-[100%]  my-14  ${
+                activeLink === "projects" ? "text-white" : ""
               } `}
               to="/"
               onClick={() => {
@@ -193,16 +193,16 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
             >
-              <div className="py-16 ">
-                <li className="px-4 py-2 hover:bg-neutral-600 cursor-pointer">
+              <div className=" ">
+                <li className="px-4 py-4 hover:bg-neutral-600 hover:text-white cursor-pointer">
                   Projects
                 </li>
                 <div className={` h-[3px] bg-neutral-600 mx-auto `}></div>
               </div>
             </NavLink>
             <NavLink
-              className={`w-[75%] hover:w-[100%] ${
-                activeLink === "contact" ? "" : "text-gray-100"
+              className={`w-[75%] hover:w-[100%] my-14 ${
+                activeLink === "contact" ? "text-white" : ""
               } `}
               to="/"
               onClick={() => {
@@ -210,13 +210,11 @@ const Navbar = () => {
                 setIsOpen(false);
               }}
             >
-              <div className="py-16">
-                <li className="px-4 py-2 hover:bg-neutral-600 cursor-pointer">
+              <div className="">
+                <li className="px-4 py-4 hover:bg-neutral-600 hover:text-white cursor-pointer">
                   Contact
                 </li>
-                <div
-                  className={` h-[3px] bg-neutral-600 mx-auto mt-2`}
-                ></div>
+                <div className={` h-[3px] bg-neutral-600 mx-auto `}></div>
               </div>
             </NavLink>
           </ul>
