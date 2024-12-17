@@ -8,6 +8,10 @@ import reactwind_2 from "./Assets/react-wind/reactwind_2.png";
 import reactwind_3 from "./Assets/react-wind/reactwind_3.png";
 import reactwind_4 from "./Assets/react-wind/reactwind_4.png";
 import reactwind_5 from "./Assets/react-wind/reactwind_5.png";
+import skyclarity_2 from "./Assets/skyclarity/skyclarity_2.png";
+import skyclarity_3 from "./Assets/skyclarity/skyclarity_3.png";
+import skyclarity_4 from "./Assets/skyclarity/skyclarity_4.png";
+import skyclarity_5 from "./Assets/skyclarity/skyclarity_5.png";
 import titleBar from "./Assets/titleBar.png";
 const Projects = () => {
   const projects = [
@@ -33,19 +37,19 @@ const Projects = () => {
     },
     {
       id: 3,
-      imageUrl: "weatherApp.png",
-      projectLink: "https://attirenova.netlify.app/",
-      projectName: "WeatherApp",
-      projectDescription:
-        "Discover a curated collection of the latest fashion trends, blending comfort and elegance seamlessly. From casual chic to glamorous evening wear, our diverse range caters to every individual.",
-      technologies: ["HTML", "TailwindCSS", "ReactJS", "Firebase"],
-      images: [attirenova_2, attirenova_3, attirenova_4, attirenova_5],
-    },
-    {
-      id: 4,
       imageUrl: "skyClarity.png",
       projectLink: "https://attirenova.netlify.app/",
       projectName: "SkyClarity",
+      projectDescription:
+        "Discover a curated collection of the latest fashion trends, blending comfort and elegance seamlessly. From casual chic to glamorous evening wear, our diverse range caters to every individual.",
+      technologies: ["HTML", "TailwindCSS", "ReactJS", "Firebase"],
+      images: [skyclarity_2, skyclarity_3, skyclarity_4, skyclarity_5],
+    },
+    {
+      id: 4,
+      imageUrl: "weatherApp.png",
+      projectLink: "https://attirenova.netlify.app/",
+      projectName: "WeatherApp",
       projectDescription:
         "Discover a curated collection of the latest fashion trends, blending comfort and elegance seamlessly. From casual chic to glamorous evening wear, our diverse range caters to every individual.",
       technologies: ["HTML", "TailwindCSS", "ReactJS", "Firebase"],
@@ -101,7 +105,7 @@ const Projects = () => {
 
   const handleProjectClick = (project) => {
     if (window.innerWidth < 720) {
-      console.log("Test")
+      console.log("Test");
       // Add 1-second delay for small screens
       setTimeout(() => {
         setSelectedProject(project);
@@ -110,9 +114,9 @@ const Projects = () => {
       }, 1000);
     } else {
       console.log("Test");
-        // Immediately execute for larger screens
-        setSelectedProject(project);
-        setShowModal(true);
+      // Immediately execute for larger screens
+      setSelectedProject(project);
+      setShowModal(true);
     }
   };
 
