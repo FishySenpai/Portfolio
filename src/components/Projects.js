@@ -12,6 +12,8 @@ import skyclarity_2 from "./Assets/skyclarity/skyclarity_2.png";
 import skyclarity_3 from "./Assets/skyclarity/skyclarity_3.png";
 import skyclarity_4 from "./Assets/skyclarity/skyclarity_4.png";
 import skyclarity_5 from "./Assets/skyclarity/skyclarity_5.png";
+import weatherapp_2 from "./Assets/weatherapp/weatherapp.png";
+import weatherapp_3 from "./Assets/weatherapp/weatherapp_3.png";
 import titleBar from "./Assets/titleBar.png";
 const Projects = () => {
   const projects = [
@@ -53,7 +55,7 @@ const Projects = () => {
       projectDescription:
         "Discover a curated collection of the latest fashion trends, blending comfort and elegance seamlessly. From casual chic to glamorous evening wear, our diverse range caters to every individual.",
       technologies: ["HTML", "TailwindCSS", "ReactJS", "Firebase"],
-      images: [attirenova_2, attirenova_3, attirenova_4, attirenova_5],
+      images: [weatherapp_2, weatherapp_3],
     },
   ];
   const [visibleProjects, setVisibleProjects] = useState(0);
