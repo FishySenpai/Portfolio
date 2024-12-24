@@ -10,7 +10,7 @@ import {
 
 function App() {
   return (
-    <div className="App">
+    <div className="App max-w-screen overflow-hidden">
       <Navbar />
       <Routes>
         <Route
