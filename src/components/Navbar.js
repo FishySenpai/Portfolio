@@ -53,7 +53,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      <div className="bg-[#383838] text-white p-3 py-5 font-semibold text-lg flex flex-row justify-between ">
+      <div className="bg-[#383838] text-white  py-5 font-semibold text-lg flex flex-row justify-between">
         <div className=" h-[30px] text-md flex ml-[2%] 1md:ml-[5%] lg:ml-[10%]">
           <img src="logo3.png" alt="" className=" h-[30px] mt-0.5 w-full " />
           <img src="logo4.png" alt="" className=" h-[35px]  w-full " />
@@ -113,7 +113,7 @@ const Navbar = () => {
             </div>
           </NavLink>
         </div>
-        <div className="relative 1sm:hidden text-black">
+        <div className="relative 1sm:hidden text-black pr-2">
           {/* Hamburger/X Icon */}
           <button
             onClick={toggleMenu}
@@ -138,8 +138,8 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className={`relative overflow-hidden w-full  ${
-          isOpen ? "h-full" : "h-[0px] duration-300"
+        className={`relative overflow-hidden w-full ${
+          isOpen ? "h-screen" : "h-[0px] duration-300"
         }`}
       >
         {/* Dropdown Menu */}
