@@ -1,0 +1,196 @@
+.header-typing  {
+  border: none;
+  border-right: 0.15em solid rgb(234, 88, 12);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header-1 {
+  animation: headertype 1s steps(40, end) forwards;
+}
+
+.header-2 {
+  opacity: 0;
+  animation: headertype 1s steps(40, end) forwards;
+  animation-delay: 1s; /* Start after 1s delay */
+}
+
+.header-3 {
+  width: 1080px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1.5s steps(80, end) forwards;
+  animation-delay: 2s; /* Start after 2s delay */
+}
+
+.header-4 {
+  width: 1070px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1.5s steps(80, end) forwards;
+  animation-delay: 3.5s; /* Start after 3s delay */
+}
+
+.header-5 {
+  width: 230px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 0.5s steps(80, end) forwards;
+  animation-delay: 5s; /* Start after 4s delay */
+}
+
+
+/* lg screen size */
+
+.header-6 {
+  width: 690px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1.5s steps(80, end) forwards;
+  animation-delay: 2s; /* Start after 3s delay */
+}
+
+.header-7 {
+  width: 690px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1.5s steps(80, end) forwards;
+  animation-delay: 3.5s; /* Start after 4s delay */
+}
+.header-8 {
+  width: 660px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1.5s steps(80, end) forwards;
+  animation-delay: 5s; /* Start after 3s delay */
+}
+.header-9 {
+  width: 320px; /* Adjust width as needed */
+  opacity: 0;
+  animation: headertype 1s steps(80, end) forwards;
+  animation-delay: 6.5s; /* Start after 3s delay */
+}
+
+/* md screen size */
+
+.header-10 {
+  opacity: 0;
+  animation: headertype 1s steps(80, end) forwards;
+  animation-delay: 2s; /* Start after 3s delay */
+}
+
+.header-11 {
+  opacity: 0;
+  animation: headertype 1s steps(80, end) forwards;
+  animation-delay: 3s; /* Start after 4s delay */
+}
+.header-12 {
+  opacity: 0;
+  animation: headertype 1s steps(80, end) forwards;
+  animation-delay: 4s; /* Start after 3s delay */
+}
+.header-13 {
+  opacity: 0;
+  animation: headertype 1s steps(80, end) forwards;
+  animation-delay: 5s; /* Start after 3s delay */
+}
+
+/* sm screen size */
+
+.header-14 {
+  opacity: 0;
+  animation: headertype 0.7s steps(80, end) forwards;
+  animation-delay: 2s; /* Start after 3s delay */
+}
+
+.header-15 {
+  opacity: 0;
+  animation: headertype 0.7s steps(80, end) forwards;
+  animation-delay: 2.7s; /* Start after 4s delay */
+}
+.header-16 {
+  opacity: 0;
+  animation: headertype 0.7s steps(80, end) forwards;
+  animation-delay: 3.4s; /* Start after 3s delay */
+}
+.header-17 {
+  opacity: 0;
+  animation: headertype 0.7s steps(80, end) forwards;
+  animation-delay: 4.1s; /* Start after 3s delay */
+}
+.header-18 {
+  opacity: 0;
+  animation: headertype 0.5s steps(80, end) forwards;
+  animation-delay: 4.8s; /* Start after 3s delay */
+}
+
+/*extra sm screen size */
+
+.header-19 {
+  opacity: 0;
+  animation: headertype 0.6s steps(80, end) forwards;
+  animation-delay: 2s; /* Start after 3s delay */
+}
+
+.header-20 {
+  opacity: 0;
+  animation: headertype 0.6s steps(80, end) forwards;
+  animation-delay: 2.6s; /* Start after 4s delay */
+}
+.header-21 {
+  opacity: 0;
+  animation: headertype 0.6s steps(80, end) forwards;
+  animation-delay: 3.2s; /* Start after 3s delay */
+}
+.header-22 {
+  opacity: 0;
+  animation: headertype 0.6s steps(80, end) forwards;
+  animation-delay: 3.8s; /* Start after 3s delay */
+}
+.header-23 {
+  opacity: 0;
+  animation: headertype 0.6s steps(80, end) forwards;
+  animation-delay: 4.4s; /* Start after 3s delay */
+}
+.header-24 {
+  opacity: 0;
+  animation: headertype 0.6s steps(80, end) forwards;
+  animation-delay: 5s; /* Start after 3s delay */
+}
+@keyframes headertype {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  99% {
+    border-right: 0.15em solid rgb(234, 88, 12);
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+.typewriter-text span {
+  opacity: 0;
+  animation: typing 0.05s forwards;
+  animation-delay: calc(var(--char-index) * 0.05s);
+}
+
+.cursor {
+  display: inline-block;
+  border-right: 2px solid rgb(234 88 12); /* Cursor appearance */
+  opacity: 1;
+}
+
+.blinking {
+  display: inline-block;
+  border-right: 2px solid rgb(234 88 12); /* Cursor appearance */
+  animation: blink 0.75s step-end infinite; /* Apply blinking animation */
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent; /* Cursor becomes invisible */
+  }
+}
+
+
+
