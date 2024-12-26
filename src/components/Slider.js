@@ -15,7 +15,17 @@ const Slider = ({ children }) => {
   const intervalRef = useRef(null);
   const [current, setCurrent] = useState(1);
   const [translateX, setTranslateX] = useState(0);
+  const [isTallScreen, setIsTallScreen] = useState(window.innerHeight > 800);
 
+  const handleResize = () => {
+    setIsTallScreen(window.innerHeight > 800);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const actionHandler = useCallback(
     (mode) => {
       containerRef.current.style.transitionDuration = "700ms";
@@ -119,13 +129,21 @@ const Slider = ({ children }) => {
       <button onClick={() => actionHandler("prev")}>
         <img
           src={arrowLeft}
-          className="absolute top-[170px] -left-8 w-[90px] h-[90px] z-50"
+          className={`absolute ${
+            isTallScreen
+              ? " top-[170px] w-[90px] h-[90px] -left-8"
+              : "top-[80px] w-[70px] h-[70px] -left-6"
+          }    z-50`}
         />
       </button>
       <button onClick={() => actionHandler("next")}>
         <img
           src={arrowRight}
-          className="absolute top-[170px] -right-8  w-[90px] h-[90px]"
+          className={`absolute ${
+            isTallScreen
+              ? " top-[170px] w-[90px] h-[90px] -right-8"
+              : "top-[80px] w-[70px] h-[70px] -right-6"
+          }`}
         />
       </button>
     </section>

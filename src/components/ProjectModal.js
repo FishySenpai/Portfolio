@@ -6,7 +6,18 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
   const projectModalRef = useRef(null);
   const [modalScale, setModalScale] = useState("scale-50 opacity-0");
   const [isClosing, setIsClosing] = useState(false);
+  const [isTallScreen, setIsTallScreen] = useState(window.innerHeight > 800);
 
+  const handleResize = () => {
+    setIsTallScreen(window.innerHeight > 800);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   useOutsideClick(projectModalRef, () => {
     if (!isClosing) handleClose();
   });
@@ -40,17 +51,25 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
         {/* Modal Content Wrapper */}
         <div
           ref={projectModalRef}
-          className={`bg-[#2F2F2F] top-32 sm:top-16 relative md:mx-auto w-full 1sm:w-[700px] shadow-xl rounded transform transition-all duration-[0.6s] 
+          className={`bg-[#2F2F2F] ${
+            isTallScreen ? "top-32" : "top-20"
+          }  sm:top-16 relative md:mx-auto w-full 1sm:w-[700px] shadow-xl rounded transform transition-all duration-[0.6s] 
             ${modalScale} ${isClosing ? "scale-50 opacity-0" : ""}  mx-auto`}
         >
-          <div className="border-b-[3px] border-neutral-600 w-full 1sm:w-[700px]">
+          <div
+            className={`border-b-[3px] border-neutral-600 w-full 1sm:w-[700px] overflow-hidden ${
+              isTallScreen ? "h-full" : "h-[200px]"
+            }`}
+          >
             <Slider>
               {project?.images.map((imgSrc, index) => (
                 <img
                   key={index}
                   src={imgSrc}
                   alt={`Image ${index + 1}`}
-                  className="w-full h-full overflow-hidden"
+                  className={`w-full ${
+                    isTallScreen ? "h-full" : "h-[200px]"
+                  } overflow-hidden `}
                 />
               ))}
             </Slider>
