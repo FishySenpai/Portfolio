@@ -21,6 +21,8 @@ const About = () => {
   const aboutRef = useRef(null);
 
   useEffect(() => {
+    const threshold = window.innerWidth < 600 ? 0.15 : 0.3;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -29,7 +31,7 @@ const About = () => {
           observer.disconnect(); // Stop observing after it becomes visible
         }
       },
-      { threshold: 0.3 } // Trigger when 50% of the section is visible
+      { threshold } // Conditionally set threshold based on screen size
     );
 
     if (aboutRef.current) {
@@ -41,7 +43,7 @@ const About = () => {
         observer.disconnect(); // Ensure the observer is disconnected on cleanup
       }
     };
-  }, []);
+  }, []); // Empty dependency array ensures this effect runs once on mount
 
   return (
     <div
@@ -49,7 +51,7 @@ const About = () => {
       className="text-neutral-200 flex flex-col pb-36 "
       ref={aboutRef}
     >
-      <div className="pt-16 mx-auto mt-36 pb-5 text-center ">
+      <div className="pt-16 mx-auto pb-5 text-center ">
         <div
           className={`text-[40px] text-neutral-300 transition-transform duration-1000 ease-out ${
             isVisible

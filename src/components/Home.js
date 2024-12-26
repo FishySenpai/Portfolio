@@ -5,7 +5,18 @@ import bg from "./Assets/bg.jpg";
 const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const [isTallScreen, setIsTallScreen] = useState(window.innerHeight > 800);
 
+  const handleResize = () => {
+    setIsTallScreen(window.innerHeight > 800);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   useEffect(() => {
     // Set a timeout to delay setting the animation to false
     const timeout = setTimeout(() => {
@@ -58,11 +69,11 @@ const Home = () => {
   return (
     <div
       id="home"
-      className="flex items-center justify-center pt-16 text text-neutral-200 "
+      className="flex items-center justify-center pt-16 text text-neutral-200 mb-36"
     >
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div className="w-full flex flex-col">
-        <div className="sm:mx-auto flex flex-col justify-center items-center mt-72  sm:mt-80 ">
+        <div className={`sm:mx-auto flex flex-col justify-center items-center ${isTallScreen ? "mt-72" : "mt-52"}   sm:mt-80 `}>
           <div className=" ">
             <p className="flex flex-row text-[30px] 4sm:text-[40px] 1sm:text-[45px] text-left max-w-[335px] w-[335px] 4sm:max-w-[435px] 4sm:w-[435px] 2sm:max-w-[440px] 2sm:w-[440px] 1sm:max-w-[495px] 1sm:w-[495px] header-typing header-1">
               Hello, I'm

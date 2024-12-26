@@ -4,7 +4,18 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
+  const [isTallScreen, setIsTallScreen] = useState(window.innerHeight > 800);
 
+  const handleResize = () => {
+    setIsTallScreen(window.innerHeight > 800);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -19,28 +30,54 @@ const Navbar = () => {
       });
     }
   };
+let activeSectionTimer = null;
+let lastActiveSection = "home";
 
-  const handleScroll = () => {
-    const sections = ["home", "about", "projects", "contact"];
-    let currentSection = "home";
-    const buffer = 100; // Add a buffer of 100px to make the transition smoother
+const handleScroll = () => {
+  const sections = ["home", "about", "projects", "contact"];
+  let currentSection = "home";
+  let maxVisiblePercentage = 0;
 
-    sections.forEach((sectionId) => {
-      const sectionElement = document.getElementById(sectionId);
-      if (sectionElement) {
-        const sectionTop = sectionElement.offsetTop - buffer; // Adjust for navbar height and buffer
-        const sectionBottom =
-          sectionElement.offsetTop + sectionElement.offsetHeight - buffer;
-        const scrollPos = window.pageYOffset;
+  sections.forEach((sectionId) => {
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      const sectionTop = sectionElement.getBoundingClientRect().top;
+      const sectionBottom = sectionElement.getBoundingClientRect().bottom;
+      const sectionHeight = sectionElement.offsetHeight;
+      const viewportHeight = window.innerHeight;
 
-        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-          currentSection = sectionId;
-        }
+      // Calculate the visible height of the section
+      const visibleTop = Math.max(0, sectionTop);
+      const visibleBottom = Math.min(viewportHeight, sectionBottom);
+      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+      // Calculate the percentage of the section visible in the viewport
+      const visiblePercentage = (visibleHeight / sectionHeight) * 100;
+
+      // Update the current section if it has the highest visible percentage and is more than 50%
+      if (visiblePercentage > 50 && visiblePercentage > maxVisiblePercentage) {
+        maxVisiblePercentage = visiblePercentage;
+        currentSection = sectionId;
       }
-    });
+    }
+  });
 
-    setActiveLink(currentSection);
-  };
+  // Only trigger if the current section is different from the last active section
+  if (currentSection !== lastActiveSection) {
+    // Clear the existing timer to avoid multiple triggers
+    if (activeSectionTimer) {
+      clearTimeout(activeSectionTimer);
+    }
+
+    // Set a timer to confirm the section after 100ms
+    activeSectionTimer = setTimeout(() => {
+      setActiveLink(currentSection);
+      lastActiveSection = currentSection; // Update the last active section
+    }, 20);
+  }
+};
+
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -150,9 +187,9 @@ const Navbar = () => {
         >
           <ul className="py-2 flex flex-col items-center">
             <NavLink
-              className={`w-[75%] hover:w-[100%] my-14 ${
-                activeLink === "home" ? "text-white" : ""
-              } `}
+              className={`w-[75%] hover:w-[100%] ${
+                isTallScreen ? "my-14" : " my-10"
+              } ${activeLink === "home" ? "text-white" : ""} `}
               to="/"
               onClick={() => {
                 scrollToSection("home");
@@ -167,9 +204,9 @@ const Navbar = () => {
               </div>
             </NavLink>
             <NavLink
-              className={`w-[75%] hover:w-[100%] my-14 ${
-                activeLink === "about" ? "text-white" : ""
-              } `}
+              className={`w-[75%] hover:w-[100%]  ${
+                isTallScreen ? "my-14" : " my-10"
+              } ${activeLink === "about" ? "text-white" : ""} `}
               to="/"
               onClick={() => {
                 scrollToSection("about");
@@ -184,9 +221,9 @@ const Navbar = () => {
               </div>
             </NavLink>
             <NavLink
-              className={`w-[75%] hover:w-[100%]  my-14  ${
-                activeLink === "projects" ? "text-white" : ""
-              } `}
+              className={`w-[75%] hover:w-[100%]   ${
+                isTallScreen ? "my-14" : " my-10"
+              }  ${activeLink === "projects" ? "text-white" : ""} `}
               to="/"
               onClick={() => {
                 scrollToSection("projects");
@@ -201,9 +238,9 @@ const Navbar = () => {
               </div>
             </NavLink>
             <NavLink
-              className={`w-[75%] hover:w-[100%] my-14 ${
-                activeLink === "contact" ? "text-white" : ""
-              } `}
+              className={`w-[75%] hover:w-[100%]  ${
+                isTallScreen ? "my-14" : " my-10"
+              } ${activeLink === "contact" ? "text-white" : ""} `}
               to="/"
               onClick={() => {
                 scrollToSection("contact");
