@@ -44,7 +44,16 @@ const About = () => {
       }
     };
   }, []); // Empty dependency array ensures this effect runs once on mount
+  const scrollToSection = (sectionId) => {
+    const targetSection = document.getElementById(sectionId);
 
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <div
       id="about"
@@ -93,19 +102,20 @@ const About = () => {
               , focused on building functional and user-friendly websites and
               web apps that blend both frontend and backend technologies. You
               can check out some of my{" "}
-              <a
-                href="#projects"
+              <button
+                onClick={() => scrollToSection("projects")}
                 className="text-orange-500 font-[300] leading-relaxed underline scroll-smooth"
               >
                 Projects
-              </a>{" "}
+              </button>{" "}
               on GitHub to see what I've been working on.
             </p>
             <br />
             <p>
               Though I don’t post much, feel free to connect with me on{" "}
               <a
-                href="#"
+                href="https://www.linkedin.com/in/noman-basit/"
+                target="_blank"
                 className="underline text-orange-500 font-[300] leading-relaxed mr-1"
               >
                 LinkedIn
@@ -122,9 +132,12 @@ const About = () => {
               <strong className="text-neutral-300">Job</strong> opportunities
               that let me grow, learn, and make an impact. If you’re hiring or
               have a cool project in mind, I’d love to{" "}
-              <strong className="text-orange-500 font-[300] leading-relaxed underline">
-                contact
-              </strong>{" "}
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="text-orange-500 font-[300] leading-relaxed underline"
+              >
+                Contact
+              </button>{" "}
               with you. Let’s create something awesome together!
             </p>
           </div>

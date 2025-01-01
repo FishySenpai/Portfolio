@@ -73,7 +73,11 @@ const Home = () => {
     >
       {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
       <div className="w-full flex flex-col">
-        <div className={`sm:mx-auto flex flex-col justify-center items-center ${isTallScreen ? "mt-72" : "mt-52"}   sm:mt-80 `}>
+        <div
+          className={`sm:mx-auto flex flex-col justify-center items-center ${
+            isTallScreen ? "mt-72" : "mt-52"
+          }   sm:mt-80 `}
+        >
           <div className=" ">
             <p className="flex flex-row text-[30px] 4sm:text-[40px] 1sm:text-[45px] text-left max-w-[335px] w-[335px] 4sm:max-w-[435px] 4sm:w-[435px] 2sm:max-w-[440px] 2sm:w-[440px] 1sm:max-w-[495px] 1sm:w-[495px] header-typing header-1">
               Hello, I'm
@@ -329,7 +333,11 @@ const Home = () => {
         </div>
 
         <div className="relative cursor-pointer z-50 hidden xl:block">
-          <div className="fixed top-[394px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
+          <a
+            href="https://github.com/FishySenpai"
+            target="_blank"
+            className="fixed top-[394px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 496 512"
@@ -340,8 +348,12 @@ const Home = () => {
                 fill="white"
               />
             </svg>
-          </div>
-          <div className="fixed top-[450px] bg-[#0077BA] h-14 w-14 pl-3 pt-3 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
+          </a>
+          <a
+            href="https://www.linkedin.com/in/noman-basit/"
+            target="_blank"
+            className="fixed top-[450px] bg-[#0077BA] h-14 w-14 pl-3 pt-3 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512 "
@@ -352,7 +364,7 @@ const Home = () => {
                 fill="white"
               />
             </svg>
-          </div>
+          </a>
           <Link to="/" onClick={() => scrollToSection("contact")}>
             <div className="fixed top-[506px] bg-[#fff] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
               <img src={gmail} alt="email" className="h-10 w-10 " />
