@@ -6,6 +6,7 @@ import {
   About,
   Contact,
   Projects,
+  Footer,
 } from "./components/index.js";
 
 function App() {
@@ -21,12 +22,14 @@ function App() {
               <About />
               <Projects />
               <Contact  />
+              <Footer/>
             </>
           }
         />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+
       </Routes>
     </div>
   );
