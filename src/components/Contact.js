@@ -14,6 +14,7 @@ const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [scale, setScale] = useState("");
+  const [loading, setLoading] = useState(false);
   const contactRef = useRef(null);
   const formRef = useRef(null);
 
@@ -98,33 +99,38 @@ const Contact = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const errors = validateForm();
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-      return;
-    }
 
-    emailjs
-      .sendForm(
-        "service_f6yokj7",
-        "template_dn8yhwa",
-        formRef.current,
-        "KiAU3CUZWGB6HPIP2"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setSuccess(true);
-          setFormData({ userName: "", email: "", message: "" });
-        },
-        (error) => {
-          console.log(error.text);
-          setSuccess(false);
-        }
-      );
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const errors = validateForm();
+  if (Object.keys(errors).length > 0) {
+    setFormErrors(errors);
+    return;
+  }
+
+  setLoading(true); // Start loading state
+
+  emailjs
+    .sendForm(
+      "service_f6yokj7",
+      "template_dn8yhwa",
+      formRef.current,
+      "KiAU3CUZWGB6HPIP2"
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+        setSuccess(true);
+        setFormData({ userName: "", email: "", message: "" });
+        setLoading(false); // End loading state
+      },
+      (error) => {
+        console.log(error.text);
+        setSuccess(false);
+        setLoading(false); // End loading state on error
+      }
+    );
+};
 
   return (
     <div id="contact" className="relative flex flex-col justify-center pb-44 ">
@@ -196,9 +202,16 @@ const Contact = () => {
           </div>
 
           <div className="mt-6">
-            <button className="w-full px-4 py-2 text-[16px] text-white bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 transition-colors">
-              Send
+            <button
+              type="submit"
+              className={`w-full px-4 py-2 text-[16px] text-white bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 transition-colors ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Send"}
             </button>
+
             <div className="text-[16px] text-white pt-2">
               {success && "Your message has been sent successfully!"}
             </div>

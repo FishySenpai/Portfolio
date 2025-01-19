@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import gmail from "./Assets/gmail.png";
 const Footer = () => {
-    
   const scrollToSection = (sectionId) => {
     const targetSection = document.getElementById(sectionId);
 
@@ -19,23 +18,23 @@ const Footer = () => {
   return (
     <footer className="bg-[#2b2a2a] text-center py-6 relative mt-4 secondary-color ">
       {/* Back to Top Button */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#444444] p-3 rounded-sm">
-        <button
-          className="text-white text-lg"
-          onClick={() => scrollToSection("contact")}
+
+      <button
+        className="text-white text-lg absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#444444] p-3 rounded-sm"
+        onClick={() => scrollToSection("home")}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          className="h-6 w-6"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-            className="h-6 w-6"
-          >
-            <path
-              d="M246.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L224 109.3 361.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160zm160 352l-160-160c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L224 301.3 361.4 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3z"
-              fill="white"
-            />
-          </svg>
-        </button>
-      </div>
+          <path
+            d="M246.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L224 109.3 361.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160zm160 352l-160-160c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L224 301.3 361.4 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3z"
+            fill="white"
+          />
+        </svg>
+      </button>
+
       <div className="flex flex-col 1lg:flex-row  justify-center py-6 pl-6 md:pl-12">
         <div className="text-left  pr-[50px] pb-4">
           <div className="text-lg pb-4 font-bold">NOMAN BASIT</div>

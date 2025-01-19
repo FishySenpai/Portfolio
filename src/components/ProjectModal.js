@@ -106,10 +106,12 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
             </ul>
             <div className="pt-4 pb-4 text-[14px] space-x-4 flex flex-row">
               <a
-                href="https://attirenova.netlify.app/"
+                href={project.projectLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 px-5 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect"
+                className={`${
+                  project.projectName === "WeatherApp" ? "hidden" : ""
+                } p-2 px-5 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +127,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                 VIEW SITE
               </a>
               <a
-                href="https://github.com/FishySenpai/Ecommerce"
+                href={project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 px-5 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect"

@@ -21,6 +21,7 @@ const Projects = () => {
       id: 1,
       imageUrl: "attirenova.png",
       projectLink: "https://attirenova.netlify.app/",
+      githubLink: "https://github.com/FishySenpai/AttireNova",
       projectName: "AttireNova",
       projectDescription:
         "Discover a curated collection of the latest fashion trends, blending comfort and elegance seamlessly. From casual chic to glamorous evening wear, our diverse range caters to every individual.",
@@ -30,7 +31,8 @@ const Projects = () => {
     {
       id: 2,
       imageUrl: "react-wind.png",
-      projectLink: "https://attirenova.netlify.app/",
+      projectLink: "https://react-wind.netlify.app/",
+      githubLink: "https://github.com/FishySenpai/React_Wind",
       projectName: "React-wind",
       projectDescription:
         "Explore the ultimate anime hub, where you can search for shows, discover popular titles, and stay updated on upcoming and currently airing anime. Keep track of your top picks and enjoy something for everyone!",
@@ -40,7 +42,8 @@ const Projects = () => {
     {
       id: 3,
       imageUrl: "skyClarity.png",
-      projectLink: "https://attirenova.netlify.app/",
+      projectLink: "https://skyclarity.netlify.app/",
+      githubLink: "https://github.com/FishySenpai/SkyClarity",
       projectName: "SkyClarity",
       projectDescription:
         "Uncover seamless travel with SkyClarity, where booking flights, hotels, and rental cars is effortless. Whether you're planning a getaway or a luxurious vacation, our options cater to every traveler. Enjoy comfort, convenience, and unbeatable choices.",
@@ -51,6 +54,7 @@ const Projects = () => {
       id: 4,
       imageUrl: "weatherApp.png",
       projectLink: "https://attirenova.netlify.app/",
+      githubLink: "https://github.com/FishySenpai/weather-app-main",
       projectName: "WeatherApp",
       projectDescription:
         "Get accurate weather updates with our app, where you can easily search for the current conditions and forecasts of any city. Stay informed and plan your day with ease, no matter where you are!",
