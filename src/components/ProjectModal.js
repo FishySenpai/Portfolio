@@ -126,14 +126,23 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                 </svg>
                 VIEW SITE
               </a>
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 px-5 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect"
-              >
-                GITHUB
-              </a>
+              {project.githubLink ? (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 px-5 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect"
+                >
+                  GITHUB
+                </a>
+              ) : (
+                <button
+                  className="p-2 px-5 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-white font-semibold rounded-sm hover-effect cursor-not-allowed"
+                  disabled
+                >
+                  PRIVATE REPO
+                </button>
+              )}
             </div>
           </div>
         </div>

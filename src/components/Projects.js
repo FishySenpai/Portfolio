@@ -14,11 +14,44 @@ import skyclarity_4 from "./Assets/skyclarity/skyclarity_4.png";
 import skyclarity_5 from "./Assets/skyclarity/skyclarity_5.png";
 import weatherapp_2 from "./Assets/weatherapp/weatherapp.png";
 import weatherapp_3 from "./Assets/weatherapp/weatherapp_3.png";
+import avatar_1 from "./Assets/avatar/avatar_1.PNG";
+import avatar_2 from "./Assets/avatar/avatar_2.PNG";
+import avatar_3 from "./Assets/avatar/avatar_3.PNG";
+import avatar_4 from "./Assets/avatar/avatar_4.PNG";
 import titleBar from "./Assets/titleBar.png";
+import wireframe_1 from "./Assets/wireframe/wireframe_1.jpg";
+import wireframe_2 from "./Assets/wireframe/wireframe_2.JPG";
+import wireframe_3 from "./Assets/wireframe/wireframe_3.JPG";
+import wireframe_4 from "./Assets/wireframe/wireframe_4.JPG";
+import gitanaylzer_1 from "./Assets/gitanalyzer/gitanalyzer_1.jpg";
+import gitanaylzer_2 from "./Assets/gitanalyzer/gitanalyzer_2.JPG";
+import gitanaylzer_3 from "./Assets/gitanalyzer/gitanalyzer_3.JPG";
+import gitanaylzer_4 from "./Assets/gitanalyzer/gitanalyzer_4.JPG";
+import gitanaylzer_5 from "./Assets/gitanalyzer/gitanalyzer_5.JPG";
 const Projects = () => {
   const projects = [
     {
       id: 1,
+      imageUrl: [wireframe_1],
+      projectLink: "https://wireframe-to-ui-builder.vercel.app/",
+      projectName: "Wireframe to UI Builder",
+      projectDescription:
+        "AI tool that converts UI wireframes into responsive React code using YOLOv11 and OCR. Features a drag-and-drop canvas editor with live preview and real-time collaboration (up to 5 users) via Firebase. Node.js backend auto-generates components, reducing frontend scaffolding by 70%.",
+      technologies: ["React", "YOLOv11", "OCR", "Firebase", "Node.js"],
+      images: [wireframe_2, wireframe_3, wireframe_4],
+    },
+    {
+      id: 2,
+      imageUrl: [avatar_1],
+      projectLink: "https://avatar-social-media-workflow.vercel.app/",
+      projectName: "Social Media Automated Avatar Workflow",
+      projectDescription:
+        "A modern React + Firebase platform for social media automation, AI-powered feedback, and performance analytics. Features include real-time notifications, user feedback management, AI recommendations, and interactive dashboards—all with seamless authentication and a beautiful UI.",
+      technologies: ["ReactJS", "Firebase", "MUI", "Chart.js", "Framer Motion"],
+      images: [avatar_2, avatar_3, avatar_4],
+    },
+    {
+      id: 3,
       imageUrl: "attirenova.png",
       projectLink: "https://attirenova.netlify.app/",
       githubLink: "https://github.com/FishySenpai/AttireNova",
@@ -29,7 +62,18 @@ const Projects = () => {
       images: [attirenova_2, attirenova_3, attirenova_4, attirenova_5],
     },
     {
-      id: 2,
+      id: 4,
+      imageUrl: [gitanaylzer_1],
+      projectLink: "https://git-profile-analyzer.vercel.app/",
+      githubLink: "https://github.com/FishySenpai/Github-Profile-Analyzer",
+      projectName: "Github Profile Analyzer",
+      projectDescription:
+        "GitHub profile analysis platform supporting 1,000+ developer profiles. Secure authentication and saved profiles via Supabase. Optimized API usage and state management, reducing redundant requests by 30%. Next.js SSR improves SEO and reduces initial load time by 35%.",
+      technologies: ["React", "Next.js", "Supabase", "TailwindCSS"],
+      images: [gitanaylzer_2, gitanaylzer_3, gitanaylzer_4, gitanaylzer_5],
+    },
+    {
+      id: 5,
       imageUrl: "react-wind.png",
       projectLink: "https://react-wind.netlify.app/",
       githubLink: "https://github.com/FishySenpai/React_Wind",
@@ -40,7 +84,7 @@ const Projects = () => {
       images: [reactwind_2, reactwind_3, reactwind_4, reactwind_5],
     },
     {
-      id: 3,
+      id: 6,
       imageUrl: "skyClarity.png",
       projectLink: "https://skyclarity.netlify.app/",
       githubLink: "https://github.com/FishySenpai/SkyClarity",
@@ -50,17 +94,17 @@ const Projects = () => {
       technologies: ["HTML", "TailwindCSS", "ReactJS", "Rapid API"],
       images: [skyclarity_2, skyclarity_3, skyclarity_4, skyclarity_5],
     },
-    {
-      id: 4,
-      imageUrl: "weatherApp.png",
-      projectLink: "https://attirenova.netlify.app/",
-      githubLink: "https://github.com/FishySenpai/weather-app-main",
-      projectName: "WeatherApp",
-      projectDescription:
-        "Get accurate weather updates with our app, where you can easily search for the current conditions and forecasts of any city. Stay informed and plan your day with ease, no matter where you are!",
-      technologies: ["HTML", "JavaScript", "Electron", "ChartJS"],
-      images: [weatherapp_2, weatherapp_3],
-    },
+    // {
+    //   id: 6,
+    //   imageUrl: "weatherApp.png",
+    //   projectLink: "https://attirenova.netlify.app/",
+    //   githubLink: "https://github.com/FishySenpai/weather-app-main",
+    //   projectName: "WeatherApp",
+    //   projectDescription:
+    //     "Get accurate weather updates with our app, where you can easily search for the current conditions and forecasts of any city. Stay informed and plan your day with ease, no matter where you are!",
+    //   technologies: ["HTML", "JavaScript", "Electron", "ChartJS"],
+    //   images: [weatherapp_2, weatherapp_3],
+    // },
   ];
   const [visibleProjects, setVisibleProjects] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -222,7 +266,7 @@ const Projects = () => {
                   <button className="hidden group-hover:block z-20 cursor-pointer absolute top-0 left-0 right-0 bottom-0 w-[100%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] rounded-sm">
                     <div className="flex flex-col items-center justify-center h-full">
                       <ul className="flex flex-wrap items-center justify-center w-[100%] 2sm:w-[450px]   lg:w-[450px] 1md:w-[400px] xl:w-[550px] text-[16px] text-slate-200 tag-list py-8 2sm:py-12 1md:py-10 lg:py-14 xl:py-24">
-                        {project.technologies.map((tech, index) => (
+                        {project.technologies.slice(0,4).map((tech, index) => (
                           <li key={index} className="tag-animation mr-5 mt-5">
                             <div className="px-3 py-2 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 w-fit">
                               {tech}
