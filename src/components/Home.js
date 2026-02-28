@@ -6,9 +6,13 @@ const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [animate, setAnimate] = useState(false);
   const [isTallScreen, setIsTallScreen] = useState(window.innerHeight > 800);
+  const [isVeryTallScreen, setIsVeryTallScreen] = useState(
+    window.innerHeight > 1200,
+  ); // NEW
 
   const handleResize = () => {
     setIsTallScreen(window.innerHeight > 800);
+    setIsVeryTallScreen(window.innerHeight > 1200); // NEW
   };
 
   useEffect(() => {
@@ -18,11 +22,9 @@ const Home = () => {
     };
   }, []);
   useEffect(() => {
-    // Set a timeout to delay setting the animation to false
     const timeout = setTimeout(() => {
       setAnimate(true);
-    }, 8000); // 1000ms = 1 second
-
+    }, 8000);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -69,27 +71,22 @@ const Home = () => {
   return (
     <div
       id="home"
-      className="flex items-center justify-center pt-16 text text-neutral-200 mb-36"
+      className="min-h-screen flex items-center justify-center text text-neutral-200"
     >
-      {/* <img src={bg} alt="" className="-z-10 absolute " /> */}
-      <div className="w-full flex flex-col">
-        <div
-          className={`sm:mx-auto flex flex-col justify-center items-center ${
-            isTallScreen ? "mt-72" : "mt-52"
-          }   sm:mt-80 `}
-        >
-          <div className=" ">
+      <div className="w-full flex flex-col items-center justify-center px-4">
+        <div className="flex flex-col justify-center items-center mb-8">
+          <div className="">
             <p className="flex flex-row text-[30px] 4sm:text-[40px] 1sm:text-[45px] text-left max-w-[335px] w-[335px] 4sm:max-w-[435px] 4sm:w-[435px] 2sm:max-w-[440px] 2sm:w-[440px] 1sm:max-w-[495px] 1sm:w-[495px] header-typing header-1">
               Hello, I'm
-              <div className=" text-orange-600 pl-3">Noman Basit.</div>
+              <div className="text-orange-600 pl-3">Noman Basit.</div>
             </p>
-            <p className="text-[22px] 4sm:text-[30px]  1sm:text-[35px] mt-2 ml-2 sm:ml-0 text-left  max-w-fit sm:max-w-[425px] 1sm:max-w-[495px] w-[600px] header-typing header-2">
+            <p className="text-[22px] 4sm:text-[30px] 1sm:text-[35px] mt-2 ml-2 sm:ml-0 text-left max-w-fit sm:max-w-[425px] 1sm:max-w-[495px] w-[600px] header-typing header-2">
               I'm a full-stack web developer.
             </p>
           </div>
         </div>
-        <div className="">
-          <div className="flex flex-col text-[17px] leading-[28px] 1sm:text-lg mt-4 secondary-color">
+        <div className="mb-8">
+          <div className="flex flex-col text-[17px] leading-[28px] 1sm:text-lg secondary-color">
             <div className="hidden 3lg:block mx-auto">
               <div className="mx-auto min-w-[1080px] max-w-[1080px]">
                 <p className={`${animate ? "" : "header-typing header-3 "}`}>
@@ -155,7 +152,8 @@ const Home = () => {
                     animate ? "" : "w-[500px] header-typing header-10"
                   }`}
                 >
-                  A passionate and results-driven web developer with a focus on{" "}
+                  A passionate and results-driven web developer with a focus
+                  on{" "}
                 </p>
               </div>
               <div className="mx-auto min-w-[580px] max-w-[580px]">
@@ -313,10 +311,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="pt-12 pb-4 text-[22px] space-x-4 flex flex-row justify-center  ">
+        <div className="text-[22px] space-x-4 flex flex-row justify-center">
           <button
             onClick={() => scrollToSection("projects")}
-            className="p-3 relative px-10 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 font-semibold rounded-sm  group hover-effect"
+            className="p-3 relative px-10 flex flex-row bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 shadow-md shadow-neutral-950 text-neutral-200 font-semibold rounded-sm group hover-effect"
           >
             <p className="text-xl">View Projects</p>
             <svg
@@ -336,7 +334,7 @@ const Home = () => {
           <a
             href="https://github.com/FishySenpai"
             target="_blank"
-            className="fixed top-[394px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out "
+            className="fixed left-0 top-1/2 -translate-y-[84px] bg-[#4E545A] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -352,7 +350,7 @@ const Home = () => {
           <a
             href="https://www.linkedin.com/in/noman-basit/"
             target="_blank"
-            className="fixed top-[450px] bg-[#0077BA] h-14 w-14 pl-3 pt-3 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out "
+            className="fixed left-0 top-1/2 -translate-y-[28px] bg-[#0077BA] h-14 w-14 pl-3 pt-3 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -366,7 +364,7 @@ const Home = () => {
             </svg>
           </a>
           <Link to="/" onClick={() => scrollToSection("contact")}>
-            <div className="fixed top-[506px] bg-[#fff] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
+            <div className="fixed left-0 top-1/2 translate-y-[28px] bg-[#fff] h-14 w-14 pl-2 pt-2 hover:w-[80px] hover:pl-7 transition-all duration-300 ease-in-out ">
               <img src={gmail} alt="email" className="h-10 w-10 " />
             </div>
           </Link>

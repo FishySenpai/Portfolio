@@ -2,10 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Base colors - old dark gray */
+  --bg-dark: #2d2d2d;
+  --bg-mid: #333333;
+  --bg-light: #3a3a3a;
+  
+  /* Accent */
+  --accent: #f97316;
+  --accent-glow: rgba(249, 115, 22, 0.06);
+  --accent-strong: #ff8c3a;
+  
+  /* Text */
+  --text-bright: #ffffff;
+  --text-main: #e5e5e5;
+  --text-muted: #b0b0b0;
+  
+  /* Panels/borders */
+  --panel: #363636;
+  --border: #444444;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
 body {
   margin: 0;
-  color: white;
-  background-color: #2f2f2f;
+  min-height: 100vh;
+  color: var(--text-main);
+  background:
+    /* Subtle orange glow top-right */
+    radial-gradient(ellipse 70% 50% at 90% 0%, var(--accent-glow), transparent 50%),
+    /* Subtle orange glow bottom-left */
+    radial-gradient(ellipse 60% 40% at 10% 100%, var(--accent-glow), transparent 45%),
+    /* Soft white highlight top-left */
+    radial-gradient(circle at 10% 15%, rgba(255, 255, 255, 0.025), transparent 30%),
+    /* Soft white highlight center-right */
+    radial-gradient(circle at 85% 50%, rgba(255, 255, 255, 0.02), transparent 35%),
+    /* Main gradient - vertical with slight diagonal */
+    linear-gradient(
+      168deg,
+      var(--bg-dark) 0%,
+      var(--bg-mid) 40%,
+      var(--bg-light) 70%,
+      var(--bg-mid) 90%,
+      var(--bg-dark) 100%
+    );
+  background-attachment: fixed;
   font-family: "Noto Sans JP", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,13 +57,53 @@ code {
     monospace;
 }
 
-/* app.css */
 .text {
   font-family: "Noto Sans JP", sans-serif;
 }
+
 .bg-color {
-  background-color: #2f2f2f;
+  background:
+    radial-gradient(ellipse 50% 35% at 85% 5%, var(--accent-glow), transparent 40%),
+    linear-gradient(170deg, var(--bg-dark), var(--bg-mid) 50%, var(--bg-light));
 }
+
+.secondary-color {
+  color: var(--text-muted);
+}
+
+/* Panel styling helper */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+/* Button helpers */
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+  transition: all 0.3s ease;
+}
+.btn-accent:hover {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  box-shadow: 0 8px 28px rgba(249, 115, 22, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Chip/tag styling */
+.chip {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--text-bright);
+}
+
+/* ...existing keyframes unchanged... */
 @keyframes moreAppearAndWiggle {
   0% {
     opacity: 0;
@@ -42,7 +123,6 @@ code {
   position: relative;
   overflow: hidden;
 }
-
 
 .details-animation {
   animation: moreAppearAndWiggle 0.5s ease-out forwards;
@@ -71,18 +151,16 @@ code {
 .tag-list li:nth-child(1) {
   animation-delay: 0.25s;
 }
-
 .tag-list li:nth-child(2) {
   animation-delay: 0.35s;
 }
-
 .tag-list li:nth-child(3) {
   animation-delay: 0.45s;
 }
-
 .tag-list li:nth-child(4) {
   animation-delay: 0.5s;
 }
+
 @keyframes ImgDropIn {
   0% {
     opacity: 0;
@@ -103,18 +181,14 @@ code {
 .hover-effect {
   transition: transform 0.3s;
 }
-
 .hover-effect:hover {
   transform: scale(1.05);
-  transform-origin: 100% 50%; /* Adjust the origin based on your preference */
+  transform-origin: 100% 50%;
 }
 
 .description {
   font-family: Lato, Helvetica, Arial, sans-serif;
   font-size: 18px;
-}
-.secondary-color {
-  color: #c2c1c1;
 }
 
 @keyframes blink {
@@ -124,6 +198,6 @@ code {
 }
 @-webkit-keyframes blink {
   50% {
-    border-color: tranparent;
+    border-color: transparent;
   }
 }
