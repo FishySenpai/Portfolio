@@ -98,7 +98,7 @@ const Navbar = () => {
                 : "text-gray-200 after:bg-orange-600 after:scale-x-0 hover:after:scale-x-100"
             } relative w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:w-full after:left-0 after:-bottom-[3px] after:transition after:duration-300 after:origin-center`}
           >
-            <div className="flex">
+            <div className="flex ">
               <span>Home</span>
             </div>
           </NavLink>
