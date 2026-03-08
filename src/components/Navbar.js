@@ -30,52 +30,44 @@ const Navbar = () => {
       });
     }
   };
-let activeSectionTimer = null;
-let lastActiveSection = "home";
+  const activeSectionTimer = React.useRef(null);
+  const lastActiveSection = React.useRef("home");
 
-const handleScroll = () => {
-  const sections = ["home", "about", "projects", "contact"];
-  let currentSection = "home";
-  let maxVisiblePercentage = 0;
+  const handleScroll = () => {
+    const sections = ["home", "about", "projects", "contact"];
+    let currentSection = "home";
+    let maxVisiblePercentage = 0;
 
-  sections.forEach((sectionId) => {
-    const sectionElement = document.getElementById(sectionId);
-    if (sectionElement) {
-      const sectionTop = sectionElement.getBoundingClientRect().top;
-      const sectionBottom = sectionElement.getBoundingClientRect().bottom;
-      const sectionHeight = sectionElement.offsetHeight;
-      const viewportHeight = window.innerHeight;
+    sections.forEach((sectionId) => {
+      const sectionElement = document.getElementById(sectionId);
+      if (sectionElement) {
+        const sectionTop = sectionElement.getBoundingClientRect().top;
+        const sectionBottom = sectionElement.getBoundingClientRect().bottom;
+        const sectionHeight = sectionElement.offsetHeight;
+        const viewportHeight = window.innerHeight;
 
-      // Calculate the visible height of the section
-      const visibleTop = Math.max(0, sectionTop);
-      const visibleBottom = Math.min(viewportHeight, sectionBottom);
-      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const visibleTop = Math.max(0, sectionTop);
+        const visibleBottom = Math.min(viewportHeight, sectionBottom);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const visiblePercentage = (visibleHeight / sectionHeight) * 100;
 
-      // Calculate the percentage of the section visible in the viewport
-      const visiblePercentage = (visibleHeight / sectionHeight) * 100;
-
-      // Update the current section if it has the highest visible percentage and is more than 50%
-      if (visiblePercentage > 50 && visiblePercentage > maxVisiblePercentage) {
-        maxVisiblePercentage = visiblePercentage;
-        currentSection = sectionId;
+        if (visiblePercentage > 50 && visiblePercentage > maxVisiblePercentage) {
+          maxVisiblePercentage = visiblePercentage;
+          currentSection = sectionId;
+        }
       }
-    }
-  });
+    });
 
-  // Only trigger if the current section is different from the last active section
-  if (currentSection !== lastActiveSection) {
-    // Clear the existing timer to avoid multiple triggers
-    if (activeSectionTimer) {
-      clearTimeout(activeSectionTimer);
+    if (currentSection !== lastActiveSection.current) {
+      if (activeSectionTimer.current) {
+        clearTimeout(activeSectionTimer.current);
+      }
+      activeSectionTimer.current = setTimeout(() => {
+        setActiveLink(currentSection);
+        lastActiveSection.current = currentSection;
+      }, 20);
     }
-
-    // Set a timer to confirm the section after 100ms
-    activeSectionTimer = setTimeout(() => {
-      setActiveLink(currentSection);
-      lastActiveSection = currentSection; // Update the last active section
-    }, 20);
-  }
-};
+  };
 
 
 
@@ -90,7 +82,7 @@ const handleScroll = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      <div className="bg-[#383838] text-white  py-5 font-semibold text-lg flex flex-row justify-between">
+      <div className="bg-[#383838]/90 backdrop-blur-md text-white py-5 font-semibold text-lg flex flex-row justify-between">
         <div className=" h-[30px] text-md flex ml-[2%] 1md:ml-[5%] lg:ml-[10%]">
           <img src="logo3.png" alt="" className=" h-[30px] mt-0.5 w-full " />
           <img src="logo4.png" alt="" className=" h-[35px]  w-full " />
@@ -116,7 +108,7 @@ const handleScroll = () => {
             className={`${
               activeLink === "about"
                 ? "text-white after:bg-orange-600 after:scale-x-100"
-                : "text-gray-200 after:bg-orange-500 after:scale-x-0 hover:after:scale-x-100"
+                : "text-gray-200 after:bg-orange-600 after:scale-x-0 hover:after:scale-x-100"
             } relative w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:w-full after:left-0 after:-bottom-[3px] after:transition after:duration-300 after:origin-center`}
           >
             <div className="flex">
@@ -129,7 +121,7 @@ const handleScroll = () => {
             className={`${
               activeLink === "projects"
                 ? "text-white after:bg-orange-600 after:scale-x-100"
-                : "text-gray-200 after:bg-orange-500 after:scale-x-0 hover:after:scale-x-100"
+                : "text-gray-200 after:bg-orange-600 after:scale-x-0 hover:after:scale-x-100"
             } relative w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:w-full after:left-0 after:-bottom-[3px] after:transition after:duration-300 after:origin-center`}
           >
             <div className="flex">
@@ -142,7 +134,7 @@ const handleScroll = () => {
             className={`${
               activeLink === "contact"
                 ? "text-white after:bg-orange-600 after:scale-x-100"
-                : "text-gray-200 after:bg-orange-500 after:scale-x-0 hover:after:scale-x-100"
+                : "text-gray-200 after:bg-orange-600 after:scale-x-0 hover:after:scale-x-100"
             } relative w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:w-full after:left-0 after:-bottom-[3px] after:transition after:duration-300 after:origin-center`}
           >
             <div className="flex">

@@ -1,196 +1,163 @@
-.header-typing  {
-  border: none;
-  border-right: 0.15em solid rgb(234, 88, 12);
-  white-space: nowrap;
+/* ── Hero typewriter cursor ── */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.hero-cursor {
+  display: inline-block;
+  width: 0;
+  border-right: 2px solid rgb(234, 88, 12);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: cursorBlink 0.6s step-end infinite;
+}
+
+/* ── Entrance animations ── */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Badge + comment — first thing in */
+.pre-heading {
+  opacity: 0;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+/* Right column — slides in while name is typing */
+.hero-right {
+  opacity: 0;
+  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.8s;
+}
+
+/* Left column — staggered after typing finishes (~1.38s) */
+.hero-role {
+  opacity: 0;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.42s;
+}
+
+.hero-description {
+  opacity: 0;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.58s;
+}
+
+.tech-chips {
+  opacity: 0;
+  animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.72s;
+}
+
+.hero-cta {
+  opacity: 0;
+  animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.84s;
+}
+
+.scroll-indicator {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 2.2s;
+}
+
+/* ── Project card hover overlay ── */
+@keyframes moreAppearAndWiggle {
+  0%   { opacity: 0; transform: translateY(10px); }
+  50%  { transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.slider_Root {
+  background-color: #eee;
+  position: relative;
   overflow: hidden;
 }
 
-.header-1 {
-  animation: headertype 1s steps(40, end) forwards;
+.details-animation {
+  animation: moreAppearAndWiggle 0.5s ease-out forwards;
+  animation-delay: 0.85s;
+  opacity: 0;
 }
 
-.header-2 {
-  opacity: 0;
-  animation: headertype 1s steps(40, end) forwards;
-  animation-delay: 1s; /* Start after 1s delay */
+@keyframes tagAppearAndWiggle {
+  0%   { opacity: 0; transform: translateY(-5px); }
+  50%  { transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-.header-3 {
-  width: 1080px; /* Adjust width as needed */
+.tag-animation {
+  animation: tagAppearAndWiggle 0.5s ease-out forwards;
   opacity: 0;
-  animation: headertype 1.5s steps(80, end) forwards;
-  animation-delay: 2s; /* Start after 2s delay */
+}
+.tag-list li:nth-child(1) { animation-delay: 0.25s; }
+.tag-list li:nth-child(2) { animation-delay: 0.35s; }
+.tag-list li:nth-child(3) { animation-delay: 0.45s; }
+.tag-list li:nth-child(4) { animation-delay: 0.5s;  }
+
+@keyframes ImgDropIn {
+  0%   { opacity: 0; transform: translate3d(0, -10%, 0); }
+  50%  { transform: translate3d(0, -5%, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.fade-in {
+  animation: ImgDropIn 0.2s ease-in;
 }
 
-.header-4 {
-  width: 1070px; /* Adjust width as needed */
-  opacity: 0;
-  animation: headertype 1.5s steps(80, end) forwards;
-  animation-delay: 3.5s; /* Start after 3s delay */
+.hover-effect { transition: transform 0.3s; }
+.hover-effect:hover {
+  transform: scale(1.05);
+  transform-origin: 100% 50%;
 }
 
-.header-5 {
-  width: 230px; /* Adjust width as needed */
-  opacity: 0;
-  animation: headertype 0.5s steps(80, end) forwards;
-  animation-delay: 5s; /* Start after 4s delay */
-}
-
-
-/* lg screen size */
-
-.header-6 {
-  width: 690px; /* Adjust width as needed */
-  opacity: 0;
-  animation: headertype 1.5s steps(80, end) forwards;
-  animation-delay: 2s; /* Start after 3s delay */
-}
-
-.header-7 {
-  width: 690px; /* Adjust width as needed */
-  opacity: 0;
-  animation: headertype 1.5s steps(80, end) forwards;
-  animation-delay: 3.5s; /* Start after 4s delay */
-}
-.header-8 {
-  width: 660px; /* Adjust width as needed */
-  opacity: 0;
-  animation: headertype 1.5s steps(80, end) forwards;
-  animation-delay: 5s; /* Start after 3s delay */
-}
-.header-9 {
-  width: 320px; /* Adjust width as needed */
-  opacity: 0;
-  animation: headertype 1s steps(80, end) forwards;
-  animation-delay: 6.5s; /* Start after 3s delay */
-}
-
-/* md screen size */
-
-.header-10 {
-  opacity: 0;
-  animation: headertype 1s steps(80, end) forwards;
-  animation-delay: 2s; /* Start after 3s delay */
-}
-
-.header-11 {
-  opacity: 0;
-  animation: headertype 1s steps(80, end) forwards;
-  animation-delay: 3s; /* Start after 4s delay */
-}
-.header-12 {
-  opacity: 0;
-  animation: headertype 1s steps(80, end) forwards;
-  animation-delay: 4s; /* Start after 3s delay */
-}
-.header-13 {
-  opacity: 0;
-  animation: headertype 1s steps(80, end) forwards;
-  animation-delay: 5s; /* Start after 3s delay */
-}
-
-/* sm screen size */
-
-.header-14 {
-  opacity: 0;
-  animation: headertype 0.7s steps(80, end) forwards;
-  animation-delay: 2s; /* Start after 3s delay */
-}
-
-.header-15 {
-  opacity: 0;
-  animation: headertype 0.7s steps(80, end) forwards;
-  animation-delay: 2.7s; /* Start after 4s delay */
-}
-.header-16 {
-  opacity: 0;
-  animation: headertype 0.7s steps(80, end) forwards;
-  animation-delay: 3.4s; /* Start after 3s delay */
-}
-.header-17 {
-  opacity: 0;
-  animation: headertype 0.7s steps(80, end) forwards;
-  animation-delay: 4.1s; /* Start after 3s delay */
-}
-.header-18 {
-  opacity: 0;
-  animation: headertype 0.5s steps(80, end) forwards;
-  animation-delay: 4.8s; /* Start after 3s delay */
-}
-
-/*extra sm screen size */
-
-.header-19 {
-  opacity: 0;
-  animation: headertype 0.6s steps(80, end) forwards;
-  animation-delay: 2s; /* Start after 3s delay */
-}
-
-.header-20 {
-  opacity: 0;
-  animation: headertype 0.6s steps(80, end) forwards;
-  animation-delay: 2.6s; /* Start after 4s delay */
-}
-.header-21 {
-  opacity: 0;
-  animation: headertype 0.6s steps(80, end) forwards;
-  animation-delay: 3.2s; /* Start after 3s delay */
-}
-.header-22 {
-  opacity: 0;
-  animation: headertype 0.6s steps(80, end) forwards;
-  animation-delay: 3.8s; /* Start after 3s delay */
-}
-.header-23 {
-  opacity: 0;
-  animation: headertype 0.6s steps(80, end) forwards;
-  animation-delay: 4.4s; /* Start after 3s delay */
-}
-.header-24 {
-  opacity: 0;
-  animation: headertype 0.6s steps(80, end) forwards;
-  animation-delay: 5s; /* Start after 3s delay */
-}
-@keyframes headertype {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  99% {
-    border-right: 0.15em solid rgb(234, 88, 12);
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-.typewriter-text span {
-  opacity: 0;
-  animation: typing 0.05s forwards;
-  animation-delay: calc(var(--char-index) * 0.05s);
-}
-
-.cursor {
-  display: inline-block;
-  border-right: 2px solid rgb(234 88 12); /* Cursor appearance */
-  opacity: 1;
-}
-
-.blinking {
-  display: inline-block;
-  border-right: 2px solid rgb(234 88 12); /* Cursor appearance */
-  animation: blink 0.75s step-end infinite; /* Apply blinking animation */
+.description {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 18px;
 }
 
 @keyframes blink {
-  50% {
-    border-color: transparent; /* Cursor becomes invisible */
-  }
+  50% { border-color: transparent; }
+}
+@-webkit-keyframes blink {
+  50% { border-color: transparent; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .pre-heading,
+  .hero-right,
+  .hero-role,
+  .hero-description,
+  .tech-chips,
+  .hero-cta,
+  .scroll-indicator,
+  .tag-animation,
+  .details-animation,
+  .fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
-
+  .hover-effect,
+  .hover-effect:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}

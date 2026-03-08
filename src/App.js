@@ -8,10 +8,12 @@ import {
   Projects,
   Footer,
 } from "./components/index.js";
+import CursorCircle from "./components/CursorCircle.js";
 
 function App() {
   return (
     <div className="App max-w-screen overflow-hidden">
+      <CursorCircle />
       <Navbar />
       <Routes>
         <Route

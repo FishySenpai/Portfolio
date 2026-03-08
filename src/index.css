@@ -29,6 +29,8 @@ body {
   min-height: 100vh;
   color: var(--text-main);
   background:
+    /* Dot grid texture */
+    radial-gradient(circle, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
     /* Subtle orange glow top-right */
     radial-gradient(ellipse 70% 50% at 90% 0%, var(--accent-glow), transparent 50%),
     /* Subtle orange glow bottom-left */
@@ -46,6 +48,7 @@ body {
       var(--bg-mid) 90%,
       var(--bg-dark) 100%
     );
+  background-size: 28px 28px, auto, auto, auto, auto, auto;
   background-attachment: fixed;
   font-family: "Noto Sans JP", sans-serif;
   -webkit-font-smoothing: antialiased;
