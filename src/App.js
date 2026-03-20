@@ -1,19 +1,21 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import {
-  Home,
   Navbar,
+  Home,
+  Services,
+  Results,
+  Process,
+  Projects,
+  Testimonials,
   About,
   Contact,
-  Projects,
   Footer,
 } from "./components/index.js";
-import CursorCircle from "./components/CursorCircle.js";
 
 function App() {
   return (
     <div className="App max-w-screen overflow-hidden">
-      <CursorCircle />
       <Navbar />
       <Routes>
         <Route
@@ -21,17 +23,17 @@ function App() {
           element={
             <>
               <Home />
-              <About />
+              <Services />
+              <Results />
+              <Process />
               <Projects />
-              <Contact  />
-              <Footer/>
+              <Testimonials />
+              <About />
+              <Contact />
+              <Footer />
             </>
           }
         />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
-
       </Routes>
     </div>
   );

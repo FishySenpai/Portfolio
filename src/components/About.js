@@ -1,134 +1,172 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+
+const SKILLS = [
+  "React", "Next.js", "Node.js", "TypeScript", "Python",
+  "TailwindCSS", "PostgreSQL", "Firebase", "Supabase",
+  "AWS", "Docker", "Vercel", "Figma", "Make.com",
+];
+
+const WHY_ME = [
+  {
+    title: "Business-First Thinking",
+    desc:  "I don't just write code — I build solutions with your goals in mind. Every decision is made to move your business forward.",
+  },
+  {
+    title: "Fast, Reliable Delivery",
+    desc:  "I respect deadlines. You'll get regular updates, clear timelines, and a product that ships on time.",
+  },
+  {
+    title: "Full Ownership",
+    desc:  "From design to deployment, I handle everything. No handoffs, no gaps — one person who owns the whole product.",
+  },
+];
 
 const About = () => {
-  const skills = {
-    Languages: ["JavaScript", "TypeScript", "Python", "SQL", "HTML", "CSS"],
-    Frameworks: ["React", "Next.js", "Node.js", "TailwindCSS", "PyTorch", "TensorFlow"],
-    Tools: ["Git", "Docker", "Vercel", "AWS", "Firebase", "Supabase", "Figma"],
-  };
-
   const [isVisible, setIsVisible] = useState(false);
-  const aboutRef = useRef(null);
+  const ref = useRef(null);
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      setIsVisible(true);
-      return;
-    }
-
-    const threshold = window.innerWidth < 600 ? 0.1 : 0.25;
+    const threshold = window.innerWidth < 600 ? 0.1 : 0.2;
     const observer = new IntersectionObserver(
       (entries, obs) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-          obs.disconnect();
-        }
+        if (entries[0].isIntersecting) { setIsVisible(true); obs.disconnect(); }
       },
       { threshold }
     );
-
-    if (aboutRef.current) observer.observe(aboutRef.current);
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 96;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
   };
 
   return (
-    <div
-      id="about"
-      className="text-neutral-200 flex flex-col pt-16 pb-24 sm:pb-28 lg:pb-32"
-      ref={aboutRef}
-    >
-      {/* Section header */}
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-10 pb-10 text-center">
-        <div
-          className={`text-[34px] sm:text-[38px] text-neutral-300 transition-transform duration-1000 ease-out ${
-            isVisible ? "translate-x-0 opacity-100" : "-translate-x-40 opacity-0"
-          }`}
-        >
-          <span className="font-mono text-orange-500 text-[20px] sm:text-[22px] mr-2 align-middle">01.</span>About
-        </div>
-        <div
-          className={`w-24 sm:w-28 h-[3px] bg-orange-600 mx-auto mt-2 transition-transform duration-1000 ease-out delay-150 ${
-            isVisible ? "translate-x-0 opacity-100" : "translate-x-40 opacity-0"
-          }`}
-        />
-        <div
-          className={`mx-auto text-[16px] sm:text-[17px] leading-[28px] pt-4 max-w-2xl secondary-color transition ease-in-out delay-200 ${
-            isVisible ? "translate-y-0 opacity-100 duration-[1s]" : "translate-y-10 opacity-0 duration-[1s]"
-          }`}
-        >
-          A little about who I am, what I've built, and the tools I work with every day.
-        </div>
-      </div>
+    <section id="about" className="py-24 lg:py-32 bg-[#FAFAF8]" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 lg:px-10">
 
-      {/* Content grid */}
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-10">
-        <div className="grid gap-10 lg:gap-16 lg:grid-cols-2 items-start">
-
-          {/* Bio column */}
-          <div
-            className={`transition ease-in-out delay-200 ${
-              isVisible
-                ? "translate-x-0 opacity-100 duration-1000"
-                : "-translate-x-20 opacity-0 duration-1000"
+        {/* Header */}
+        <div className="max-w-2xl mb-16">
+          <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
+            About
+          </p>
+          <h2
+            className={`font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="text-2xl font-bold mb-5 text-neutral-100">
-              Get to know me!
-              <div className="w-10 h-[2px] bg-orange-600 mt-2" />
+            A Developer Who Thinks Like a Business Owner
+          </h2>
+        </div>
+
+        {/* Two-column layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+          {/* Left: bio */}
+          <div
+            className={`transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+            }`}
+          >
+            <div className="space-y-5 text-[16px] leading-[28px] text-[#555555] mb-8">
+              <p>
+                I'm <strong className="text-[#111111]">Noman Basit</strong>, a
+                full-stack web developer with 2+ years of experience building
+                production-grade applications for startups and businesses. I
+                specialize in React, Next.js, Node.js, and modern cloud
+                infrastructure.
+              </p>
+              <p>
+                What sets me apart is that I care about outcomes, not just
+                output. I ask the right questions before writing a single line
+                of code to make sure we're solving the right problem — and
+                building the right product.
+              </p>
+              <p>
+                Recently I've been leading AI integration projects: connecting
+                social platform APIs, building end-to-end voice workflows, and
+                automating operations with Make.com to drive measurable
+                efficiency gains for clients.
+              </p>
             </div>
 
-            <div className="space-y-4 text-[16px] sm:text-[17px] leading-[28px] secondary-color">
-              <p>
-                I'm a{" "}
-                <strong className="text-neutral-300">Full Stack Web Developer</strong>{" "}
-                with <strong>2+ years</strong> building production apps using{" "}
-                <strong>React, Next.js, Node.js,</strong> and <strong>TailwindCSS</strong>.
-                I design scalable backends, secure auth flows, and real-time features —
-                then ship them to the cloud with a focus on performance and UX.
-              </p>
-              <p>
-                Lately I've been leading <strong className="text-neutral-300">AI integration</strong>{" "}
-                work — connecting social platform APIs, building AI voice workflows end-to-end,
-                and automating manual operations with <strong>Make.com</strong>. I enjoy pairing
-                thoughtful UX with solid infrastructure to drive measurable improvements.
-              </p>
-              <p>
-                I thrive collaborating with designers and product teams to ship fast, measurable
-                results — whether shaving load times, improving accessibility, or refining
-                dashboards for better decision-making.
-              </p>
-            </div>
-
-            {/* Currently card */}
-            <div className="mt-6 p-4 bg-[#1e1e1e] border border-neutral-700/60 rounded-sm border-l-2 border-l-orange-600">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-                <span className="font-mono text-[11px] text-neutral-400 tracking-widest uppercase">Currently</span>
-              </div>
-              <p className="text-[14px] secondary-color leading-[22px]">
-                Open to full-time roles and freelance projects. If you're hiring or have
-                something interesting, feel free to{" "}
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-orange-500 underline"
+            {/* Why me cards */}
+            <div className="space-y-4">
+              {WHY_ME.map(({ title, desc }) => (
+                <div
+                  key={title}
+                  className="flex items-start gap-4 p-4 bg-[#F2F0EB] rounded-xl border border-[#E5E2DB]"
                 >
-                  reach out
-                </button>
-                {" "}or connect on{" "}
+                  <div className="h-5 w-5 rounded-sm bg-[#E8630A] flex items-center justify-center shrink-0 mt-0.5">
+                    <svg className="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[14px] font-bold text-[#111111] mb-1">{title}</div>
+                    <div className="text-[13px] text-[#666666] leading-[22px]">{desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={() => scrollTo("contact")}
+              className="mt-8 px-7 py-3.5 bg-[#111111] hover:bg-[#E8630A] text-white font-semibold text-[14px] rounded-sm transition-colors duration-200"
+            >
+              Work With Me →
+            </button>
+          </div>
+
+          {/* Right: skills */}
+          <div
+            className={`transition-all duration-1000 delay-150 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+            }`}
+          >
+            <h3 className="text-[17px] font-bold text-[#111111] mb-2">Tech Stack</h3>
+            <p className="text-[14px] text-[#888888] mb-6">
+              Tools and technologies I use to build your product.
+            </p>
+            <div className="flex flex-wrap gap-2.5 mb-10">
+              {SKILLS.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3.5 py-2 bg-white border border-[#E5E2DB] text-[#333333] text-[13px] font-medium rounded-lg hover:border-[#E8630A] hover:text-[#E8630A] transition-colors duration-150"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            {/* Availability card */}
+            <div className="p-5 bg-[#FFF4EE] border border-[#FDDFC8] rounded-xl">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[13px] font-bold text-[#111111]">
+                  Open to New Projects
+                </span>
+              </div>
+              <p className="text-[13px] text-[#666666] leading-[22px]">
+                Currently available for freelance projects and consulting
+                engagements.{" "}
+                <button
+                  onClick={() => scrollTo("contact")}
+                  className="text-[#E8630A] font-semibold hover:underline"
+                >
+                  Let's connect
+                </button>{" "}
+                or find me on{" "}
                 <a
                   href="https://www.linkedin.com/in/noman-basit/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline text-orange-500"
+                  className="text-[#E8630A] font-semibold hover:underline"
                 >
                   LinkedIn
                 </a>
@@ -136,38 +174,9 @@ const About = () => {
               </p>
             </div>
           </div>
-
-          {/* Skills column */}
-          <div
-            className={`flex flex-col text-neutral-200 transition duration-1000 ease-in-out delay-150 ${
-              isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
-            }`}
-          >
-            <div className="text-2xl font-bold mb-6 text-neutral-100">
-              Skills
-              <div className="w-10 h-[2px] bg-orange-600 mt-2" />
-            </div>
-            {Object.entries(skills).map(([group, items]) => (
-              <div key={group} className="mb-6">
-                <div className="font-mono text-[11px] text-orange-500 mb-3 tracking-widest uppercase">
-                  <span className="mr-1 opacity-50">&gt;</span>{group}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((skill) => (
-                    <div
-                      key={skill}
-                      className="px-3 py-1.5 bg-[#444444] hover:bg-neutral-700 border-b-[3px] border-neutral-800 hover:border-b-orange-600 shadow-md shadow-neutral-950 text-neutral-200 text-[14px] w-fit transition-colors duration-200"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
