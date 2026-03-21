@@ -27,27 +27,28 @@ const Home = () => {
 
           {/* ── Left ── */}
           <div>
-            {/* Urgency badge */}
+            {/* Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[#FFF4EE] border border-[#FDDFC8] rounded-full mb-8">
               <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[12px] font-bold text-[#E8630A] tracking-wide">
-                2 Client Spots Open This Month
+              <span className="text-[12px] font-semibold text-[#E8630A] tracking-wide">
+                Available for New Projects
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="font-serif text-[44px] sm:text-[54px] lg:text-[62px] xl:text-[70px] leading-[1.08] text-[#111111] mb-5">
-              Agency-Quality
+              I Build Web Products
               <br />
-              Web Development.
+              That Work for
               <br />
-              <span className="text-[#E8630A] italic">Freelancer Rates.</span>
+              <span className="text-[#E8630A] italic">Your Business.</span>
             </h1>
 
             {/* Sub */}
             <p className="text-[17px] sm:text-[18px] leading-[30px] text-[#555555] max-w-xl mb-3">
-              I build full-stack products for startups and growing businesses —
-              fast, scalable, and without the overhead of a development agency.
+              Full-stack development for startups and growing businesses.
+              Fast turnaround, clean code, and someone who actually cares
+              about the outcome — not just the deliverable.
             </p>
 
             {/* Proof line */}
@@ -65,7 +66,7 @@ const Home = () => {
                 onClick={() => scrollTo("contact")}
                 className="px-7 py-3.5 bg-[#E8630A] hover:bg-[#D45508] text-white font-bold text-[15px] rounded-sm transition-colors duration-200 shadow-md shadow-orange-200"
               >
-                Claim Your Spot →
+                Start a Project →
               </button>
               <button
                 onClick={() => scrollTo("projects")}
@@ -94,8 +95,8 @@ const Home = () => {
                   <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-[13px] font-bold text-[#111111]">Available for Work</span>
                 </div>
-                <span className="text-[11px] font-bold text-[#E8630A] bg-[#FFF4EE] border border-[#FDDFC8] px-2 py-1 rounded-sm">
-                  2 spots left
+                <span className="text-[11px] font-semibold text-[#888888]">
+                  24hr response
                 </span>
               </div>
 
