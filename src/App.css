@@ -33,49 +33,69 @@
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Badge + comment — first thing in */
+/* Badge — first thing in */
 .pre-heading {
   opacity: 0;
-  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.1s;
+  animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.08s;
 }
 
-/* Right column — slides in while name is typing */
+/* Right column — slides in alongside headline */
 .hero-right {
   opacity: 0;
-  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.8s;
+  animation: slideInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.18s;
 }
 
-/* Left column — staggered after typing finishes (~1.38s) */
+/* Headline */
 .hero-role {
   opacity: 0;
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 1.42s;
+  animation: slideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.18s;
 }
 
+/* Description paragraph */
 .hero-description {
   opacity: 0;
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 1.58s;
+  animation: slideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.32s;
 }
 
-.tech-chips {
-  opacity: 0;
-  animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 1.72s;
-}
-
+/* CTA buttons */
 .hero-cta {
   opacity: 0;
-  animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 1.84s;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.44s;
+}
+
+/* Stats */
+.tech-chips {
+  opacity: 0;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.56s;
 }
 
 .scroll-indicator {
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
-  animation-delay: 2.2s;
+  animation-delay: 0.7s;
+}
+
+/* ── Avatar & hero visual animations ── */
+@keyframes avatarFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+  50%       { transform: translateY(-8px) rotate(-1.5deg); }
+}
+@keyframes heroFloatBack {
+  0%, 100% { transform: translateY(0px) rotate(4deg); }
+  50%       { transform: translateY(-5px) rotate(4deg); }
+}
+@keyframes slowSpin {
+  to { transform: rotate(360deg); }
 }
 
 /* ── Project card hover overlay ── */
@@ -159,5 +179,16 @@
   .hover-effect:hover {
     transition: none !important;
     transform: none !important;
+  }
+
+  .tilt-card {
+    transform: none !important;
+    transition: none !important;
+  }
+  [style*="avatarFloat"],
+  [style*="heroFloat"],
+  [style*="heroFloatBack"],
+  [style*="slowSpin"] {
+    animation: none !important;
   }
 }

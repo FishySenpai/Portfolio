@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import AnimatedAvatar from "./AnimatedAvatar";
 
 const SKILLS = [
   "React", "Next.js", "Node.js", "TypeScript", "Python",
@@ -51,13 +52,11 @@ const About = () => {
           <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
             About
           </p>
-          <h2
-            className={`font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            A Developer Who Thinks Like a Business Owner
-          </h2>
+          <div className="reveal-line-wrapper">
+            <h2 className={`reveal-line font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] ${isVisible ? "visible" : ""}`}>
+              A Developer Who Thinks Like a Business Owner
+            </h2>
+          </div>
         </div>
 
         {/* Two-column layout */}
@@ -123,12 +122,17 @@ const About = () => {
             </button>
           </div>
 
-          {/* Right: skills */}
+          {/* Right: avatar + skills */}
           <div
             className={`transition-all duration-1000 delay-150 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
             }`}
           >
+            {/* Avatar */}
+            <div className="mb-10">
+              <AnimatedAvatar size={220} />
+            </div>
+
             <h3 className="text-[17px] font-bold text-[#111111] mb-2">Tech Stack</h3>
             <p className="text-[14px] text-[#888888] mb-6">
               Tools and technologies I use to build your product.

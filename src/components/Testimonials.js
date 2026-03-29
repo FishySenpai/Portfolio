@@ -65,13 +65,11 @@ const Testimonials = () => {
           <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
             Client Feedback
           </p>
-          <h2
-            className={`font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            What Clients Say
-          </h2>
+          <div className="reveal-line-wrapper inline-block">
+            <h2 className={`reveal-line font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] ${isVisible ? "visible" : ""}`}>
+              What Clients Say
+            </h2>
+          </div>
         </div>
 
         {/* Cards */}

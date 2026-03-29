@@ -7,13 +7,17 @@ const NAV_LINKS = [
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled]     = useState(false);
-  const [isOpen, setIsOpen]         = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
+  const [scrolled, setScrolled]         = useState(false);
+  const [isOpen, setIsOpen]             = useState(false);
+  const [activeLink, setActiveLink]     = useState("home");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
 
       const sections = ["home", "services", "projects", "about", "contact"];
       let current = "home";
@@ -35,6 +39,7 @@ const Navbar = () => {
   };
 
   return (
+  <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
@@ -73,7 +78,7 @@ const Navbar = () => {
           ))}
           <button
             onClick={() => scrollTo("contact")}
-            className="px-5 py-2.5 bg-[#111111] hover:bg-[#E8630A] text-white text-[14px] font-semibold rounded-sm transition-colors duration-200 shadow-sm"
+            className="btn-shimmer px-5 py-2.5 bg-[#111111] hover:bg-[#E8630A] text-white text-[14px] font-semibold rounded-sm transition-colors duration-200 shadow-sm"
           >
             Start a Project
           </button>
@@ -128,6 +133,13 @@ const Navbar = () => {
         </div>
       </div>
     </header>
+
+    {/* Scroll progress — fixed at bottom of 76px nav bar, always correct position */}
+    <div
+      className="fixed top-[74px] left-0 h-[2px] z-50 bg-[#E8630A]"
+      style={{ width: `${scrollProgress}%`, transition: "width 0.08s linear" }}
+    />
+  </>
   );
 };
 

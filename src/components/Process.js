@@ -42,19 +42,19 @@ const Process = () => {
           <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
             How It Works
           </p>
-          <h2
-            className={`font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            Simple, Transparent Process
-          </h2>
+          <div className="reveal-line-wrapper">
+            <h2 className={`reveal-line font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] ${isVisible ? "visible" : ""}`}>
+              Simple, Transparent Process
+            </h2>
+          </div>
         </div>
 
         {/* Steps */}
         <div className="grid md:grid-cols-3 gap-10 lg:gap-16 relative">
-          {/* Connector line behind cards */}
-          <div className="hidden md:block absolute top-8 left-[calc(33.33%+8px)] right-[calc(33.33%+8px)] h-px bg-[#E5E2DB]" />
+          {/* Connector line — draws itself in on scroll */}
+          <div
+            className={`hidden md:block absolute top-8 left-[calc(33.33%+8px)] right-[calc(33.33%+8px)] h-px bg-[#E8630A]/30 line-draw ${isVisible ? "visible" : ""}`}
+          />
 
           {STEPS.map(({ num, title, desc }, i) => (
             <div

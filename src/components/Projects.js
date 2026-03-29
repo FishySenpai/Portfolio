@@ -28,18 +28,6 @@ import gitanaylzer_5 from "./Assets/gitanalyzer/gitanalyzer_5.JPG";
 
 const projects = [
   {
-    id: 1,
-    imageUrl: wireframe_1,
-    projectLink: "https://wireframe-to-ui-builder.vercel.app/",
-    projectName: "Wireframe to UI Builder",
-    outcome: "Cut frontend scaffolding time by 70%",
-    category: "AI Tool",
-    projectDescription:
-      "AI tool that converts UI wireframes into responsive React code using YOLOv11 and OCR. Features a drag-and-drop canvas editor with live preview and real-time collaboration (up to 5 users) via Firebase. Node.js backend auto-generates components, reducing frontend scaffolding by 70%.",
-    technologies: ["React", "YOLOv11", "OCR", "Firebase", "Node.js"],
-    images: [wireframe_2, wireframe_3, wireframe_4],
-  },
-  {
     id: 2,
     imageUrl: avatar_1,
     projectLink: "https://avatar-social-media-workflow.vercel.app/",
@@ -50,6 +38,18 @@ const projects = [
       "A modern React + Firebase platform for social media automation, AI-powered feedback, and performance analytics. Features real-time notifications, AI recommendations, and interactive dashboards with seamless authentication.",
     technologies: ["ReactJS", "Firebase", "MUI", "Chart.js", "Framer Motion"],
     images: [avatar_2, avatar_3, avatar_4],
+  },
+  {
+    id: 1,
+    imageUrl: wireframe_1,
+    projectLink: "https://wireframe-to-ui-builder.vercel.app/",
+    projectName: "Wireframe to UI Builder",
+    outcome: "Cut frontend scaffolding time by 70%",
+    category: "AI Tool",
+    projectDescription:
+      "AI tool that converts UI wireframes into responsive React code using YOLOv11 and OCR. Features a drag-and-drop canvas editor with live preview and real-time collaboration (up to 5 users) via Firebase. Node.js backend auto-generates components, reducing frontend scaffolding by 70%.",
+    technologies: ["React", "YOLOv11", "OCR", "Firebase", "Node.js"],
+    images: [wireframe_2, wireframe_3, wireframe_4],
   },
   {
     id: 3,
@@ -105,6 +105,21 @@ const projects = [
   },
 ];
 
+const handleTiltMove = (e) => {
+  const el = e.currentTarget;
+  const rect = el.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+  const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+  el.style.transform = `perspective(1200px) rotateX(${-y * 3.5}deg) rotateY(${x * 3.5}deg) translateY(-6px)`;
+  el.style.transition = "transform 0.1s linear";
+};
+
+const handleTiltLeave = (e) => {
+  const el = e.currentTarget;
+  el.style.transform = "perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)";
+  el.style.transition = "transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)";
+};
+
 const Projects = () => {
   const [isVisible, setIsVisible]       = useState(false);
   const [visibleCount, setVisibleCount] = useState(0);
@@ -141,13 +156,11 @@ const Projects = () => {
             <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
               Selected Work
             </p>
-            <h2
-              className={`font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-            >
-              Projects That Deliver Results
-            </h2>
+            <div className="reveal-line-wrapper">
+              <h2 className={`reveal-line font-serif text-[38px] sm:text-[46px] leading-tight text-[#111111] ${isVisible ? "visible" : ""}`}>
+                Projects That Deliver Results
+              </h2>
+            </div>
           </div>
           <p className="text-[15px] text-[#888888] max-w-sm sm:text-right leading-relaxed">
             From full-stack apps and AI tools to e-commerce platforms. Click any
@@ -155,28 +168,30 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Projects grid */}
+        {/* Projects grid — first card is featured (full width) */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((project, i) => (
             <div
               key={project.id}
-              className={`transition-all duration-500 ${
+              className={`transition-all duration-500 ${i === 0 ? "sm:col-span-2 lg:col-span-3" : ""} ${
                 i < visibleCount ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
               <div
-                className="group bg-white border border-[#E5E2DB] rounded-xl overflow-hidden cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="tilt-card group bg-white border border-[#E5E2DB] rounded-xl overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
                 onClick={() => { setSelected(project); setShowModal(true); }}
+                onMouseMove={handleTiltMove}
+                onMouseLeave={handleTiltLeave}
               >
                 {/* Image */}
-                <div className="relative overflow-hidden aspect-video bg-[#F0EEE9]">
+                <div className={`relative overflow-hidden bg-[#F0EEE9] ${i === 0 ? "h-[300px] sm:h-[380px]" : "aspect-video"}`}>
                   <img
                     src={project.imageUrl}
                     alt={project.projectName}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-[#111111]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#111111]/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex gap-3">
                       <span className="px-4 py-2 bg-[#E8630A] text-white text-[13px] font-semibold rounded-sm">
                         View Details
@@ -194,22 +209,29 @@ const Projects = () => {
                       )}
                     </div>
                   </div>
+                  {/* Featured label */}
+                  {i === 0 && (
+                    <div className="absolute top-4 left-4 px-2.5 py-1 bg-[#111111]/80 backdrop-blur-sm text-white text-[11px] font-semibold rounded-sm tracking-wide">
+                      Featured Project
+                    </div>
+                  )}
                 </div>
 
                 {/* Card body */}
-                <div className="p-5">
-                  <span className="text-[11px] font-semibold text-[#E8630A] bg-[#FFF4EE] px-2 py-0.5 rounded-sm">
-                    {project.category}
-                  </span>
-                  <h3 className="text-[15px] font-bold text-[#111111] leading-snug mt-2 mb-1.5">
-                    {project.projectName}
-                  </h3>
-                  {/* Outcome — the result, not the description */}
-                  <p className="text-[12px] text-[#666666] leading-[20px] mb-3">
-                    {project.outcome}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.technologies.slice(0, 3).map((t) => (
+                <div className={`p-5 ${i === 0 ? "sm:flex sm:items-start sm:justify-between sm:gap-8" : ""}`}>
+                  <div className={i === 0 ? "flex-1" : ""}>
+                    <span className="text-[11px] font-semibold text-[#E8630A] bg-[#FFF4EE] px-2 py-0.5 rounded-sm">
+                      {project.category}
+                    </span>
+                    <h3 className={`font-bold text-[#111111] leading-snug mt-2 mb-1.5 ${i === 0 ? "text-[18px]" : "text-[15px]"}`}>
+                      {project.projectName}
+                    </h3>
+                    <p className={`text-[#666666] leading-[20px] mb-3 ${i === 0 ? "text-[13px] max-w-xl" : "text-[12px]"}`}>
+                      {project.outcome}
+                    </p>
+                  </div>
+                  <div className={`flex flex-wrap gap-1.5 ${i === 0 ? "sm:justify-end sm:pt-6" : ""}`}>
+                    {project.technologies.slice(0, i === 0 ? 5 : 3).map((t) => (
                       <span
                         key={t}
                         className="px-2 py-0.5 bg-[#F2F0EB] text-[#666666] text-[11px] font-medium rounded-sm"
@@ -217,9 +239,9 @@ const Projects = () => {
                         {t}
                       </span>
                     ))}
-                    {project.technologies.length > 3 && (
+                    {project.technologies.length > (i === 0 ? 5 : 3) && (
                       <span className="px-2 py-0.5 bg-[#F2F0EB] text-[#999999] text-[11px] rounded-sm">
-                        +{project.technologies.length - 3}
+                        +{project.technologies.length - (i === 0 ? 5 : 3)}
                       </span>
                     )}
                   </div>

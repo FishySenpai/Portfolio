@@ -75,14 +75,12 @@ const Contact = () => {
           <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
             Get In Touch
           </p>
-          <h2
-            className={`font-serif text-[38px] sm:text-[48px] lg:text-[54px] leading-tight text-white mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            Let's Build Something{" "}
-            <span className="text-[#E8630A] ">Great Together.</span>
-          </h2>
+          <div className="reveal-line-wrapper mb-4">
+            <h2 className={`reveal-line font-serif text-[38px] sm:text-[48px] lg:text-[54px] leading-tight text-white ${isVisible ? "visible" : ""}`}>
+              Let's Build Something{" "}
+              <span className="text-[#E8630A]">Great Together.</span>
+            </h2>
+          </div>
           <p className="text-[16px] leading-[28px] text-white/60">
             Have a project in mind? Tell me about it — I'll get back to you
             within 24 hours with my thoughts and next steps.
@@ -243,7 +241,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3.5 bg-[#E8630A] hover:bg-[#D45508] text-white font-bold text-[15px] rounded-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-shimmer w-full py-3.5 bg-[#E8630A] hover:bg-[#D45508] text-white font-bold text-[15px] rounded-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Sending..." : "Send Message →"}
                 </button>
