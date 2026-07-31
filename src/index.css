@@ -11,8 +11,8 @@
   --text: #111111;
   --text-secondary: #555555;
   --text-muted: #888888;
-  --accent: #E8630A;
-  --accent-hover: #D45508;
+  --accent: #2D6A60;
+  --accent-hover: #204B44;
   --border: #E5E2DB;
   --card: #FFFFFF;
 }
@@ -131,6 +131,359 @@ body::after {
   will-change: transform;
 }
 
+/* ── X-ray blueprint lens ───────────────────────────────
+   A cursor-following lens over the hero that reveals the
+   "blueprint" twin underneath the finished page. ── */
+.bp-surface {
+  background-color: #fafaf8;
+  background-image:
+    linear-gradient(rgba(45, 106, 96, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 106, 96, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(45, 106, 96, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 106, 96, 0.15) 1px, transparent 1px);
+  background-size:
+    24px 24px,
+    24px 24px,
+    120px 120px,
+    120px 120px;
+}
+
+/* Text rendered as blueprint ink: drafted glyphs on dashed baselines */
+.bp-ink {
+  color: rgba(45, 106, 96, 0.62) !important;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: rgba(45, 106, 96, 0.28);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.bp-ink-solid {
+  color: rgba(45, 106, 96, 0.85) !important;
+  text-decoration: none;
+}
+
+/* Display type as outline strokes */
+.bp-stroke {
+  color: transparent !important;
+  -webkit-text-stroke: 1.5px rgba(45, 106, 96, 0.85);
+}
+
+/* Monospace spec annotations */
+.bp-note {
+  position: absolute;
+  left: 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgba(45, 106, 96, 0.9);
+  white-space: nowrap;
+}
+
+/* Lens ring + measurement ticks */
+.bp-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 340px;
+  border: 1.5px solid rgba(45, 106, 96, 0.5);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.12s ease-out,
+    opacity 0.25s ease;
+  will-change: transform;
+}
+.bp-tick {
+  position: absolute;
+  background: rgba(45, 106, 96, 0.6);
+}
+.bp-coords {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgba(45, 106, 96, 0.8);
+  white-space: nowrap;
+}
+
+/* Drafting crosshairs spanning the hero */
+.bp-cross-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-top: 1px dashed rgba(45, 106, 96, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    top 0.12s ease-out,
+    opacity 0.25s ease;
+}
+.bp-cross-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px dashed rgba(45, 106, 96, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    left 0.12s ease-out,
+    opacity 0.25s ease;
+}
+
+.bp-hint {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #aaaaaa;
+}
+
+/* ── Blueprint element kit ──
+   Shared drafting primitives so every hovered element reads as a
+   spec drawing of itself, not an empty slot. ── */
+
+/* Diagonal hatch fill — stands in for any painted surface */
+.bp-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(45, 106, 96, 0.16) 0,
+    rgba(45, 106, 96, 0.16) 1.5px,
+    transparent 1.5px,
+    transparent 7px
+  );
+}
+.bp-hatch-soft {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(45, 106, 96, 0.09) 0,
+    rgba(45, 106, 96, 0.09) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+/* Dashed bounding box, as drawn around a selected object */
+.bp-box {
+  border: 1px dashed rgba(45, 106, 96, 0.55);
+}
+
+/* Corner selection handles */
+.bp-handle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fafaf8;
+  border: 1px solid rgba(45, 106, 96, 0.85);
+}
+.bp-handle-tl { top: -3.5px; left: -3.5px; }
+.bp-handle-tr { top: -3.5px; right: -3.5px; }
+.bp-handle-bl { bottom: -3.5px; left: -3.5px; }
+.bp-handle-br { bottom: -3.5px; right: -3.5px; }
+
+/* Horizontal dimension line with end ticks + centred measure */
+.bp-dim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: rgba(45, 106, 96, 0.85);
+  white-space: nowrap;
+}
+.bp-dim::before,
+.bp-dim::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(45, 106, 96, 0.45);
+}
+.bp-dim-cap {
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: rgba(45, 106, 96, 0.7);
+}
+
+/* Vertical dimension rail down the left of a block */
+.bp-rail {
+  position: absolute;
+  width: 1px;
+  background: rgba(45, 106, 96, 0.35);
+}
+.bp-rail::before,
+.bp-rail::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  width: 9px;
+  height: 1px;
+  background: rgba(45, 106, 96, 0.7);
+}
+.bp-rail::before { top: 0; }
+.bp-rail::after { bottom: 0; }
+
+/* Colour swatch chip */
+.bp-swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: rgba(45, 106, 96, 0.85);
+}
+.bp-swatch i {
+  width: 8px;
+  height: 8px;
+  background: #2d6a60;
+  border: 1px solid rgba(45, 106, 96, 0.9);
+  display: block;
+}
+
+/* Baseline guide behind display type */
+.bp-baseline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed rgba(45, 106, 96, 0.22);
+}
+
+/* ── Hero 3D exploded build ─────────────────────────────
+   Three layers in real 3D space: blueprint → components →
+   shipped product. Idle sway, mouse tilt, spread on hover. */
+.build-viewport {
+  position: relative;
+  perspective: 1400px;
+}
+
+.build-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+@keyframes buildSway {
+  0%, 100% { transform: rotateX(24deg) rotateY(-17deg); }
+  50%      { transform: rotateX(29deg) rotateY(-10deg); }
+}
+
+.build-scene {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: buildSway 9s ease-in-out infinite;
+}
+
+.build-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  backface-visibility: hidden;
+}
+
+.build-layer-blueprint {
+  transform: translateZ(-100px);
+}
+
+.build-layer-mid {
+  transform: translateZ(0);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e5e2db;
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.06);
+  overflow: hidden;
+}
+
+.build-layer-product {
+  transform: translateZ(100px);
+  background: #ffffff;
+  border: 1px solid #e5e2db;
+  box-shadow: 0 25px 60px rgba(17, 17, 17, 0.18);
+  overflow: hidden;
+}
+
+.build-viewport:hover .build-layer-blueprint { transform: translateZ(-155px); }
+.build-viewport:hover .build-layer-product   { transform: translateZ(155px); }
+
+/* Dashed assembly lines spanning the Z gap at each corner */
+.build-connector {
+  position: absolute;
+  width: 0;
+  height: 200px;
+  border-left: 1.5px dashed rgba(45, 106, 96, 0.4);
+  transform-origin: top center;
+  transform: translateZ(-100px) rotateX(-90deg);
+  transition:
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.build-viewport:hover .build-connector {
+  transform: translateZ(-155px) rotateX(-90deg);
+  height: 310px;
+}
+
+/* Floating tech chips at different depths */
+.build-chip {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.build-chip-inner {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid #e5e2db;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(17, 17, 17, 0.1);
+  font-size: 11px;
+  font-weight: 600;
+  color: #2d6a60;
+  white-space: nowrap;
+  animation: chipFloat 5s ease-in-out infinite;
+}
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+.build-chip-1 { top: 3%;  left: 4%;  transform: translateZ(140px); }
+.build-chip-2 { top: 62%; left: 78%; transform: translateZ(70px); }
+.build-chip-2 .build-chip-inner { animation-delay: 1.4s; }
+.build-chip-3 { top: 82%; left: 8%;  transform: translateZ(165px); }
+.build-chip-3 .build-chip-inner { animation-delay: 2.3s; }
+
+/* Grounding shadow under the stack */
+.build-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -26px;
+  width: 70%;
+  height: 36px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(17, 17, 17, 0.16) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.build-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-line {
     transition: none !important;
@@ -142,5 +495,16 @@ body::after {
   }
   .tilt-card {
     transform: none !important;
+  }
+  .build-scene {
+    animation: none !important;
+    transform: rotateX(24deg) rotateY(-14deg);
+  }
+  .build-chip-inner {
+    animation: none !important;
+  }
+  .build-layer,
+  .build-connector {
+    transition: none !important;
   }
 }

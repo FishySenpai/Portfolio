@@ -46,7 +46,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#F0EEE9] sticky top-0 bg-white z-10 rounded-t-2xl">
           <div>
-            <span className="text-[11px] font-semibold text-[#E8630A] bg-[#FFF4EE] px-2.5 py-0.5 rounded-sm uppercase tracking-wide">
+            <span className="text-[11px] font-semibold text-[#2D6A60] bg-[#FDF8EE] px-2.5 py-0.5 rounded-sm uppercase tracking-wide">
               {project.category}
             </span>
           </div>
@@ -85,11 +85,11 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
               {project.projectName}
             </h3>
             {project.outcome && (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#FFF4EE] border border-[#FDDFC8] rounded-full">
-                <svg className="h-3.5 w-3.5 text-[#E8630A]" fill="currentColor" viewBox="0 0 20 20">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#FDF8EE] border border-[#F4E2C2] rounded-full">
+                <svg className="h-3.5 w-3.5 text-[#2D6A60]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd"/>
                 </svg>
-                <span className="text-[12px] font-semibold text-[#E8630A]">{project.outcome}</span>
+                <span className="text-[12px] font-semibold text-[#2D6A60]">{project.outcome}</span>
               </div>
             )}
           </div>
@@ -123,7 +123,7 @@ const ProjectModal = ({ project, showModal, setShowModal }) => {
                 href={project.projectLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111111] hover:bg-[#E8630A] text-white text-[14px] font-semibold rounded-sm transition-colors duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111111] hover:bg-[#2D6A60] text-white text-[14px] font-semibold rounded-sm transition-colors duration-200"
               >
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>

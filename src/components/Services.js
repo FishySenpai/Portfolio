@@ -81,7 +81,7 @@ const Services = () => {
 
         {/* Section header */}
         <div className="max-w-2xl mb-14">
-          <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
+          <p className="text-[11px] font-bold text-[#2D6A60] tracking-[0.2em] uppercase mb-3">
             What I Do
           </p>
           <div className="reveal-line-wrapper mb-4">
@@ -105,7 +105,7 @@ const Services = () => {
               }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="h-12 w-12 bg-[#FFF4EE] text-[#E8630A] rounded-lg flex items-center justify-center mb-5">
+              <div className="h-12 w-12 bg-[#FDF8EE] text-[#2D6A60] rounded-lg flex items-center justify-center mb-5">
                 {icon}
               </div>
               <h3 className="text-[17px] font-bold text-[#111111] mb-2">{title}</h3>
@@ -121,11 +121,11 @@ const Services = () => {
                 ))}
               </div>
               <div className="flex items-center gap-1.5 pt-4 border-t border-[#F0EEE9]">
-                <svg className="h-3.5 w-3.5 text-[#E8630A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-3.5 w-3.5 text-[#2D6A60]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <span className="text-[12px] font-semibold text-[#888888]">
-                  Typical turnaround: <span className="text-[#E8630A] italic">{turnaround}</span>
+                  Typical turnaround: <span className="text-[#2D6A60] italic">{turnaround}</span>
                 </span>
               </div>
             </div>

@@ -64,7 +64,7 @@ const Contact = () => {
   };
 
   const inputClass =
-    "block w-full px-4 py-3 mt-1.5 bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-sm focus:border-[#E8630A] focus:ring-1 focus:ring-[#E8630A] focus:outline-none transition-colors duration-150 text-[15px]";
+    "block w-full px-4 py-3 mt-1.5 bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-sm focus:border-[#2D6A60] focus:ring-1 focus:ring-[#2D6A60] focus:outline-none transition-colors duration-150 text-[15px]";
 
   return (
     <section id="contact" className="bg-[#0F172A] py-24 lg:py-32" ref={contactRef}>
@@ -72,13 +72,13 @@ const Contact = () => {
 
         {/* Header */}
         <div className="max-w-2xl mb-14">
-          <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
+          <p className="text-[11px] font-bold text-[#2D6A60] tracking-[0.2em] uppercase mb-3">
             Get In Touch
           </p>
           <div className="reveal-line-wrapper mb-4">
             <h2 className={`reveal-line font-serif text-[38px] sm:text-[48px] lg:text-[54px] leading-tight text-white ${isVisible ? "visible" : ""}`}>
               Let's Build Something{" "}
-              <span className="text-[#E8630A]">Great Together.</span>
+              <span className="text-[#2D6A60]">Great Together.</span>
             </h2>
           </div>
           <p className="text-[16px] leading-[28px] text-white/60">
@@ -102,14 +102,14 @@ const Contact = () => {
                   href="mailto:nomanbasit366@gmail.com"
                   className="flex items-center gap-3 group"
                 >
-                  <div className="h-10 w-10 bg-white/10 border border-white/15 rounded-sm flex items-center justify-center shrink-0 group-hover:border-[#E8630A]/50 transition-colors">
+                  <div className="h-10 w-10 bg-white/10 border border-white/15 rounded-sm flex items-center justify-center shrink-0 group-hover:border-[#2D6A60]/50 transition-colors">
                     <svg className="h-4 w-4 text-white/60" fill="currentColor" viewBox="0 0 512 512">
                       <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
                     </svg>
                   </div>
                   <div>
                     <div className="text-[11px] text-white/40 uppercase tracking-widest font-medium mb-0.5">Email</div>
-                    <div className="text-[13px] text-white/80 group-hover:text-[#E8630A] transition-colors">
+                    <div className="text-[13px] text-white/80 group-hover:text-[#2D6A60] transition-colors">
                       nomanbasit366@gmail.com
                     </div>
                   </div>
@@ -121,14 +121,14 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 group"
                 >
-                  <div className="h-10 w-10 bg-white/10 border border-white/15 rounded-sm flex items-center justify-center shrink-0 group-hover:border-[#E8630A]/50 transition-colors">
+                  <div className="h-10 w-10 bg-white/10 border border-white/15 rounded-sm flex items-center justify-center shrink-0 group-hover:border-[#2D6A60]/50 transition-colors">
                     <svg className="h-4 w-4 text-white/60" fill="currentColor" viewBox="0 0 448 512">
                       <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/>
                     </svg>
                   </div>
                   <div>
                     <div className="text-[11px] text-white/40 uppercase tracking-widest font-medium mb-0.5">LinkedIn</div>
-                    <div className="text-[13px] text-white/80 group-hover:text-[#E8630A] transition-colors">
+                    <div className="text-[13px] text-white/80 group-hover:text-[#2D6A60] transition-colors">
                       /in/noman-basit
                     </div>
                   </div>
@@ -159,7 +159,7 @@ const Contact = () => {
                 <button
                   type="button"
                   onClick={() => setSuccess(false)}
-                  className="mt-2 text-[13px] text-[#E8630A] hover:underline font-semibold"
+                  className="mt-2 text-[13px] text-[#2D6A60] hover:underline font-semibold"
                 >
                   Send another message
                 </button>
@@ -241,7 +241,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-shimmer w-full py-3.5 bg-[#E8630A] hover:bg-[#D45508] text-white font-bold text-[15px] rounded-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-shimmer w-full py-3.5 bg-[#2D6A60] hover:bg-[#204B44] text-white font-bold text-[15px] rounded-sm transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Sending..." : "Send Message →"}
                 </button>

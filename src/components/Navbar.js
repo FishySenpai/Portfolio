@@ -53,7 +53,7 @@ const Navbar = () => {
           onClick={() => scrollTo("home")}
           className="flex items-center gap-2.5 group"
         >
-          <div className="h-9 w-9 bg-[#E8630A] flex items-center justify-center rounded-sm shrink-0">
+          <div className="h-9 w-9 bg-[#2D6A60] flex items-center justify-center rounded-sm shrink-0">
             <span className="text-white font-bold text-[13px] tracking-tight select-none">NB</span>
           </div>
           <span className="text-[15px] font-bold text-[#111111] tracking-tight">
@@ -69,7 +69,7 @@ const Navbar = () => {
               onClick={() => scrollTo(id)}
               className={`text-[14px] font-medium transition-colors duration-150 ${
                 activeLink === id
-                  ? "text-[#E8630A]"
+                  ? "text-[#2D6A60]"
                   : "text-[#555555] hover:text-[#111111]"
               }`}
             >
@@ -78,7 +78,7 @@ const Navbar = () => {
           ))}
           <button
             onClick={() => scrollTo("contact")}
-            className="btn-shimmer px-5 py-2.5 bg-[#111111] hover:bg-[#E8630A] text-white text-[14px] font-semibold rounded-sm transition-colors duration-200 shadow-sm"
+            className="btn-shimmer px-5 py-2.5 bg-[#111111] hover:bg-[#2D6A60] text-white text-[14px] font-semibold rounded-sm transition-colors duration-200 shadow-sm"
           >
             Start a Project
           </button>
@@ -136,7 +136,7 @@ const Navbar = () => {
 
     {/* Scroll progress — fixed at bottom of 76px nav bar, always correct position */}
     <div
-      className="fixed top-[74px] left-0 h-[2px] z-50 bg-[#E8630A]"
+      className="fixed top-[74px] left-0 h-[2px] z-50 bg-[#2D6A60]"
       style={{ width: `${scrollProgress}%`, transition: "width 0.08s linear" }}
     />
   </>

@@ -49,7 +49,7 @@ const About = () => {
 
         {/* Header */}
         <div className="max-w-2xl mb-16">
-          <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
+          <p className="text-[11px] font-bold text-[#2D6A60] tracking-[0.2em] uppercase mb-3">
             About
           </p>
           <div className="reveal-line-wrapper">
@@ -97,7 +97,7 @@ const About = () => {
                   key={title}
                   className="flex items-start gap-4 p-4 bg-[#F2F0EB] rounded-xl border border-[#E5E2DB]"
                 >
-                  <div className="h-5 w-5 rounded-sm bg-[#E8630A] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="h-5 w-5 rounded-sm bg-[#2D6A60] flex items-center justify-center shrink-0 mt-0.5">
                     <svg className="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -116,7 +116,7 @@ const About = () => {
 
             <button
               onClick={() => scrollTo("contact")}
-              className="mt-8 px-7 py-3.5 bg-[#111111] hover:bg-[#E8630A] text-white font-semibold text-[14px] rounded-sm transition-colors duration-200"
+              className="mt-8 px-7 py-3.5 bg-[#111111] hover:bg-[#2D6A60] text-white font-semibold text-[14px] rounded-sm transition-colors duration-200"
             >
               Work With Me →
             </button>
@@ -141,7 +141,7 @@ const About = () => {
               {SKILLS.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3.5 py-2 bg-white border border-[#E5E2DB] text-[#333333] text-[13px] font-medium rounded-lg hover:border-[#E8630A] hover:text-[#E8630A] transition-colors duration-150"
+                  className="px-3.5 py-2 bg-white border border-[#E5E2DB] text-[#333333] text-[13px] font-medium rounded-lg hover:border-[#2D6A60] hover:text-[#2D6A60] transition-colors duration-150"
                 >
                   {skill}
                 </span>
@@ -149,7 +149,7 @@ const About = () => {
             </div>
 
             {/* Availability card */}
-            <div className="p-5 bg-[#FFF4EE] border border-[#FDDFC8] rounded-xl">
+            <div className="p-5 bg-[#FDF8EE] border border-[#F4E2C2] rounded-xl">
               <div className="flex items-center gap-2 mb-2">
                 <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
                 <span className="text-[13px] font-bold text-[#111111]">
@@ -161,7 +161,7 @@ const About = () => {
                 engagements.{" "}
                 <button
                   onClick={() => scrollTo("contact")}
-                  className="text-[#E8630A] font-semibold hover:underline"
+                  className="text-[#2D6A60] font-semibold hover:underline"
                 >
                   Let's connect
                 </button>{" "}
@@ -170,7 +170,7 @@ const About = () => {
                   href="https://www.linkedin.com/in/noman-basit/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#E8630A] font-semibold hover:underline"
+                  className="text-[#2D6A60] font-semibold hover:underline"
                 >
                   LinkedIn
                 </a>

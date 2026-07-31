@@ -5,16 +5,25 @@ const STEPS = [
     num: "01",
     title: "Discovery",
     desc:  "We start with a call to understand your goals, timeline, and budget. I ask the right questions to scope the project clearly — no surprises later.",
+    // blueprint stage — dashed outline, like the wireframe layer in the hero
+    markerClass: "bg-[#FAFAF8] border-2 border-dashed border-[#2D6A60]/60",
+    numClass: "text-[#2D6A60]",
   },
   {
     num: "02",
     title: "Design & Build",
     desc:  "I design and develop your product with regular check-ins. You see real progress every step of the way, not just promises.",
+    // in-build stage — solid outline, not yet filled
+    markerClass: "bg-white border-2 border-[#2D6A60]",
+    numClass: "text-[#2D6A60]",
   },
   {
     num: "03",
     title: "Launch & Support",
     desc:  "Once you're happy, we ship. I handle deployment, testing, and provide post-launch support to make sure everything runs smoothly.",
+    // shipped — solid fill
+    markerClass: "bg-[#2D6A60] border-2 border-[#2D6A60]",
+    numClass: "text-white",
   },
 ];
 
@@ -39,7 +48,7 @@ const Process = () => {
 
         {/* Header */}
         <div className="max-w-2xl mb-16">
-          <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
+          <p className="text-[11px] font-bold text-[#2D6A60] tracking-[0.2em] uppercase mb-3">
             How It Works
           </p>
           <div className="reveal-line-wrapper">
@@ -53,10 +62,10 @@ const Process = () => {
         <div className="grid md:grid-cols-3 gap-10 lg:gap-16 relative">
           {/* Connector line — draws itself in on scroll */}
           <div
-            className={`hidden md:block absolute top-8 left-[calc(33.33%+8px)] right-[calc(33.33%+8px)] h-px bg-[#E8630A]/30 line-draw ${isVisible ? "visible" : ""}`}
+            className={`hidden md:block absolute top-8 left-[calc(33.33%+8px)] right-[calc(33.33%+8px)] h-0 border-t border-dashed border-[#2D6A60]/40 line-draw ${isVisible ? "visible" : ""}`}
           />
 
-          {STEPS.map(({ num, title, desc }, i) => (
+          {STEPS.map(({ num, title, desc, markerClass, numClass }, i) => (
             <div
               key={num}
               className={`transition-all duration-700 ${
@@ -64,10 +73,10 @@ const Process = () => {
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              {/* Step number */}
+              {/* Step number — dashed → outlined → filled, same story as the hero */}
               <div className="relative mb-5">
-                <div className="h-16 w-16 bg-[#FFF4EE] border-2 border-[#FDDFC8] rounded-full flex items-center justify-center">
-                  <span className="font-serif text-[20px] text-[#E8630A] font-bold">
+                <div className={`h-16 w-16 rounded-full flex items-center justify-center ${markerClass}`}>
+                  <span className={`font-serif text-[20px] font-bold ${numClass}`}>
                     {num}
                   </span>
                 </div>

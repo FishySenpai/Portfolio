@@ -12,7 +12,7 @@ const AnimatedAvatar = ({ size = 240 }) => (
       <circle
         cx="120" cy="120" r="115"
         fill="none"
-        stroke="#E8630A"
+        stroke="#2D6A60"
         strokeWidth="1.5"
         strokeDasharray="6 11"
         opacity="0.4"
@@ -21,7 +21,7 @@ const AnimatedAvatar = ({ size = 240 }) => (
 
     {/* Soft glow behind avatar */}
     <div
-      className="absolute rounded-full bg-[#E8630A]/10"
+      className="absolute rounded-full bg-[#2D6A60]/10"
       style={{ inset: 14 }}
     />
 
@@ -33,8 +33,8 @@ const AnimatedAvatar = ({ size = 240 }) => (
       <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-xl">
         <defs>
           <radialGradient id="av-bg" cx="50%" cy="35%" r="65%">
-            <stop offset="0%" stopColor="#FFF4EE" />
-            <stop offset="100%" stopColor="#FDDFC8" />
+            <stop offset="0%" stopColor="#FDF8EE" />
+            <stop offset="100%" stopColor="#F4E2C2" />
           </radialGradient>
           <clipPath id="av-clip">
             <circle cx="100" cy="100" r="98" />
@@ -43,7 +43,7 @@ const AnimatedAvatar = ({ size = 240 }) => (
 
         {/* Background */}
         <circle cx="100" cy="100" r="98" fill="url(#av-bg)" />
-        <circle cx="100" cy="100" r="98" fill="none" stroke="#FDDFC8" strokeWidth="2" />
+        <circle cx="100" cy="100" r="98" fill="none" stroke="#F4E2C2" strokeWidth="2" />
 
         {/* Shirt */}
         <path

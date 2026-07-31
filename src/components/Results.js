@@ -59,7 +59,7 @@ const MetricCard = ({ numericValue, suffix, label, context, isVisible, delay }) 
         transition: "opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease",
       }}
     >
-      <div className="font-serif text-[52px] lg:text-[60px] text-[#E8630A] leading-none mb-2 tabular-nums">
+      <div className="font-serif text-[52px] lg:text-[60px] text-[#2D6A60] leading-none mb-2 tabular-nums">
         {count}{suffix}
       </div>
       <div className="text-[14px] font-bold text-white mb-3">{label}</div>
@@ -89,7 +89,7 @@ const Results = () => {
 
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
+          <p className="text-[11px] font-bold text-[#2D6A60] tracking-[0.2em] uppercase mb-3">
             Proven Impact
           </p>
           <div className="reveal-line-wrapper inline-block">

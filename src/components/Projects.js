@@ -153,7 +153,7 @@ const Projects = () => {
         {/* Section header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
           <div>
-            <p className="text-[11px] font-bold text-[#E8630A] tracking-[0.2em] uppercase mb-3">
+            <p className="text-[11px] font-bold text-[#2D6A60] tracking-[0.2em] uppercase mb-3">
               Selected Work
             </p>
             <div className="reveal-line-wrapper">
@@ -193,7 +193,7 @@ const Projects = () => {
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-[#111111]/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex gap-3">
-                      <span className="px-4 py-2 bg-[#E8630A] text-white text-[13px] font-semibold rounded-sm">
+                      <span className="px-4 py-2 bg-[#2D6A60] text-white text-[13px] font-semibold rounded-sm">
                         View Details
                       </span>
                       {project.projectLink && (
@@ -220,7 +220,7 @@ const Projects = () => {
                 {/* Card body */}
                 <div className={`p-5 ${i === 0 ? "sm:flex sm:items-start sm:justify-between sm:gap-8" : ""}`}>
                   <div className={i === 0 ? "flex-1" : ""}>
-                    <span className="text-[11px] font-semibold text-[#E8630A] bg-[#FFF4EE] px-2 py-0.5 rounded-sm">
+                    <span className="text-[11px] font-semibold text-[#2D6A60] bg-[#FDF8EE] px-2 py-0.5 rounded-sm">
                       {project.category}
                     </span>
                     <h3 className={`font-bold text-[#111111] leading-snug mt-2 mb-1.5 ${i === 0 ? "text-[18px]" : "text-[15px]"}`}>
